@@ -20,7 +20,7 @@ const NavigationBar = () => {
   const theme = useTheme();
   const [menuOpen, setMenuOpen] = useState(false); // Menu open/close state
   const toggleMenu = () => {
-    setMenuOpen(prev => !prev);
+    setMenuOpen((prev) => !prev);
   };
   return (
     <AppBar

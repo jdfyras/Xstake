@@ -40,7 +40,7 @@ const DepositCard = () => {
     const lineGenerator = d3
       .line()
       .x((d, i) => xScale(i))
-      .y(d => yScale(d))
+      .y((d) => yScale(d))
       .curve(d3.curveCatmullRom.alpha(0.5)); // for a smooth curve
 
     // If you want a gradient fill under the line, you can define an <defs> here:

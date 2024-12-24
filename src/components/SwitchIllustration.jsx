@@ -2,6 +2,45 @@ import React from 'react';
 import { Box } from '@mui/material';
 import XBTC from '../assets/svg/XBTC';
 import BitcoinBTC from '../assets/svg/BitcoinBTC';
+import { styled, keyframes } from '@mui/material/styles';
+import { BorderColor } from '@mui/icons-material';
+
+const Line = styled(Box)(({ animation }) => ({
+  position: 'absolute',
+  top: '50%',
+  left: '15%',
+  height: '2px',
+  // background: 'linear-gradient(90deg, #FEC28E 18.1%, #8D88AA 72.84%)',
+  animation: `${animation} 0.5s ease-out forwards`,
+}));
+
+const darkBitcoinTranslate = keyframes`
+from {
+  transform: translateX(-100%);
+  opacity: 0;
+}
+to {
+  transform: translateX(0);
+  opacity: 1;
+}
+`;
+
+const BitcoinWrapper = styled(Box)(({ animation, delay }) => ({
+  position: 'absolute',
+  animation: `${animation} 0.5s ease-out`,
+  animationDelay: `${delay}s`,
+  animationFillMode: 'forwards',
+}));
+const lineExpand = keyframes`
+  from {
+    width: 0;
+    opacity: 0;
+  }
+  to {
+    width: 50%;
+    opacity: 1;
+  }
+`;
 export default function SwitchIllustration() {
   return (
     <Box
@@ -39,8 +78,25 @@ export default function SwitchIllustration() {
           position: 'relative', // so absolute children anchor inside
         }}
       >
+        <Line
+          animation={lineExpand}
+          style={{
+            borderBottom: '1px dotted ', // Dashed border
+            width: '100%', // Full width
+            BorderColor:
+              'linear-gradient(90deg, #FEC28E 18.1%, #8D88AA 72.84%)',
+            // margin: '16px 0', // Optional margin            width: '20px', // Final width of the line
+            // height: '0px',
+            // zIndex: 1,
+          }}
+        />
         {/* The "DepositBitcoin" logo on the left (like a BTC icon) */}
-        <Box
+        <BitcoinWrapper
+          // animation={yellowBitcoin}
+          style={{
+            zIndex: 2,
+            transform: 'translateX(0)',
+          }}
           sx={{
             position: 'absolute',
             width: '40px',
@@ -51,10 +107,17 @@ export default function SwitchIllustration() {
           }}
         >
           <BitcoinBTC />
-        </Box>
+        </BitcoinWrapper>
 
         {/* XBTC-icon */}
-        <Box
+        <BitcoinWrapper
+          animation={darkBitcoinTranslate}
+          delay={1}
+          style={{
+            // zIndex: 1,
+            transform: 'translateX(-125px) scale(0.5,0.5)',
+            // left: `${50 + 1 * 20}px`,
+          }}
           sx={{
             boxSizing: 'border-box',
             position: 'absolute',
@@ -67,9 +130,17 @@ export default function SwitchIllustration() {
           }}
         >
           <XBTC width="42px" height="42px" />
-        </Box>
-        <Box
+        </BitcoinWrapper>
+        <BitcoinWrapper
+          animation={darkBitcoinTranslate}
+          delay={0.8}
+          style={{
+            // zIndex: 1,
+            transform: 'translateX(-115px) scale(0.5,0.5)',
+            // left: `${50 + 1 * 20}px`,
+          }}
           sx={{
+            // opacity: 0,
             boxSizing: 'border-box',
             position: 'absolute',
             width: '42px',
@@ -81,9 +152,18 @@ export default function SwitchIllustration() {
           }}
         >
           <XBTC width="42px" height="42px" />
-        </Box>
-        <Box
+        </BitcoinWrapper>
+        <BitcoinWrapper
+          animation={darkBitcoinTranslate}
+          delay={0.6}
+          style={{
+            // zIndex: 1,
+            transform: 'translateX(-103px) scale(0.5,0.5)',
+            // left: `${50 + 1 * 20}px`,
+          }}
           sx={{
+            // opacity: 0,
+
             boxSizing: 'border-box',
             position: 'absolute',
             width: '42px',
@@ -95,9 +175,18 @@ export default function SwitchIllustration() {
           }}
         >
           <XBTC width="42px" height="42px" />
-        </Box>
-        <Box
+        </BitcoinWrapper>
+        <BitcoinWrapper
+          animation={darkBitcoinTranslate}
+          delay={0.4}
+          style={{
+            // zIndex: 1,
+            transform: 'translateX(-92px) scale(0.5,0.5)',
+            // left: `${50 + 1 * 20}px`,
+          }}
           sx={{
+            // opacity: 0,
+
             boxSizing: 'border-box',
             position: 'absolute',
             width: '42px',
@@ -109,8 +198,15 @@ export default function SwitchIllustration() {
           }}
         >
           <XBTC width="42px" height="42px" />
-        </Box>
-        <Box
+        </BitcoinWrapper>
+        <BitcoinWrapper
+          animation={darkBitcoinTranslate}
+          delay={0.2}
+          style={{
+            //   zIndex: 1,
+            transform: 'translateX(-81px) scale(0.5,0.5)',
+            //   left: `${50 + 5 * 20}px`,
+          }}
           sx={{
             boxSizing: 'border-box',
             position: 'absolute',
@@ -123,7 +219,7 @@ export default function SwitchIllustration() {
           }}
         >
           <XBTC width="42px" height="42px" />
-        </Box>
+        </BitcoinWrapper>
       </Box>
     </Box>
   );

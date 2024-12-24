@@ -1,5 +1,5 @@
 import * as React from 'react';
-const DepositBitcoin = props => (
+const DepositBitcoin = (props) => (
   <svg
     width={68}
     height={64}

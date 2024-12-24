@@ -1,5 +1,5 @@
 import * as React from 'react';
-const XBTC = props => (
+const XBTC = (props) => (
   <svg
     width={256}
     height={256}

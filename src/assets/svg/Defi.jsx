@@ -1,5 +1,5 @@
 import * as React from 'react';
-const Defi = props => (
+const Defi = (props) => (
   <svg
     width={68}
     height={64}

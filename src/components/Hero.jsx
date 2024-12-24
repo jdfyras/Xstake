@@ -40,19 +40,31 @@ const steps = [
 
 export default function HeroSection() {
   const theme = useTheme();
-  const isMdUp = useMediaQuery(theme.breakpoints.up('md'));
+  // const isMdUp = useMediaQuery(theme.breakpoints.up('md'));
+  const isMdUp = useMediaQuery(theme.breakpoints.down('lg')); //1200
+  console.log('🚀 ~ file: Hero.jsx:44 ~ HeroSection ~ isMdUp:', isMdUp);
+
   const isSmallScreen = useMediaQuery(theme.breakpoints.down('sm'));
+  console.log(
+    '🚀 ~ file: Hero.jsx:45 ~ HeroSection ~ isSmallScreen:',
+    isSmallScreen
+  );
 
   /** 2) Add local state for activeStep (from ProgressComponent) */
   const [activeStep, setActiveStep] = useState(0);
+  const [prevStep, setPrevStep] = useState(0);
 
+  const handleStepChange = (newStep) => {
+    setPrevStep(activeStep);
+    setActiveStep(newStep);
+  };
   return (
     <Box
       // Main outer container
       sx={{
         position: 'relative',
         width: '100%',
-        minHeight: '100vh',
+        // minHeight: '100vh',
         backgroundColor: '#FFFFFF',
         overflow: 'hidden',
       }}
@@ -261,142 +273,149 @@ export default function HeroSection() {
          * 4) RIGHT CONTENT (REPLACING the static example)
          *    We bring in the dynamic stepper from ProgressComponent.
          */}
-        <Box
-          sx={{
-            position: 'relative',
-            width: { xs: '100%', lg: '561px' },
-            mt: { xs: 4, lg: 0 },
-            zIndex: 2,
-          }}
-        >
-          {/* Step Titles */}
-          <Box
-            sx={{
-              display: 'flex',
-              justifyContent: 'space-around',
-              // marginBottom: 2,
-            }}
-          >
-            {steps.map((step, index) => (
-              <Typography
-                key={index}
-                sx={{
-                  fontFamily: 'Satoshi',
-                  fontWeight: 500,
-                  fontSize: '20px',
-                  color: activeStep === index ? '#2D3239' : '#75797E',
-                  cursor: 'pointer',
-                  textAlign: 'center',
-                  flex: 1,
-                  // marginBottom: 0,
-                  // marginBottom: activeStep === index && 5,
-                }}
-                onClick={() => setActiveStep(index)}
-              >
-                {activeStep === index && step.title}
-              </Typography>
-            ))}
-          </Box>
-          <Box
-            sx={{
-              display: 'flex',
-              justifyContent: 'space-around',
-              // marginBottom: 2,
-            }}
-          >
-            {steps.map((step, index) => (
-              <Typography
-                key={index}
-                sx={{
-                  fontFamily: 'Satoshi',
-                  fontWeight: 500,
-                  fontSize: '20px',
-                  color: activeStep === index ? '#2D3239' : '#75797E',
-                  cursor: 'pointer',
-                  textAlign: 'center',
-                  flex: 1,
-                  // marginBottom: 0,
-                  marginBottom: activeStep === index && 5,
-                }}
-                onClick={() => setActiveStep(index)}
-              >
-                {activeStep !== index && step.title}
-              </Typography>
-            ))}
-          </Box>
-
-          {/* Progress Line */}
+        {!isMdUp ? (
           <Box
             sx={{
               position: 'relative',
-              width: '100%',
-              height: '2px',
-              backgroundColor: '#DDDDDD',
+              width: { xs: '100%', lg: '561px' },
+              mt: { xs: 4, lg: 0 },
+              zIndex: 2,
             }}
           >
-            <motion.div
-              style={{
-                position: 'absolute',
-                height: '2px',
-                // backgroundColor: '#9747FF',
-                width: `${(activeStep / (steps.length - 1)) * 100}%`,
+            {/* Step Titles */}
+            <Box
+              sx={{
+                display: 'flex',
+                justifyContent: 'space-around',
+                // marginBottom: 2,
               }}
-              transition={{ duration: 3 }}
-            />
-          </Box>
+            >
+              {steps.map((step, index) => (
+                <Typography
+                  key={index}
+                  sx={{
+                    fontFamily: 'Satoshi',
+                    fontWeight: 500,
+                    fontSize: '20px',
+                    color: activeStep === index ? '#2D3239' : '#75797E',
+                    cursor: 'pointer',
+                    textAlign: 'center',
+                    flex: 1,
+                    // marginBottom: 0,
+                    // marginBottom: activeStep === index && 5,
+                  }}
+                  onClick={() => handleStepChange(index)}
+                >
+                  {activeStep === index && step.title}
+                </Typography>
+              ))}
+            </Box>
+            <Box
+              sx={{
+                display: 'flex',
+                justifyContent: 'space-around',
+                // marginBottom: 2,
+              }}
+            >
+              {steps.map((step, index) => (
+                <Typography
+                  key={index}
+                  sx={{
+                    fontFamily: 'Satoshi',
+                    fontWeight: 500,
+                    fontSize: '20px',
+                    color: activeStep === index ? '#2D3239' : '#75797E',
+                    cursor: 'pointer',
+                    textAlign: 'center',
+                    flex: 1,
+                    // marginBottom: 0,
+                    marginBottom: activeStep === index && 5,
+                  }}
+                  onClick={() => handleStepChange(index)}
+                >
+                  {activeStep !== index && step.title}
+                </Typography>
+              ))}
+            </Box>
 
-          {/* Step Circles */}
-          <Box
-            sx={{
-              display: 'flex',
-              justifyContent: 'space-between',
-              position: 'relative',
-              top: '-15px',
-              mb: 4,
-            }}
-          >
-            {steps.map((_, index) => (
-              <HoverPin
-                key={index}
-                setActiveStep={setActiveStep}
-                index={index}
-                activeStep={activeStep}
+            {/* Progress Line */}
+            <Box
+              sx={{
+                position: 'relative',
+                width: '100%',
+                height: '2px',
+                backgroundColor: '#DDDDDD',
+              }}
+            >
+              <motion.div
+                style={{
+                  position: 'absolute',
+                  height: '2px',
+                  // backgroundColor: '#9747FF',
+                  width: `${(activeStep / (steps.length - 1)) * 100}%`,
+                }}
+                transition={{ duration: 3 }}
               />
-              // <motion.div
-              //   key={index}
-              //   style={{
-              //     width: '30px',
-              //     height: '30px',
-              //     borderRadius: '50%',
-              //     border:
-              //       activeStep === index
-              //         ? '3px solid #9747FF'
-              //         : '1px solid #DDDDDD',
-              //     backgroundColor: '#FFFFFF',
-              //     cursor: 'pointer',
-              //   }}
-              //   onClick={() => setActiveStep(index)}
-              // />
-            ))}
-          </Box>
+            </Box>
+            {/* Step Circles */}
+            <Box
+              sx={{
+                display: 'flex',
+                justifyContent: 'space-between',
+                position: 'relative',
+                top: '-15px',
+                mb: 4,
+              }}
+            >
+              {steps.map((_, index) => (
+                <HoverPin
+                  key={index}
+                  setActiveStep={handleStepChange}
+                  index={index}
+                  activeStep={activeStep}
+                />
+                // <motion.div
+                //   key={index}
+                //   style={{
+                //     width: '30px',
+                //     height: '30px',
+                //     borderRadius: '50%',
+                //     border:
+                //       activeStep === index
+                //         ? '3px solid #9747FF'
+                //         : '1px solid #DDDDDD',
+                //     backgroundColor: '#FFFFFF',
+                //     cursor: 'pointer',
+                //   }}
+                //   onClick={() => setActiveStep(index)}
+                // />
+              ))}
+            </Box>
 
-          {/* Dynamic Card (step content) */}
-          <motion.div
-            key={activeStep}
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -20 }}
-            transition={{ duration: 0.5 }}
-          >
-            {activeStep === 0 ? (
-              <BitcoinStakeCard />
-            ) : activeStep === 1 ? (
-              <StakedBitcoinIllustration />
-            ) : (
-              <UseInDefi />
-            )}
+            {/* Dynamic Card (step content) */}
 
-            {/* <Card
+            <motion.div
+              key={activeStep}
+              initial={{
+                opacity: 0,
+                x: prevStep > activeStep ? 100 : -100, // Slide from right if next, left if previous
+              }}
+              animate={{ opacity: 1, x: 0 }}
+              exit={{
+                opacity: 0,
+                x: prevStep > activeStep ? -100 : 100, // Slide out to the left or right
+              }}
+              transition={{ duration: 0.5 }}
+            >
+              {activeStep === 0 ? (
+                <BitcoinStakeCard />
+              ) : activeStep === 1 ? (
+                <StakedBitcoinIllustration />
+              ) : (
+                <UseInDefi />
+              )}
+
+              {/* <Card
               sx={{
                 margin: '20px auto',
                 padding: 4,
@@ -417,8 +436,17 @@ export default function HeroSection() {
               </Typography>
               <Typography>{steps[activeStep].description}</Typography>
             </Card> */}
-          </motion.div>
-        </Box>
+            </motion.div>
+          </Box>
+        ) : (
+          <>
+            <BitcoinStakeCard />
+            : activeStep === 1 ?
+            <StakedBitcoinIllustration />
+            :
+            <UseInDefi />
+          </>
+        )}
       </Box>
     </Box>
   );

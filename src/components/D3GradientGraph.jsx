@@ -30,8 +30,8 @@ export function D3GradientGraph() {
       ])
       .enter()
       .append('stop')
-      .attr('offset', d => d.offset)
-      .attr('stop-color', d => d.color);
+      .attr('offset', (d) => d.offset)
+      .attr('stop-color', (d) => d.color);
 
     // Gradient #2
     defs
@@ -45,8 +45,8 @@ export function D3GradientGraph() {
       ])
       .enter()
       .append('stop')
-      .attr('offset', d => d.offset)
-      .attr('stop-color', d => d.color);
+      .attr('offset', (d) => d.offset)
+      .attr('stop-color', (d) => d.color);
 
     // 2) Draw the two overlapping gradient rectangles
     svg
@@ -68,7 +68,7 @@ export function D3GradientGraph() {
     // 3) Draw dashed vertical lines (Line 1..6)
     const dashedPositions = [22.4, 58.23, 94.06, 129.9, 165.73, 201.56];
 
-    dashedPositions.forEach(pos => {
+    dashedPositions.forEach((pos) => {
       svg
         .append('line')
         .attr('x1', pos)
