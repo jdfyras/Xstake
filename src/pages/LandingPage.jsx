@@ -9,6 +9,7 @@ import FixedImage from '../components/FixedImage';
 import myImage from '../assets/images/s3-alpha-sig.png';
 import myImage2 from '../assets/images/eclipse.png';
 import HowItWorks from '../components/HowItWorks';
+import WhyChooseUs from '../components/WhyChooseUs/index.jsx';
 import { Box, Button, Typography, Avatar, CardContent } from '@mui/material';
 import AbsoluteShapes from '../components/bg/AbsoluteShapes';
 import Ellipse from '../components/bg/Ellipse';
@@ -54,6 +55,7 @@ const LandingPage = () => {
       <Torus />
       {/* <AbsoluteShapes /> */}
       <HowItWorks />
+      <WhyChooseUs />
     </Layout>
   );
 };
