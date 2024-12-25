@@ -25,16 +25,21 @@ const NavigationBar = () => {
   return (
     <AppBar
       position="sticky" // or "absolute", depending on your design
-      elevation={0} // remove default MUI shadow
+      // elevation={0} // remove default MUI shadow
       sx={{
         // Mimic the Tailwind background gradient + blur + box shadow
-        background:
-          'linear-gradient(to right, rgba(255,255,255,0.15), rgba(255,255,255,0.04))',
+        background: 'transparent',
         boxShadow: '0px 16px 64px rgba(16, 24, 40, 0.12)',
         backdropFilter: 'blur(23px)',
         // Make sure text is dark by default if background is lightish:
         color: theme.palette.text.primary,
         borderRadius: '0px',
+        width: '100%',
+        // minHeight: '80px',
+        // justifyContent: 'space-between',
+        // alignItems: 'center',
+        // paddingBottom: 1,
+        // paddingTop: 1,
       }}
     >
       <Toolbar

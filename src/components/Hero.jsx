@@ -65,8 +65,9 @@ export default function HeroSection() {
         position: 'relative',
         width: '100%',
         // minHeight: '100vh',
-        backgroundColor: '#FFFFFF',
-        overflow: 'hidden',
+        backgroundColor: 'transparent', // Set the background to transparent
+        zIndex: 5,
+        // overflow: 'hidden',
       }}
     >
       {/**
@@ -237,7 +238,13 @@ export default function HeroSection() {
               width: { xs: 'auto', sm: '206px' },
               height: { xs: 'auto', sm: '72px' },
               background: '#161724',
+              cursor: 'pointer',
+
               borderRadius: '100px',
+              '&:hover': {
+                backgroundColor: '#2D3239',
+                borderColor: '#AAAAAA',
+              },
             }}
           >
             <Typography

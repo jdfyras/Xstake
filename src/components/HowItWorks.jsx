@@ -1,136 +1,171 @@
 import React from 'react';
-import { Box, Typography, Card, CardContent } from '@mui/material';
+import { styled } from '@mui/system';
+import { Box, Typography, Button } from '@mui/material';
 import { motion } from 'framer-motion';
-
-// Import your custom SVG icons
-import XBTC from '../assets/svg/XBTC';
-import BitcoinBTC from '../assets/svg/BitcoinBTC';
-
-const stepsData = [
-  {
-    id: 1,
-    step: 'Step 1',
-    Icon: XBTC, // Replace with your SVG icon
-    title: 'Stake Your Bitcoin',
-    description:
-      'Deposit Bitcoin to mint a liquid ERC20 token that mirrors your Bitcoin balance',
+import StakeBitcoinCard from './StakeBitcoinCard';
+import LeverageInDeFiCard from './LeverageInDeFiCard';
+import BitcoinIcon from '../assets/svg/BitcoinIcon';
+import XBTC_rounded from '../assets/svg/XBTC copy';
+const StyledButton = styled(Button)({
+  boxSizing: 'border-box',
+  display: 'flex',
+  flexDirection: 'row',
+  justifyContent: 'center',
+  alignItems: 'center',
+  padding: '24px 32px',
+  gap: '16px',
+  background: '#161724',
+  borderRadius: '100px',
+  fontFamily: "'Satoshi', sans-serif", // Ensure to import this font in your project
+  fontStyle: 'normal',
+  fontWeight: 500,
+  fontSize: '20px',
+  lineHeight: '120%',
+  color: '#FEFEFE',
+  '&:hover': {
+    backgroundColor: '#2D3239',
+    borderColor: '#AAAAAA',
   },
-  {
-    id: 2,
-    step: 'Step 2',
-    Icon: XBTC, // Replace with your SVG icon
-    title: 'Earn Native Yield',
-    description:
-      'Earn staking rewards automatically, without locking up your BTC',
-  },
-  {
-    id: 3,
-    step: 'Step 3',
-    Icon: BitcoinBTC, // Replace with your SVG icon
-    title: 'Leverage in DeFi',
-    description:
-      'Use your LTS xBTC across multiple DeFi for additional earnings',
-  },
-];
+  // Responsive adjustments
+  width: '90%', // Default width for smaller screens
+  maxWidth: '214px', // Limit max width for larger screens
+  height: 'auto', // Adjust height dynamically
+  textAlign: 'center',
+});
+const cardVariants = {
+  hidden: { opacity: 0, y: 50 },
+  visible: (i) => ({
+    opacity: 1,
+    y: 0,
+    transition: {
+      delay: i * 0.2,
+      duration: 0.5,
+      ease: 'easeOut',
+    },
+  }),
+};
 
 const HowItWorks = () => {
+  const cards = [
+    {
+      id: 1,
+      Icon: BitcoinIcon,
+      step: 'Step 1',
+      title: 'Stake Your Bitcoin',
+      description:
+        'Deposit Bitcoin to mint a liquid ERC20 token that mirrors your Bitcoin balance',
+    },
+    {
+      id: 2,
+      Icon: XBTC_rounded,
+      step: 'Step 2',
+      title: 'Earn Native Yield',
+      description:
+        'Earn staking rewards automatically, without locking up your BTC',
+    },
+    {
+      id: 3,
+      Component: LeverageInDeFiCard,
+    },
+  ];
+
   return (
     <Box
       sx={{
-        py: 4,
-        px: 2,
-        backgroundColor: '#f8f9fc',
+        // py: 4,
         overflow: 'hidden',
+        width: '100%',
+        // // maxWidth: 1225,
+        // margin: '0 auto',
+        // mt: { xs: 4, md: 8 },
+        zIndex: 10,
+        background: 'transparent',
+        // background: '#181928',
+        // borderRadius: '99px',
+        // px: { xs: 2, sm: 3, md: 4 },
       }}
     >
-      {/* Title */}
-      <Typography
-        variant="h4"
-        align="center"
-        sx={{ mb: 4, fontWeight: 'bold', color: '#181928' }}
-      >
-        How It Works
-      </Typography>
-
-      {/* Horizontal scroll container */}
       <Box
         sx={{
-          display: 'flex',
-          gap: 3,
-          overflowX: 'auto',
-          scrollSnapType: 'x mandatory',
-          '-webkit-overflow-scrolling': 'touch',
-          px: 2,
-          '&::-webkit-scrollbar': { display: 'none' }, // Hide scrollbar
+          maxWidth: 1225,
+          py: 4,
+          overflow: 'hidden',
+          width: '100%',
+          margin: '0 auto',
+          mt: { xs: 4, md: 8 },
+          zIndex: 10,
+          // background: '#181928',
+          // borderRadius: '99px',
+          // px: { xs: 2, sm: 3, md: 4 },
         }}
       >
-        {stepsData.map((step, index) => (
-          <motion.div
-            key={step.id}
-            initial={{ opacity: 0, y: 40 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.3 }}
-            transition={{ duration: 0.5, delay: index * 0.2 }}
-            whileHover={{
-              scale: 1.03,
-              boxShadow: '0 4px 20px rgba(0,0,0,0.1)',
-            }}
-            style={{
-              flex: '0 0 300px',
-              scrollSnapAlign: 'center',
-            }}
-          >
-            <Card
-              sx={{
-                borderRadius: 2,
-                boxShadow: '0 2px 8px rgba(0,0,0,0.1)',
-                transition: 'transform 0.3s ease, box-shadow 0.3s ease',
-                ':hover': {
-                  cursor: 'pointer',
-                },
+        <Typography
+          variant="h4"
+          sx={{
+            fontFamily: 'Satoshi, sans-serif',
+            fontWeight: 500,
+            fontSize: { xs: '3rem', sm: '3rem', md: '4rem' },
+            lineHeight: { xs: 1.3, sm: 1.2 },
+            color: '#2D3239',
+            textAlign: 'left',
+          }}
+        >
+          How It Works
+        </Typography>
+        <Box
+          sx={{
+            display: 'flex',
+            flexDirection: { xs: 'column', sm: 'row' },
+            gap: { xs: 2, sm: 3 },
+            overflowX: { xs: 'auto', sm: 'unset' },
+            scrollSnapType: { xs: 'x mandatory', sm: 'none' },
+            '-webkit-overflow-scrolling': 'touch',
+            px: { xs: 1, sm: 2 },
+            pt: { xs: 3, sm: 5 },
+            pb: { xs: 3, sm: 5 },
+            flexWrap: { sm: 'wrap', md: 'nowrap' },
+            '&::-webkit-scrollbar': { display: 'none' },
+          }}
+        >
+          {cards.map((card, index) => (
+            <motion.div
+              key={card.id}
+              custom={index}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+              variants={cardVariants}
+              style={{
+                scrollSnapAlign: 'start',
+                flex: '1 1 auto',
+                minWidth: { xs: '80%', sm: '45%', md: '30%' },
+                maxWidth: '100%',
               }}
             >
-              <CardContent
-                sx={{
-                  textAlign: 'center',
-                  display: 'flex',
-                  flexDirection: 'column',
-                  alignItems: 'center',
-                  gap: 2,
-                }}
-              >
-                {/* Icon */}
-                <Box sx={{ mb: 2 }}>
-                  <step.Icon width={50} height={50} />
-                </Box>
-
-                {/* Step label */}
-                <Typography
-                  variant="body2"
-                  sx={{ fontWeight: 'bold', color: '#f7931a' }}
-                >
-                  {step.step}
-                </Typography>
-
-                {/* Title */}
-                <Typography
-                  variant="h6"
-                  sx={{ fontWeight: 600, color: '#181928' }}
-                >
-                  {step.title}
-                </Typography>
-
-                {/* Description */}
-                <Typography
-                  variant="body2"
-                  sx={{ color: '#666', lineHeight: 1.5 }}
-                >
-                  {step.description}
-                </Typography>
-              </CardContent>
-            </Card>
-          </motion.div>
-        ))}
+              {card.Component ? (
+                <card.Component />
+              ) : (
+                <StakeBitcoinCard
+                  Icon={card.Icon}
+                  step={card.step}
+                  title={card.title}
+                  description={card.description}
+                />
+              )}
+            </motion.div>
+          ))}
+        </Box>
+        <Box
+          sx={{
+            display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'center',
+            // height: '100vh', // Fill the entire viewport height
+            // width: '100%', // Fill the entire viewport width
+          }}
+        >
+          <StyledButton>Get Started Now</StyledButton>
+        </Box>
       </Box>
     </Box>
   );

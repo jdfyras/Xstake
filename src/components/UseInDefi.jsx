@@ -11,11 +11,14 @@ export default function UseInDefi() {
       sx={{
         position: 'relative',
         filter: 'drop-shadow(0px 4px 64px rgba(16, 24, 40, 0.12))',
+        
       }}
     >
       {/* Rectangle 15 */}
       <Box
         sx={{
+          boxShadow: '0 2px 4px rgba(0, 0, 0, 0.1)', // Optional shadow for better visibility
+
           position: 'absolute',
           width: '239px',
           height: '154px',

@@ -14,6 +14,8 @@ export default function BitcoinStakeCard() {
       {/* Rectangle 15 */}
       <Box
         sx={{
+          boxShadow: '0 2px 4px rgba(0, 0, 0, 0.1)', // Optional shadow for better visibility
+
           position: 'absolute',
           width: '239px',
           height: '154px',

@@ -25,38 +25,6 @@ const AnimatedNumber = ({ value }) => {
 };
 
 // Reusable Gradient Card (Empty)
-const GradientCardEmpty = () => {
-  return (
-    <Card
-      sx={{
-        width: '400px',
-        height: '400px',
-        background: 'linear-gradient(180deg, #FFFFFF 0%, #E8E8E8 100%)',
-        boxShadow: '0px 4px 15px rgba(0, 0, 0, 0.1)',
-      }}
-    >
-      <CardContent
-        sx={{
-          display: 'flex',
-          flexDirection: 'column',
-          alignItems: 'center',
-          justifyContent: 'center',
-          height: '100%',
-          opacity: 0,
-        }}
-      >
-        {/* Invisible Xpoint to keep spacing consistent if needed */}
-        {/* <Xpoint
-          style={
-            {
-              // opacity: 0,
-            }
-          }
-        /> */}
-      </CardContent>
-    </Card>
-  );
-};
 
 // Reusable Gradient Card 1 (the 8% card)
 const GradientCard1 = ({ number, description, gradient }) => {
@@ -64,22 +32,19 @@ const GradientCard1 = ({ number, description, gradient }) => {
     <Card
       sx={{
         width: '100%',
-        height: 'auto',
         maxWidth: '400px',
-        // minHeight: '400px',
         background: gradient,
-        boxShadow: '0px 4px 15px rgba(0, 0, 0, 0.1)',
-        paddingBottom: '7%',
-        paddingTop: '5%',
-        paddingLeft: '5%',
-        paddingRight: '10%',
+        // boxShadow: '0px 4px 15px rgba(0, 0, 0, 0.1)',
+        // boxShadow: '0px -12px 30.9px #E1DCEE',
+        boxShadow: 0,
+
+        p: { xs: 2, sm: 3, md: 4 },
       }}
     >
       <CardContent
         sx={{
           display: 'flex',
           flexDirection: 'column',
-          //   alignItems: 'center',
           justifyContent: 'center',
           height: '100%',
           gap: 2,
@@ -89,9 +54,7 @@ const GradientCard1 = ({ number, description, gradient }) => {
           variant="h3"
           sx={{
             textAlign: 'left',
-
             fontWeight: 500,
-            // Responsive font size
             fontSize: { xs: 40, sm: 50, md: 76 },
             color: '#2D3239',
           }}
@@ -103,10 +66,7 @@ const GradientCard1 = ({ number, description, gradient }) => {
           sx={{
             textAlign: 'left',
             color: '#75797E',
-            // Responsive font size
             fontSize: { xs: 14, sm: 18, md: 25 },
-            // marginLeft: '10%',
-            // marginRight: '5%',
           }}
         >
           {description}
@@ -122,21 +82,16 @@ const GradientCard2 = ({ number, description, gradient }) => {
     <Card
       sx={{
         width: '100%',
-        height: '100%',
         background: gradient,
-        boxShadow: '0px 4px 15px rgba(0, 0, 0, 0.1)',
-        // paddingBottom: '7%',
-        paddingTop: '5%',
-        paddingLeft: '5%',
-        // paddingRight: '10%',
-        paddingBottom: { xs: '7%', sm: '7%', md: '7%', lg: 'block' },
+        boxShadow: '0px -12px 30.9px #E1DCEE',
+        p: { xs: 2, sm: 3, md: 4 },
+        pb: { xs: 2, sm: 3, md: 0 },
       }}
     >
       <CardContent
         sx={{
           display: 'flex',
           flexDirection: 'column',
-          //   alignItems: 'center',
           justifyContent: 'center',
           height: '100%',
           gap: 2,
@@ -146,7 +101,6 @@ const GradientCard2 = ({ number, description, gradient }) => {
           variant="h3"
           sx={{
             fontWeight: 500,
-            // Responsive font size
             fontSize: { xs: 40, sm: 50, md: 76 },
             color: '#2D3239',
           }}
@@ -154,41 +108,27 @@ const GradientCard2 = ({ number, description, gradient }) => {
           <AnimatedNumber value={number} />
           <Box
             component="span"
-            // Hide "x Points" on xs & sm
             sx={{ display: { xs: 'inline', sm: 'inline', md: 'inline' } }}
           >
             x Points
           </Box>
         </Typography>
-
         <Typography
           variant="body1"
           sx={{
             textAlign: 'left',
             color: '#75797E',
-            // Responsive font size
             fontSize: { xs: 14, sm: 18, md: 25 },
-            // marginLeft: '10%',
           }}
         >
           {description}
         </Typography>
-
-        {/* Hide Xpoint on xs & sm */}
         <Box
           sx={{
-            // alignItems: '',
-            display: { xs: 'none', sm: 'none', md: 'block', lg: 'block' },
-            // marginLeft: '10%',
+            display: { xs: 'none', sm: 'none', md: 'block' },
           }}
         >
-          <Xpoint
-            width={'100%'}
-            height={'auto'}
-            // style={{
-            //   color: '#75797E',
-            // }}
-          />
+          <Xpoint width={'100%'} height={'auto'} />
         </Box>
       </CardContent>
     </Card>
@@ -196,25 +136,16 @@ const GradientCard2 = ({ number, description, gradient }) => {
 };
 
 const ResponsiveLayout = () => {
-  const theme = useTheme();
-
-  const isMdUp = useMediaQuery(theme.breakpoints.down(1850)); //1200
-  console.log(
-    '🚀 ~ file: CardComponent.jsx:199 ~ ResponsiveLayout ~ isMdUp:',
-    isMdUp
-  );
-
   return (
     <Box
       sx={{
-        // backgroundColor: '#F9FAFB',
-        // minHeight: '100vh',
+        backgroundColor: 'transparent',
         display: 'flex',
         alignItems: 'center',
-        // Use space-around or space-between as needed
         justifyContent: 'space-around',
         position: 'relative',
-        px: { xs: 2, md: 4 }, // Some padding for smaller screens
+        px: { xs: 2, md: 4 },
+        zIndex: 10,
       }}
     >
       <Grid
@@ -223,27 +154,7 @@ const ResponsiveLayout = () => {
         justifyContent="space-around"
         alignItems="flex-end"
       >
-        {/* 4) The final Empty Card (hide on xs & sm) */}
-        <Grid
-          item
-          xs={0}
-          sm={0}
-          md={0}
-          lg={3}
-          sx={{
-            display: isMdUp ? 'none' : 'block', // { xs: 'none', sm: 'none', md: 'none', lg: 'block' },
-          }}
-        >
-          <GradientCardEmpty />
-        </Grid>
-        {/* 
-          1) Empty card (final on large screens, hidden on xs/sm).
-             We'll place it last in DOM but reorder with "order"
-             OR simply place in correct order and rely on breakpoints.
-        */}
-
-        {/* 2) The 8% Card */}
-        <Grid item xs={0} sm={0} md={0} lg={3}>
+        <Grid item xs={12} sm={6} md={3}>
           <GradientCard1
             number={8}
             description="Get yield on your BTC with competitive rates"
@@ -251,95 +162,14 @@ const ResponsiveLayout = () => {
           />
         </Grid>
 
-        {/* 3) The 2x Card */}
-        <Grid
-          item
-          xs={12} // full width on xs
-          sm={6} // half width on sm
-          md={3}
-        >
+        <Grid item xs={12} sm={6} md={3}>
           <GradientCard2
             number={2}
             description="Earn xPoints every time you mint xBTC"
             gradient="linear-gradient(180deg, #FFFFFF 0%, #E1DCEE 100%)"
           />
         </Grid>
-
-        {/* 1) The "first" empty card (on the right for md+),
-            hidden on xs & sm */}
-        <Grid
-          item
-          xs={0}
-          sm={0}
-          md={0}
-          lg={3}
-          sx={{
-            display: isMdUp ? 'none' : 'block',
-          }}
-        >
-          <GradientCardEmpty />
-        </Grid>
-
-        {/* White Card with Image, hidden on xs & sm */}
-        <Grid
-          item
-          xs={0}
-          sm={0}
-          md={3}
-          sx={{
-            display: { xs: 'none', sm: 'none', md: 'block' },
-          }}
-        >
-          <Box
-            sx={{
-              position: 'relative',
-              width: '100%',
-              height: '300px', // Adjust as needed
-            }}
-          >
-            <Box
-              component="img"
-              src={myImage}
-              alt="Decorative"
-              sx={{
-                position: 'absolute',
-                top: '10%',
-                left: '0%',
-                transform: 'rotate(0.1turn)',
-                width: '130%',
-                height: 'auto',
-                zIndex: 10,
-              }}
-            />
-
-            <Card
-              sx={{
-                width: '100%',
-                height: '100%',
-                backgroundColor: 'white',
-                boxShadow: 3,
-                position: 'absolute',
-                zIndex: 1,
-              }}
-            />
-          </Box>
-        </Grid>
       </Grid>
-
-      {/* Decorative Torus Knot */}
-      <Box
-        sx={{
-          position: 'absolute',
-          width: { xs: 200, md: 436.84 },
-          height: { xs: 200, md: 436.84 },
-          top: { xs: 'auto', md: 50 },
-          right: { xs: 'auto', md: 50 },
-          background:
-            "url('/path/to/torus-knot-dark.png') no-repeat center/cover",
-          transform: 'rotate(27.97deg)',
-          zIndex: -1,
-        }}
-      />
     </Box>
   );
 };

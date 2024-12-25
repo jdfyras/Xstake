@@ -128,6 +128,7 @@ export default function BitcoinStakeCard() {
           background: '#FFFFFF',
           borderWidth: '1px',
           borderRadius: '22px',
+          boxShadow: '0 2px 4px rgba(0, 0, 0, 0.1)', // Optional shadow for better visibility
         }}
       />
       {/* Rectangle 16 */}
