@@ -75,6 +75,9 @@ const HowItWorks = () => {
         // py: 4,
         overflow: 'hidden',
         width: '100%',
+        display: 'flex',
+        position: 'relative',
+
         // // maxWidth: 1225,
         // margin: '0 auto',
         // mt: { xs: 4, md: 8 },
@@ -87,16 +90,16 @@ const HowItWorks = () => {
     >
       <Box
         sx={{
-          maxWidth: 1225,
+          // maxWidth: 1225,
           py: 4,
           overflow: 'hidden',
           width: '100%',
-          margin: '0 auto',
-          mt: { xs: 4, md: 8 },
+          // margin: '0 auto',
+          // mt: { xs: 4, md: 8 },
           zIndex: 10,
           // background: '#181928',
           // borderRadius: '99px',
-          // px: { xs: 2, sm: 3, md: 4 },
+          px: { xs: 2, sm: 3, md: 4 },
         }}
       >
         <Typography

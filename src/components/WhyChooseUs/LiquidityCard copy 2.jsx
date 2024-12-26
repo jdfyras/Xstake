@@ -8,52 +8,27 @@ const LiquidityCard = ({ feature }) => {
         // Layout & sizing
         display: 'flex',
         flexDirection: 'row',
+        alignItems: 'center',
+        p: 4, // 32px padding
+        gap: 3, // 24px gap
+        width: '100%',
         // maxWidth: '656px',
         // height: '160px',
+        borderRadius: '32px',
 
         // Shadow & border
+        boxShadow: '0px 4px 12px 0px rgba(16, 24, 40, 0.12)',
+        border: '1px solid transparent',
+        borderImageSource: 'linear-gradient(180deg, #FFFFFF 0%, #F0DED7 100%)',
+        borderImageSlice: 1,
         overflow: 'hidden',
 
         // Optional background (transparent or a color of your choice)
         background: 'transparent',
         boxSizing: 'border-box',
-        alignItems: 'center',
-        padding: '32px',
-        gap: '24px',
-
-        width: '100%',
-
-        // The Figma snippet uses `filter: drop-shadow(...)`
-        // But if you want a standard box-shadow, replace with boxShadow.
-        filter: 'drop-shadow(0px 4px 12px rgba(16, 24, 40, 0.12))',
-        boxShadow: '0px 4px 12px 0px rgba(16, 24, 40, 0.12)',
-        // border: '1px solid transparent',
-        // border: '1px solid #F0DED7',
-        // borderImageSlice: 1,
-        // raduis: '32px',
-        borderRadius: '32px',
-
-        // A slight background color so the corners are visible
-        // backgroundColor: 'rgba(255, 255, 255, 0.05)',
 
         // Center horizontally if parent is full-width
         mx: 'auto',
-        '&::before': {
-          content: '""',
-          position: 'absolute',
-          inset: 0, // top, right, bottom, left = 0
-          borderRadius: 'inherit',
-          padding: '1px', // thickness of the gradient border
-          background: 'linear-gradient(180deg, #FFFFFF 0%, #F0DED7 100%)',
-          zIndex: -1, // behind the content
-
-          // The trick: cut out the inside using masking/clipping so only the border is visible.
-          WebkitMask:
-            'linear-gradient(#fff 0 0) content-box, linear-gradient(#F0DED7 0 0)',
-          mask: 'linear-gradient(#fff 0 0) content-box, linear-gradient(#F0DED7 0 0)',
-          WebkitMaskComposite: 'xor',
-          maskComposite: 'exclude',
-        },
       }}
     >
       {/* Icon Container */}

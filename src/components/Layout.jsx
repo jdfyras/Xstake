@@ -22,10 +22,23 @@ const Layout = ({ children }) => {
   return (
     <Box
       position="sticky" // or "absolute", depending on your design
-      sx={{ width: '100%', minHeight: '100vh', backgroundColor: 'transparent' }}
+      sx={{
+        // minHeight: '100vh',
+        backgroundColor: '#181928',
+      }}
     >
       <Header />
-      <Grid sx={{ pt: 10, width: '100%' }}>{children}</Grid>
+      <Grid
+        sx={{
+          width: '100%',
+          padding: '10% 10% 0% 10%',
+          borderRadius: '0px 0px 32px 32px',
+          border: '1px solid #DDDDDD',
+          backgroundColor: '#FFFFFF',
+        }}
+      >
+        {children}
+      </Grid>
       <Footer />
     </Box>
   );

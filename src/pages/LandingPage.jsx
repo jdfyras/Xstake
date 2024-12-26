@@ -19,6 +19,12 @@ import StyledRectangle from '../components/bg/StyledRectangle';
 import Rectangle11 from '../components/bg/Rectangle11';
 import TorusKnot from '../components/bg/TorusKnot';
 import Torus from '../components/bg/Torus';
+import StakingComponent from '../components/bg/StakingYield/index.jsx';
+import ProtocolCard from '../components/IntegratedWithDefi/ProtocolCard.jsx';
+import IntegratedWithDefi from '../components/IntegratedWithDefi/index.jsx';
+import BitcoinHero from '../components/DeFiYieldSection/SectionContainer.jsx';
+import CtaHero from '../components/DeFiYieldSection/CtaHero.jsx';
+import Group34Component from '../components/bg/Group34Component.jsx';
 
 const LandingPage = () => {
   return (
@@ -56,6 +62,12 @@ const LandingPage = () => {
       {/* <AbsoluteShapes /> */}
       <HowItWorks />
       <WhyChooseUs />
+      <StakingComponent />
+      {/* <ProtocolCard /> */}
+      <IntegratedWithDefi />
+      {/* <BitcoinHero /> */}
+      <CtaHero />
+      {/* <Group34Component /> */}
     </Layout>
   );
 };

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Box, Typography, Grid } from '@mui/material';
+import { Box, Typography } from '@mui/material';
 import LiquidityIcon from '@mui/icons-material/AttachMoney';
 import LeverageIcon from '@mui/icons-material/TrendingUp';
 import SecurityIcon from '@mui/icons-material/Security';
@@ -33,39 +33,79 @@ const WhyChooseUs = () => {
   ];
 
   return (
-    <Box sx={{ bgcolor: 'background.default', py: 6, px: 3 }}>
-      <Grid container spacing={4} alignItems="flex-start">
-        {/* Left Column: Text */}
-        <Grid item xs={12} md={6}>
-          <Box sx={{ px: 2 }}>
-            <Typography
-              variant="h4"
-              gutterBottom
-              sx={{ fontWeight: 'bold', mb: 3, color: 'text.primary' }}
-            >
-              Why Choose Us for Bitcoin Staking?
-            </Typography>
-            <Typography
-              variant="body1"
-              sx={{ color: 'text.secondary', lineHeight: 1.8 }}
-            >
-              Discover the best features for staking your Bitcoin with us. From
-              liquidity to transparency, our platform ensures you earn rewards
-              seamlessly and securely. Each feature is built with you in mind
-              for a streamlined staking experience.
-            </Typography>
-          </Box>
-        </Grid>
+    <Box
+      sx={{
+        // Outer container ("Why us" section)
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
+        justifyContent: 'center',
+        py: '96px', // 96px top/bottom padding
+        gap: '10px',
+        width: '100%',
+        background: '#181928', // Matches the design background
+        // height: '928px',      // If you truly need a fixed height, uncomment
+      }}
+    >
+      {/* Inner row container ("Frame 37") */}
+      <Box
+        sx={{
+          display: 'flex',
+          flexDirection: { xs: 'column', md: 'row' },
+          justifyContent: 'center',
+          alignItems: 'flex-start',
+          gap: '40px',
+          width: '1224px', // As per design
+          maxWidth: '100%', // Prevents overflow on small screens
+          // height: '736px',      // If you truly need a fixed height, uncomment
+        }}
+      >
+        {/* Left content: Title and description */}
+        <Box
+          sx={{
+            // Matches the Figma spec: width: 528px, height: 273px
+            width: { xs: '100%', md: '528px' },
+            flex: 'none',
+            order: 0,
+            flexGrow: 0,
+          }}
+        >
+          <Typography
+            // "Why Choose Us for Bitcoin Staking?" heading
+            sx={{
+              fontFamily: 'Satoshi',
+              fontStyle: 'normal',
+              fontWeight: 500, // "Medium"
+              fontSize: { xs: '42px', md: '76px' }, // Responsive example
+              lineHeight: '120%', // 1.2 (or 91px for 76px font)
+              color: '#FEFEFE',
+              mb: 3,
+            }}
+          >
+            Why Choose Us for Bitcoin Staking?
+          </Typography>
+        </Box>
 
-        {/* Right Column: Cards */}
-        <Grid item xs={12} md={6}>
-          <Box sx={{ display: 'flex', flexDirection: 'column', gap: 4 }}>
-            {features.map((feature, index) => (
-              <LiquidityCard key={index} feature={feature} />
-            ))}
-          </Box>
-        </Grid>
-      </Grid>
+        {/* Right content: Cards */}
+        <Box
+          sx={{
+            display: 'flex',
+            flexDirection: 'column',
+            alignItems: 'flex-start',
+            padding: 0,
+            gap: '32px', // 32px gap between cards
+            width: { xs: '100%', md: '656px' },
+            // height: '736px',      // If you truly need a fixed height, uncomment
+            flex: 'none',
+            order: 1,
+            flexGrow: 0,
+          }}
+        >
+          {features.map((feature, index) => (
+            <LiquidityCard key={index} feature={feature} />
+          ))}
+        </Box>
+      </Box>
     </Box>
   );
 };

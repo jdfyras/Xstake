@@ -1,0 +1,1307 @@
+/* -------------------------------------------------------------------------- */
+/* Frame 25 */
+/* -------------------------------------------------------------------------- */
+
+/* Auto layout */
+.frame-25 {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 0px;
+  
+    width: 865px;
+    height: 122px;
+  
+    /* shadow-lg */
+    filter: drop-shadow(0px 1px 64px rgba(16, 24, 40, 0.12));
+  
+    /* Inside auto layout */
+    flex: none;
+    order: 0;
+    align-self: stretch;
+    flex-grow: 0;
+  }
+  
+  /* -------------------------------------------------------------------------- */
+  /* Input calculator */
+  /* -------------------------------------------------------------------------- */
+  
+  /* Auto layout */
+  .input-calculator {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0px;
+    gap: 4px;
+  
+    width: 433px;
+    height: 122px;
+  
+    /* Inside auto layout */
+    flex: none;
+    order: 0;
+    flex-grow: 1;
+    margin: 0px -1px;
+  }
+  
+  /* -------------------------------------------------------------------------- */
+  /* Input/L/Default filled (Left Input) */
+  /* -------------------------------------------------------------------------- */
+  
+  .input-l-default-filled-left {
+    box-sizing: border-box;
+  
+    /* Auto layout */
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 24px 32px;
+    gap: 8px;
+  
+    width: 433px;
+    height: 122px;
+  
+    background: #FEFEFE;
+    border: 1px solid #DDDDDD;
+    border-radius: 16px 0px 0px 16px;
+  
+    /* Inside auto layout */
+    flex: none;
+    order: 0;
+    align-self: stretch;
+    flex-grow: 0;
+  }
+  
+  /* -------------------------------------------------------------------------- */
+  /* Content (within Left Input) */
+  /* -------------------------------------------------------------------------- */
+  
+  .content-left {
+    /* Auto layout */
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0px;
+    gap: 8px;
+  
+    width: 219px;
+    height: 74px;
+  
+    /* Inside auto layout */
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+  }
+  
+  /* Label */
+  .content-left-label {
+    width: 219px;
+    height: 24px;
+  
+    /* Subtitle/Regular */
+    font-family: 'Satoshi';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 120%;
+    color: #75797E;
+  
+    /* Inside auto layout */
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+  }
+  
+  /* Text (icon + number) */
+  .content-left-text {
+    /* Auto layout */
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 0px;
+    gap: 8px;
+  
+    width: 68px;
+    height: 42px;
+  
+    /* Inside auto layout */
+    flex: none;
+    order: 1;
+    flex-grow: 0;
+  }
+  
+  /* fi_25180 */
+  .fi_25180 {
+    width: 42px;
+    height: 42px;
+  
+    /* Inside auto layout */
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+  }
+  
+  /* Group */
+  .group {
+    position: absolute;
+    left: 13.87%;
+    right: 13.87%;
+    top: 0%;
+    bottom: 0%;
+  }
+  
+  /* Vector */
+  .vector {
+    position: absolute;
+    left: 13.87%;
+    right: 13.87%;
+    top: 0%;
+    bottom: 0%;
+    background: linear-gradient(180deg, #FEC28E 0%, #FFD37A 100%);
+  }
+  
+  /* Supporting text */
+  .supporting-text {
+    /* Auto layout */
+    display: flex;
+    flex-direction: row;
+    align-items: baseline;
+    padding: 0px;
+    gap: 8px;
+  
+    width: 18px;
+    height: 37px;
+  
+    /* Inside auto layout */
+    flex: none;
+    order: 1;
+    flex-grow: 0;
+  }
+  
+  /* 2 (Large number) */
+  .text-2 {
+    width: 18px;
+    height: 37px;
+  
+    /* Headline 4/Regular */
+    font-family: 'Satoshi';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 31px;
+    line-height: 120%;
+    color: #2D3239;
+  
+    /* Inside auto layout */
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+  }
+  
+  /* Annual yield */
+  .annual-yield {
+    display: none;
+    width: 134px;
+    height: 30px;
+  
+    /* Headline 5/Regular */
+    font-family: 'Satoshi';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 25px;
+    line-height: 120%;
+    color: #2D3239;
+  
+    /* Inside auto layout */
+    flex: none;
+    order: 1;
+    flex-grow: 0;
+  }
+  
+  /* chevron_left */
+  .chevron-left {
+    display: none;
+    width: 36px;
+    height: 36px;
+    transform: rotate(-90deg);
+  
+    /* Inside auto layout */
+    flex: none;
+    order: 1;
+    flex-grow: 0;
+  }
+  
+  /* Helper text */
+  .helper-text {
+    display: none;
+    width: 419px;
+    height: 24px;
+  
+    /* Subtitle/Regular */
+    font-family: 'Satoshi';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 120%;
+    color: #75797E;
+  
+    /* Inside auto layout */
+    flex: none;
+    order: 1;
+    align-self: stretch;
+    flex-grow: 0;
+  }
+  
+  /* -------------------------------------------------------------------------- */
+  /* Input calculator (Right side) */
+  /* -------------------------------------------------------------------------- */
+  
+  .input-calculator-right {
+    /* Auto layout */
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0px;
+    gap: 4px;
+  
+    width: 433px;
+    height: 122px;
+  
+    /* Inside auto layout */
+    flex: none;
+    order: 1;
+    align-self: stretch;
+    flex-grow: 1;
+    margin: 0px -1px;
+  }
+  
+  /* Input/L/Default filled (Right Input) */
+  .input-l-default-filled-right {
+    box-sizing: border-box;
+  
+    /* Auto layout */
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 24px 32px;
+    gap: 40px;
+  
+    width: 433px;
+    height: 122px;
+  
+    background: #FEFEFE;
+    border: 1px solid #DDDDDD;
+    border-radius: 0px 16px 16px 0px;
+  
+    /* Inside auto layout */
+    flex: none;
+    order: 0;
+    align-self: stretch;
+    flex-grow: 1;
+  }
+  
+  /* Content (within Right Input) */
+  .content-right {
+    /* Auto layout */
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0px;
+    gap: 8px;
+  
+    margin: 0 auto;
+    width: 189px;
+    height: 69px;
+  
+    /* Inside auto layout */
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+  }
+  
+  /* Label */
+  .content-right-label {
+    width: 154px;
+    height: 24px;
+  
+    /* Subtitle/Regular */
+    font-family: 'Satoshi';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 120%;
+    color: #75797E;
+  
+    /* Inside auto layout */
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+  }
+  
+  /* Text (icon + number) */
+  .content-right-text {
+    /* Auto layout */
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 0px;
+    gap: 8px;
+  
+    width: 189px;
+    height: 37px;
+  
+    /* Inside auto layout */
+    flex: none;
+    order: 1;
+    flex-grow: 0;
+  }
+  
+  /* fi_25180 (hidden on right) */
+  .fi_25180-right {
+    display: none;
+    width: 42px;
+    height: 42px;
+  
+    /* Inside auto layout */
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+  }
+  
+  /* Supporting text (icon + large text) */
+  .supporting-text-right {
+    /* Auto layout */
+    display: flex;
+    flex-direction: row;
+    align-items: baseline;
+    padding: 0px;
+    gap: 8px;
+  
+    width: 189px;
+    height: 37px;
+  
+    /* Inside auto layout */
+    flex: none;
+    order: 1;
+    flex-grow: 0;
+  }
+  
+  /* 2 (Large number on right) */
+  .text-2-right {
+    width: 47px;
+    height: 37px;
+  
+    /* Headline 4/Regular */
+    font-family: 'Satoshi';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 31px;
+    line-height: 120%;
+    color: #2D3239;
+  
+    /* Inside auto layout */
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+  }
+  
+  /* Annual yield (on right) */
+  .annual-yield-right {
+    width: 134px;
+    height: 30px;
+  
+    /* Headline 5/Regular */
+    font-family: 'Satoshi';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 25px;
+    line-height: 120%;
+    color: #2D3239;
+  
+    /* Inside auto layout */
+    flex: none;
+    order: 1;
+    flex-grow: 0;
+  }
+  
+  /* chevron_left (right) */
+  .chevron-left-right {
+    margin: 0 auto;
+    width: 36px;
+    height: 36px;
+    transform: rotate(-90deg);
+  
+    /* Inside auto layout */
+    flex: none;
+    order: 1;
+    flex-grow: 0;
+  }
+  
+  /* Vector (extra) */
+  .vector-bottom {
+    position: absolute;
+    left: 0%;
+    right: 0%;
+    top: 100%;
+    bottom: -100%;
+    transform: rotate(-90deg);
+  }
+  
+  .vector-bottom-gray {
+    position: absolute;
+    left: 26.74%;
+    right: 45.82%;
+    top: 64.93%;
+    bottom: -11.49%;
+    background: #A0A3A7;
+    transform: rotate(-90deg);
+  }
+  
+  /* Helper text (right) */
+  .helper-text-right {
+    display: none;
+    width: 419px;
+    height: 24px;
+  
+    /* Subtitle/Regular */
+    font-family: 'Satoshi';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 120%;
+    color: #75797E;
+  
+    /* Inside auto layout */
+    flex: none;
+    order: 1;
+    align-self: stretch;
+    flex-grow: 0;
+  }
+  
+  /* -------------------------------------------------------------------------- */
+  /* Frame 25 (Hover/Active Variation) */
+  /* -------------------------------------------------------------------------- */
+  
+  .frame-25-active {
+    /* Auto layout */
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 0px;
+    isolation: isolate;
+  
+    width: 865px;
+    height: 122px;
+  
+    /* shadow-lg */
+    filter: drop-shadow(0px 1px 64px rgba(16, 24, 40, 0.12));
+  
+    /* Inside auto layout */
+    flex: none;
+    order: 0;
+    align-self: stretch;
+    flex-grow: 0;
+    z-index: 2;
+  }
+  
+  /* Input calculator (left) with border highlight */
+  .input-calculator-left-active {
+    /* Auto layout */
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0px;
+    gap: 4px;
+  
+    width: 433px;
+    height: 122px;
+  
+    /* Inside auto layout */
+    flex: none;
+    order: 0;
+    flex-grow: 1;
+    margin: 0px -1px;
+    z-index: 0;
+  }
+  
+  /* Input/L/Default filled (Left) - Active */
+  .input-l-default-filled-left-active {
+    box-sizing: border-box;
+  
+    /* Auto layout */
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 24px 32px;
+    gap: 8px;
+  
+    width: 433px;
+    height: 122px;
+  
+    background: #FEFEFE;
+    border: 1px solid #DDDDDD;
+    border-radius: 16px 0px 0px 16px;
+  
+    /* Inside auto layout */
+    flex: none;
+    order: 0;
+    align-self: stretch;
+    flex-grow: 0;
+  }
+  
+  /* Content (left active) */
+  .content-left-active {
+    /* Auto layout */
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0px;
+    gap: 8px;
+  
+    width: 219px;
+    height: 74px;
+  
+    /* Inside auto layout */
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+  }
+  
+  /* Label (left active) */
+  .content-left-label-active {
+    width: 219px;
+    height: 24px;
+  
+    /* Subtitle/Regular */
+    font-family: 'Satoshi';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 120%;
+    color: #75797E;
+  
+    /* Inside auto layout */
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+  }
+  
+  /* Text (icon + number) */
+  .content-left-text-active {
+    /* Auto layout */
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 0px;
+    gap: 8px;
+  
+    width: 68px;
+    height: 42px;
+  
+    /* Inside auto layout */
+    flex: none;
+    order: 1;
+    flex-grow: 0;
+  }
+  
+  /* fi_25180 */
+  .fi_25180-active-left {
+    width: 42px;
+    height: 42px;
+  
+    /* Inside auto layout */
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+  }
+  
+  /* Vector (left active) */
+  .vector-left-active {
+    position: absolute;
+    left: 13.87%;
+    right: 13.87%;
+    top: 0%;
+    bottom: 0%;
+    background: linear-gradient(180deg, #FEC28E 0%, #FFD37A 100%);
+  }
+  
+  /* Supporting text */
+  .supporting-text-left-active {
+    /* Auto layout */
+    display: flex;
+    flex-direction: row;
+    align-items: baseline;
+    padding: 0px;
+    gap: 8px;
+  
+    width: 18px;
+    height: 37px;
+  
+    /* Inside auto layout */
+    flex: none;
+    order: 1;
+    flex-grow: 0;
+  }
+  
+  /* 2| (slightly bigger text) */
+  .text-2-active-left {
+    width: 18px;
+    height: 37px;
+  
+    /* Headline 4/Regular */
+    font-family: 'Satoshi';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 31px;
+    line-height: 120%;
+    color: #2D3239;
+  
+    /* Inside auto layout */
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+  }
+  
+  /* Annual yield, chevron_left, helper text hidden as before */
+  
+  /* -------------------------------------------------------------------------- */
+  /* Another Variation of Frame 25 with Purple Border on Left Input */
+  /* -------------------------------------------------------------------------- */
+  
+  .frame-25-purple {
+    /* Auto layout */
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 0px;
+  
+    width: 865px;
+    height: 122px;
+  
+    /* shadow-lg */
+    filter: drop-shadow(0px 1px 64px rgba(16, 24, 40, 0.12));
+  
+    /* Inside auto layout */
+    flex: none;
+    order: 0;
+    align-self: stretch;
+    flex-grow: 0;
+  }
+  
+  /* Input calculator (left) with purple border */
+  .input-calculator-left-purple {
+    /* Auto layout */
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0px;
+    gap: 4px;
+  
+    width: 433px;
+    height: 122px;
+  
+    /* Inside auto layout */
+    flex: none;
+    order: 0;
+    flex-grow: 1;
+    margin: 0px -1px;
+  }
+  
+  /* Input/L/Default filled - Purple Left */
+  .input-l-default-filled-left-purple {
+    box-sizing: border-box;
+  
+    /* Auto layout */
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 24px 32px;
+    gap: 8px;
+  
+    width: 433px;
+    height: 122px;
+  
+    background: #FEFEFE;
+    border: 1px solid #6147EC;
+    border-radius: 16px 0px 0px 16px;
+  
+    /* Inside auto layout */
+    flex: none;
+    order: 0;
+    align-self: stretch;
+    flex-grow: 0;
+  }
+  
+  /* Content (purple left) */
+  .content-left-purple {
+    /* Auto layout */
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0px;
+    gap: 8px;
+  
+    width: 219px;
+    height: 74px;
+  
+    /* Inside auto layout */
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+  }
+  
+  /* Label (purple left) */
+  .content-left-label-purple {
+    width: 219px;
+    height: 24px;
+  
+    /* Subtitle/Regular */
+    font-family: 'Satoshi';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 120%;
+    color: #6147EC;
+  
+    /* Inside auto layout */
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+  }
+  
+  /* Text (purple left) */
+  .content-left-text-purple {
+    /* Auto layout */
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 0px;
+    gap: 8px;
+  
+    width: 78px;
+    height: 42px;
+  
+    /* Inside auto layout */
+    flex: none;
+    order: 1;
+    flex-grow: 0;
+  }
+  
+  /* fi_25180 */
+  .fi_25180-purple {
+    width: 42px;
+    height: 42px;
+  
+    /* Inside auto layout */
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+  }
+  
+  /* Group / Vector same as before but repeated */
+  .group-purple {
+    position: absolute;
+    left: 13.87%;
+    right: 13.87%;
+    top: 0%;
+    bottom: 0%;
+  }
+  .vector-purple {
+    position: absolute;
+    left: 13.87%;
+    right: 13.87%;
+    top: 0%;
+    bottom: 0%;
+    background: linear-gradient(180deg, #FEC28E 0%, #FFD37A 100%);
+  }
+  
+  /* Supporting text left with bigger number */
+  .supporting-text-purple {
+    /* Auto layout */
+    display: flex;
+    flex-direction: row;
+    align-items: baseline;
+    padding: 0px;
+    gap: 8px;
+  
+    width: 28px;
+    height: 37px;
+  
+    /* Inside auto layout */
+    flex: none;
+    order: 1;
+    flex-grow: 0;
+  }
+  
+  .text-2-purple {
+    width: 28px;
+    height: 37px;
+  
+    /* Headline 4/Regular */
+    font-family: 'Satoshi';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 31px;
+    line-height: 120%;
+    color: #2D3239;
+  
+    /* Inside auto layout */
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+  }
+  
+  /* Annual yield, chevron_left, helper text hidden again */
+  
+  /* Input calculator (right, stays default border) */
+  .input-calculator-right-purple {
+    /* Auto layout */
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0px;
+    gap: 4px;
+  
+    width: 433px;
+    height: 122px;
+  
+    /* Inside auto layout */
+    flex: none;
+    order: 1;
+    align-self: stretch;
+    flex-grow: 1;
+  }
+  
+  /* Input/L/Default filled - Right (no border change) */
+  .input-l-default-filled-right-purple {
+    box-sizing: border-box;
+  
+    /* Auto layout */
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 24px 32px;
+    gap: 40px;
+  
+    width: 433px;
+    height: 122px;
+  
+    background: #FEFEFE;
+    border: 1px solid #DDDDDD;
+    border-radius: 0px 16px 16px 0px;
+  
+    /* Inside auto layout */
+    flex: none;
+    order: 0;
+    align-self: stretch;
+    flex-grow: 1;
+  }
+  
+  /* Content right (purple scenario) */
+  .content-right-purple {
+    /* Auto layout */
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0px;
+    gap: 8px;
+  
+    margin: 0 auto;
+    width: 189px;
+    height: 69px;
+  
+    /* Inside auto layout */
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+  }
+  
+  /* Label right (purple scenario) */
+  .content-right-label-purple {
+    width: 154px;
+    height: 24px;
+  
+    /* Subtitle/Regular */
+    font-family: 'Satoshi';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 120%;
+    color: #75797E;
+  
+    /* Inside auto layout */
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+  }
+  
+  /* Text right (purple scenario) */
+  .content-right-text-purple {
+    /* Auto layout */
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 0px;
+    gap: 8px;
+  
+    width: 189px;
+    height: 37px;
+  
+    /* Inside auto layout */
+    flex: none;
+    order: 1;
+    flex-grow: 0;
+  }
+  
+  /* fi_25180 (right hidden) */
+  .fi_25180-right-purple {
+    display: none;
+    width: 42px;
+    height: 42px;
+  
+    /* Inside auto layout */
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+  }
+  
+  /* Supporting text right (purple scenario) */
+  .supporting-text-right-purple {
+    /* Auto layout */
+    display: flex;
+    flex-direction: row;
+    align-items: baseline;
+    padding: 0px;
+    gap: 8px;
+  
+    width: 189px;
+    height: 37px;
+  
+    /* Inside auto layout */
+    flex: none;
+    order: 1;
+    flex-grow: 0;
+  }
+  
+  /* 2 (right, purple scenario) */
+  .text-2-right-purple {
+    width: 47px;
+    height: 37px;
+  
+    /* Headline 4/Regular */
+    font-family: 'Satoshi';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 31px;
+    line-height: 120%;
+    color: #2D3239;
+  
+    /* Inside auto layout */
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+  }
+  
+  /* Annual yield (right, purple scenario) */
+  .annual-yield-right-purple {
+    width: 134px;
+    height: 30px;
+  
+    /* Headline 5/Regular */
+    font-family: 'Satoshi';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 25px;
+    line-height: 120%;
+    color: #2D3239;
+  
+    /* Inside auto layout */
+    flex: none;
+    order: 1;
+    flex-grow: 0;
+  }
+  
+  /* chevron_left (right, purple) */
+  .chevron-left-right-purple {
+    margin: 0 auto;
+    width: 36px;
+    height: 36px;
+    transform: rotate(-90deg);
+  
+    /* Inside auto layout */
+    flex: none;
+    order: 1;
+    flex-grow: 0;
+  }
+  
+  /* Vector bottoms */
+  .vector-bottom-purple {
+    position: absolute;
+    left: 0%;
+    right: 0%;
+    top: 100%;
+    bottom: -100%;
+    transform: rotate(-90deg);
+  }
+  
+  .vector-bottom-gray-purple {
+    position: absolute;
+    left: 26.74%;
+    right: 45.82%;
+    top: 64.93%;
+    bottom: -11.49%;
+    background: #A0A3A7;
+    transform: rotate(-90deg);
+  }
+  
+  /* Helper text right (purple scenario) */
+  .helper-text-right-purple {
+    display: none;
+    width: 419px;
+    height: 24px;
+  
+    /* Subtitle/Regular */
+    font-family: 'Satoshi';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 120%;
+    color: #75797E;
+  
+    /* Inside auto layout */
+    flex: none;
+    order: 1;
+    align-self: stretch;
+    flex-grow: 0;
+  }
+  
+  /* -------------------------------------------------------------------------- */
+  /* Modal */
+  /* -------------------------------------------------------------------------- */
+  
+  .modal {
+    box-sizing: border-box;
+  
+    /* Auto layout */
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 16px;
+    gap: 4px;
+  
+    position: absolute;
+    width: 433.5px;
+    height: 199px;
+    right: 0px;
+    top: 121px;
+  
+    background: #FFFFFF;
+    border: 1px solid #DDDDDD;
+    border-radius: 0px 0px 16px 16px;
+  
+    /* Inside auto layout */
+    flex: none;
+    order: 2;
+    flex-grow: 0;
+    z-index: 2;
+  }
+  
+  /* -------------------------------------------------------------------------- */
+  /* Frame 73 */
+  /* (Used for the options within the modal, e.g., "7% Annual yield") */
+  /* -------------------------------------------------------------------------- */
+  
+  .frame-73-container {
+    /* Auto layout */
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 0px;
+    gap: 10px;
+  
+    width: 251px;
+    height: 53px;
+  
+    /* Inside auto layout */
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+  }
+  
+  .frame-73-item-active {
+    /* Auto layout */
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 8px 16px;
+    gap: 10px;
+  
+    width: 251px;
+    height: 53px;
+    background: #EFEDFD;
+    border-radius: 8px;
+  
+    /* Inside auto layout */
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+  }
+  
+  /* Hidden icons in these frames */
+  .panorama_fish_eye {
+    display: none;
+    width: 20px;
+    height: 20px;
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+  }
+  .btc {
+    display: none;
+    width: 32px;
+    height: 32px;
+    flex: none;
+    order: 1;
+    flex-grow: 0;
+  }
+  
+  /* "7% Annual yield" text inside Frame 73 */
+  .frame-73-text {
+    width: 219px;
+    height: 37px;
+  
+    /* Headline 4/Regular */
+    font-family: 'Satoshi';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 31px;
+    line-height: 120%;
+    color: #2D3239;
+  
+    /* Inside auto layout */
+    flex: none;
+    order: 2;
+    flex-grow: 0;
+  }
+  
+  /* -------------------------------------------------------------------------- */
+  /* Frame 74 (Similar to Frame 73, but slightly wider) */
+  /* -------------------------------------------------------------------------- */
+  
+  .frame-74-container {
+    /* Auto layout */
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 0px;
+    gap: 10px;
+  
+    width: 254px;
+    height: 53px;
+  
+    /* Inside auto layout */
+    flex: none;
+    order: 1;
+    flex-grow: 0;
+  }
+  
+  .frame-74-item {
+    /* Auto layout */
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 8px 16px;
+    gap: 10px;
+  
+    width: 254px;
+    height: 53px;
+  
+    background: rgba(239, 237, 253, 0.09);
+    border-radius: 8px;
+  
+    /* Inside auto layout */
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+  }
+  
+  /* "8% Annual yield" text inside Frame 74 */
+  .frame-74-text {
+    width: 222px;
+    height: 37px;
+  
+    /* Headline 4/Regular */
+    font-family: 'Satoshi';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 31px;
+    line-height: 120%;
+    color: #2D3239;
+  
+    /* Inside auto layout */
+    flex: none;
+    order: 2;
+    flex-grow: 0;
+  }
+  
+  /* -------------------------------------------------------------------------- */
+  /* Frame 75 (Again similar structure) */
+  /* -------------------------------------------------------------------------- */
+  
+  .frame-75-container {
+    /* Auto layout */
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 0px;
+    gap: 10px;
+  
+    width: 254px;
+    height: 53px;
+  
+    /* Inside auto layout */
+    flex: none;
+    order: 2;
+    flex-grow: 0;
+  }
+  
+  .frame-75-item {
+    /* Auto layout */
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 8px 16px;
+    gap: 10px;
+  
+    width: 254px;
+    height: 53px;
+  
+    background: rgba(239, 237, 253, 0.09);
+    border-radius: 8px;
+  
+    /* Inside auto layout */
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+  }
+  
+  /* "9% Annual yield" text inside Frame 75 */
+  .frame-75-text {
+    width: 222px;
+    height: 37px;
+  
+    /* Headline 4/Regular */
+    font-family: 'Satoshi';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 31px;
+    line-height: 120%;
+    color: #2D3239;
+  
+    /* Inside auto layout */
+    flex: none;
+    order: 2;
+    flex-grow: 0;
+  }
+  

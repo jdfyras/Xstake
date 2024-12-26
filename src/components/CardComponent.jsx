@@ -144,7 +144,7 @@ const ResponsiveLayout = () => {
         alignItems: 'center',
         justifyContent: 'space-around',
         position: 'relative',
-        px: { xs: 2, md: 4 },
+        // px: { xs: 2, md: 4 },
         zIndex: 10,
       }}
     >

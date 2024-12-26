@@ -24,7 +24,7 @@ const NavigationBar = () => {
   };
   return (
     <AppBar
-      position="sticky" // or "absolute", depending on your design
+      // position="sticky" // or "absolute", depending on your design
       // elevation={0} // remove default MUI shadow
       sx={{
         // Mimic the Tailwind background gradient + blur + box shadow
