@@ -17,7 +17,7 @@ export default function Footer() {
         // width: '1224px',
         // height: '260.97px',  // often let height be auto
         // margin: 'auto 10%', // center horizontally
-        padding: '5% 10%', // center horizontally
+        padding: '6% 6%', // center horizontally
         backgroundColor: '#181928', // if you want black background
         zIndex: 18,
       }}

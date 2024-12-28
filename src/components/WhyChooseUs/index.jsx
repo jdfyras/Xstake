@@ -1,5 +1,5 @@
 import React from 'react';
-import { Box, Typography } from '@mui/material';
+import { Box, Container, Grid, Typography, Stack } from '@mui/material';
 import LiquidityIcon from '@mui/icons-material/AttachMoney';
 import LeverageIcon from '@mui/icons-material/TrendingUp';
 import SecurityIcon from '@mui/icons-material/Security';
@@ -35,77 +35,54 @@ const WhyChooseUs = () => {
   return (
     <Box
       sx={{
-        // Outer container ("Why us" section)
-        display: 'flex',
-        flexDirection: 'column',
-        alignItems: 'center',
-        justifyContent: 'center',
-        py: '96px', // 96px top/bottom padding
-        gap: '10px',
-        width: '100%',
-        background: '#181928', // Matches the design background
-        // height: '928px',      // If you truly need a fixed height, uncomment
+        borderRadius: '0px 0px 32px 32px',
+        border: '0px 1px solid #DDDDDD',
+        py: { xs: 6, md: 12 }, // Responsive vertical padding
+        backgroundColor: '#181928', // Example background color
       }}
     >
-      {/* Inner row container ("Frame 37") */}
-      <Box
-        sx={{
-          display: 'flex',
-          flexDirection: { xs: 'column', md: 'row' },
-          justifyContent: 'center',
-          alignItems: 'flex-start',
-          gap: '40px',
-          width: '1224px', // As per design
-          maxWidth: '100%', // Prevents overflow on small screens
-          // height: '736px',      // If you truly need a fixed height, uncomment
-        }}
-      >
-        {/* Left content: Title and description */}
-        <Box
-          sx={{
-            // Matches the Figma spec: width: 528px, height: 273px
-            width: { xs: '100%', md: '528px' },
-            flex: 'none',
-            order: 0,
-            flexGrow: 0,
-          }}
-        >
-          <Typography
-            // "Why Choose Us for Bitcoin Staking?" heading
+      <Container maxWidth="lg">
+        {/* Using stable Grid from Material UI */}
+        <Grid container spacing={{ xs: 4, md: 8 }}>
+          {/* Left column: Heading */}
+          <Grid
+            item
+            xs={12}
+            md={6}
             sx={{
-              fontFamily: 'Satoshi',
-              fontStyle: 'normal',
-              fontWeight: 500, // "Medium"
-              fontSize: { xs: '42px', md: '76px' }, // Responsive example
-              lineHeight: '120%', // 1.2 (or 91px for 76px font)
-              color: '#FEFEFE',
-              mb: 3,
+              zIndex: 10,
             }}
           >
-            Why Choose Us for Bitcoin Staking?
-          </Typography>
-        </Box>
+            <Typography
+              variant="h2"
+              sx={{
+                zIndex: 10,
+                fontWeight: 500,
+                fontSize: { xs: '42px', md: '76px' },
+                lineHeight: 1.2,
+                color: '#FEFEFE',
+                mb: 3,
+              }}
+            >
+              Why Choose Us for Bitcoin Staking?
+            </Typography>
+          </Grid>
 
-        {/* Right content: Cards */}
-        <Box
-          sx={{
-            display: 'flex',
-            flexDirection: 'column',
-            alignItems: 'flex-start',
-            padding: 0,
-            gap: '32px', // 32px gap between cards
-            width: { xs: '100%', md: '656px' },
-            // height: '736px',      // If you truly need a fixed height, uncomment
-            flex: 'none',
-            order: 1,
-            flexGrow: 0,
-          }}
-        >
-          {features.map((feature, index) => (
-            <LiquidityCard key={index} feature={feature} />
-          ))}
-        </Box>
-      </Box>
+          {/* Right column: Feature cards */}
+          <Grid item xs={12} md={6}>
+            <Stack
+              spacing={4}
+              sx={{
+                zIndex: 10,
+              }}
+            >
+              {features.map((feature, index) => (
+                <LiquidityCard key={index} feature={feature} />
+              ))}
+            </Stack>
+          </Grid>
+        </Grid>
+      </Container>
     </Box>
   );
 };

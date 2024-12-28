@@ -41,31 +41,33 @@ const lineExpand = keyframes`
     opacity: 1;
   }
 `;
-export default function SwitchIllustration() {
+export default function SwitchIllustration({ sx }) {
   return (
     <Box
-      sx={{
-        /* Frame 73 container */
-        boxSizing: 'border-box',
-        display: 'flex',
-        flexDirection: 'column',
-        alignItems: 'flex-start',
-        padding: '8px',
-        // gap: '5px',
-        position: 'relative',
-        left: 'calc(50% - 190px/2)',
-        top: 'calc(50% - 60px/2 )',
-        background:
-          'linear-gradient(180deg, rgba(254, 254, 254, 0.3) 0%, rgba(255, 255, 255, 0.6) 100%)', // Gradient
-        // backdropFilter: 'blur(56px)', // Background blur
-        // WebkitBackdropFilter: 'blur(56px)', // Safari compatibility
-        boxShadow: '0 0 56px rgba(0, 0, 0, 0.1)', // Adjust blur effect with alpha
-        borderRadius: '188px',
-        width: 'fit-content', // Adjust based on content
-        height: 'fit-content', // Adjust based on content
-        border: '0.52px solid rgba(221, 221, 221, 1)', // Border properties
-        // padding: '10px', // Add padding if needed
-      }}
+      sx={
+        sx || {
+          /* Frame 73 container */
+          boxSizing: 'border-box',
+          display: 'flex',
+          flexDirection: 'column',
+          alignItems: 'flex-start',
+          padding: '8px',
+          // gap: '5px',
+          position: 'relative',
+          left: 'calc(50% - 190px/2)',
+          top: 'calc(50% - 60px/2 )',
+          background:
+            'linear-gradient(180deg, rgba(254, 254, 254, 0.3) 0%, rgba(255, 255, 255, 0.6) 100%)', // Gradient
+          // backdropFilter: 'blur(56px)', // Background blur
+          // WebkitBackdropFilter: 'blur(56px)', // Safari compatibility
+          boxShadow: '0 0 56px rgba(0, 0, 0, 0.1)', // Adjust blur effect with alpha
+          borderRadius: '188px',
+          width: 'fit-content', // Adjust based on content
+          height: 'fit-content', // Adjust based on content
+          border: '0.52px solid rgba(221, 221, 221, 1)', // Border properties
+          // padding: '10px', // Add padding if needed
+        }
+      }
     >
       {/* Group 72 */}
       <Box
@@ -116,6 +118,7 @@ export default function SwitchIllustration() {
           style={{
             // zIndex: 1,
             transform: 'translateX(-125px) scale(0.5,0.5)',
+            opacity: 0,
             // left: `${50 + 1 * 20}px`,
           }}
           sx={{
@@ -123,20 +126,22 @@ export default function SwitchIllustration() {
             position: 'absolute',
             width: '42px',
             height: '42px',
-            left: '125px',
-            border: '0.5px solid #DDDDDD',
+            left: '94px',
+            // border: '0.5px solid #DDDDDD',
             // filter: 'drop-shadow(0px 0.5px 33px rgba(16, 24, 40, 0.16))',
             borderRadius: '66px',
+            bottom: 34,
           }}
         >
-          <XBTC width="42px" height="42px" />
+          <XBTC />
         </BitcoinWrapper>
         <BitcoinWrapper
           animation={darkBitcoinTranslate}
           delay={0.8}
           style={{
             // zIndex: 1,
-            transform: 'translateX(-115px) scale(0.5,0.5)',
+            transform: 'translateX(-83px) scale(0.5,0.5)',
+            opacity: 0,
             // left: `${50 + 1 * 20}px`,
           }}
           sx={{
@@ -145,20 +150,22 @@ export default function SwitchIllustration() {
             position: 'absolute',
             width: '42px',
             height: '42px',
-            left: '114px',
-            border: '0.5px solid #DDDDDD',
+            left: '83px',
+            // border: '0.5px solid #DDDDDD',
             // filter: 'drop-shadow(0px 0.5px 33px rgba(16, 24, 40, 0.16))',
             borderRadius: '66px',
+            bottom: 34,
           }}
         >
-          <XBTC width="42px" height="42px" />
+          <XBTC />
         </BitcoinWrapper>
         <BitcoinWrapper
           animation={darkBitcoinTranslate}
           delay={0.6}
           style={{
             // zIndex: 1,
-            transform: 'translateX(-103px) scale(0.5,0.5)',
+            transform: 'translateX(-72px) scale(0.5,0.5)',
+            opacity: 0,
             // left: `${50 + 1 * 20}px`,
           }}
           sx={{
@@ -168,20 +175,22 @@ export default function SwitchIllustration() {
             position: 'absolute',
             width: '42px',
             height: '42px',
-            left: '103px',
-            border: '0.5px solid #DDDDDD',
+            left: '72px',
+            // border: '0.5px solid #DDDDDD',
             // filter: 'drop-shadow(0px 0.5px 33px rgba(16, 24, 40, 0.16))',
             borderRadius: '66px',
+            bottom: 34,
           }}
         >
-          <XBTC width="42px" height="42px" />
+          <XBTC />
         </BitcoinWrapper>
         <BitcoinWrapper
           animation={darkBitcoinTranslate}
           delay={0.4}
           style={{
             // zIndex: 1,
-            transform: 'translateX(-92px) scale(0.5,0.5)',
+            transform: 'translateX(-61px) scale(0.5,0.5)',
+            opacity: 0,
             // left: `${50 + 1 * 20}px`,
           }}
           sx={{
@@ -191,34 +200,37 @@ export default function SwitchIllustration() {
             position: 'absolute',
             width: '42px',
             height: '42px',
-            left: '92px',
-            border: '0.5px solid #DDDDDD',
+            left: '61px',
+            // border: '0.5px solid #DDDDDD',
             // filter: 'drop-shadow(0px 0.5px 33px rgba(16, 24, 40, 0.16))',
             borderRadius: '66px',
+            bottom: 34,
           }}
         >
-          <XBTC width="42px" height="42px" />
+          <XBTC />
         </BitcoinWrapper>
         <BitcoinWrapper
           animation={darkBitcoinTranslate}
           delay={0.2}
           style={{
             //   zIndex: 1,
-            transform: 'translateX(-81px) scale(0.5,0.5)',
-            //   left: `${50 + 5 * 20}px`,
+            transform: 'translateX(-50px) scale(0.5,0.5)',
+            opacity: 0,
+            // left: `${5 * 20}px`,
           }}
           sx={{
             boxSizing: 'border-box',
             position: 'absolute',
             width: '42px',
             height: '42px',
-            left: '81px',
-            border: '0.5px solid #DDDDDD',
+            left: '50px',
+            bottom: 34,
+            // border: '0.5px solid #DDDDDD',
             // filter: 'drop-shadow(0px 0.5px 33px rgba(16, 24, 40, 0.16))',
             borderRadius: '66px',
           }}
         >
-          <XBTC width="42px" height="42px" />
+          <XBTC />
         </BitcoinWrapper>
       </Box>
     </Box>

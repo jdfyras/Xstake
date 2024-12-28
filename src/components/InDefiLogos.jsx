@@ -12,6 +12,8 @@ export default function InDefiLogos() {
         /* Frame 73 container */
         // boxSizing: 'border-box',
         display: 'flex',
+        // position: 'absolute',
+
         // flexDirection: 'column',
         // alignItems: 'flex-start',
         // padding: '8px',

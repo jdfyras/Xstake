@@ -1,22 +1,116 @@
 import React from 'react';
 import { styled } from '@mui/system';
-import { Box, Typography, Button } from '@mui/material';
+import {
+  Box,
+  Typography,
+  Button,
+  useTheme,
+  useMediaQuery,
+} from '@mui/material';
 import { motion } from 'framer-motion';
+
+// Example sub-components
 import StakeBitcoinCard from './StakeBitcoinCard';
 import LeverageInDeFiCard from './LeverageInDeFiCard';
+
+// Icons
 import BitcoinIcon from '../assets/svg/BitcoinIcon';
 import XBTC_rounded from '../assets/svg/XBTC copy';
-const StyledButton = styled(Button)({
+
+// ======================
+//   STYLED COMPONENTS
+// ======================
+
+// Outer container
+const Container = styled(Box)(({ theme }) => ({
+  display: 'flex',
+  flexDirection: 'column',
+  justifyContent: 'center',
+  alignItems: 'center',
+  overflow: 'hidden',
+  position: 'relative',
+  zIndex: 10,
+  // We'll manage widths and heights with breakpoints:
+  width: '100%',
+  // The gap for the "How it works" section:
+  gap: theme.spacing(5),
+  // For smaller screens (around 375px)
+  [theme.breakpoints.down('sm')]: {
+    gap: theme.spacing(5),
+  },
+  // For medium screens (~616px design)
+  [theme.breakpoints.between('sm', 'lg')]: {
+    // Example: we can do 616px max or just let it fill
+    maxWidth: 616,
+  },
+  // For large screens (1224px design)
+  [theme.breakpoints.up('lg')]: {
+    maxWidth: 1224,
+  },
+  margin: '0 auto', // center content
+}));
+
+// The big heading
+const Heading = styled(Typography)(({ theme }) => ({
+  // Default (mobile first)
+  fontFamily: 'Satoshi, sans-serif',
+  fontStyle: 'normal',
+  fontWeight: 500,
+  color: '#2D3239',
+  textAlign: 'left',
+  // For smaller screens (375px)
+  fontSize: '49px',
+  lineHeight: '120%', // from your Figma
+  // Adjust at medium (~616px)
+  [theme.breakpoints.up('sm')]: {
+    fontSize: '61px', // or 73px line-height from Figma
+  },
+  // Adjust at large (~1224px)
+  [theme.breakpoints.up('lg')]: {
+    fontSize: '76px',
+  },
+}));
+
+// This container holds all the "items" (the cards)
+const ItemsContainer = styled(Box)(({ theme }) => ({
+  display: 'flex',
+  // For smaller screens, stack vertically
+  flexDirection: 'column',
+  alignItems: 'flex-start',
+  gap: theme.spacing(4),
+  isolation: 'isolate',
+  // Width references:
+  width: '100%', // fill container
+  [theme.breakpoints.down('sm')]: {
+    // 375 design
+    maxWidth: 343,
+  },
+  [theme.breakpoints.between('sm', 'lg')]: {
+    // 616 design
+    maxWidth: 616,
+  },
+  [theme.breakpoints.up('lg')]: {
+    // 1224 design
+    // maxWidth: 1224,
+    flexDirection: 'row', // side by side on large
+    alignItems: 'flex-start',
+    zIndex: 10,
+  },
+}));
+
+// The "Get Started Now" button
+const StyledButton = styled(Button)(({ theme }) => ({
   boxSizing: 'border-box',
   display: 'flex',
   flexDirection: 'row',
   justifyContent: 'center',
   alignItems: 'center',
-  padding: '24px 32px',
-  gap: '16px',
+  // Default (mobile)
+  padding: theme.spacing(3, 4),
+  gap: theme.spacing(2),
   background: '#161724',
   borderRadius: '100px',
-  fontFamily: "'Satoshi', sans-serif", // Ensure to import this font in your project
+  fontFamily: 'Satoshi, sans-serif',
   fontStyle: 'normal',
   fontWeight: 500,
   fontSize: '20px',
@@ -26,12 +120,16 @@ const StyledButton = styled(Button)({
     backgroundColor: '#2D3239',
     borderColor: '#AAAAAA',
   },
-  // Responsive adjustments
-  width: '90%', // Default width for smaller screens
-  maxWidth: '214px', // Limit max width for larger screens
-  height: 'auto', // Adjust height dynamically
-  textAlign: 'center',
-});
+  // For large screens
+  [theme.breakpoints.up('lg')]: {
+    width: 214,
+    height: 72,
+    padding: theme.spacing(3),
+    fontSize: '20px', // can keep or adjust
+  },
+}));
+
+// Framer motion card variants
 const cardVariants = {
   hidden: { opacity: 0, y: 50 },
   visible: (i) => ({
@@ -45,7 +143,15 @@ const cardVariants = {
   }),
 };
 
+// ======================
+//   MAIN COMPONENT
+// ======================
 const HowItWorks = () => {
+  const theme = useTheme();
+  // If you want to handle logic specifically for breakpoints:
+  const isLarge = useMediaQuery(theme.breakpoints.up('lg'));
+  const isSm = useMediaQuery(theme.breakpoints.down('sm'));
+
   const cards = [
     {
       id: 1,
@@ -70,107 +176,47 @@ const HowItWorks = () => {
   ];
 
   return (
-    <Box
-      sx={{
-        // py: 4,
-        overflow: 'hidden',
-        width: '100%',
-        display: 'flex',
-        position: 'relative',
+    <Container>
+      <Heading>How It Works</Heading>
 
-        // // maxWidth: 1225,
-        // margin: '0 auto',
-        // mt: { xs: 4, md: 8 },
-        zIndex: 10,
-        background: 'transparent',
-        // background: '#181928',
-        // borderRadius: '99px',
-        // px: { xs: 2, sm: 3, md: 4 },
-      }}
-    >
+      {/* Items (cards) container */}
+      <ItemsContainer>
+        {cards.map((card, index) => (
+          <motion.div
+            key={card.id}
+            custom={index}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={cardVariants}
+            style={{
+              width: '100%',
+              // On large screens, each card might have a maxWidth
+              // or flex basis around 386.67px from Figma
+              flexBasis: isLarge ? '386.67px' : 'auto',
+            }}
+          >
+            {card.Component ? (
+              <card.Component />
+            ) : (
+              <StakeBitcoinCard
+                Icon={card.Icon}
+                step={card.step}
+                title={card.title}
+                description={card.description}
+              />
+            )}
+          </motion.div>
+        ))}
+      </ItemsContainer>
+
+      {/* "Get Started Now" button */}
       <Box
-        sx={{
-          // maxWidth: 1225,
-          py: 4,
-          overflow: 'hidden',
-          width: '100%',
-          // margin: '0 auto',
-          // mt: { xs: 4, md: 8 },
-          zIndex: 10,
-          // background: '#181928',
-          // borderRadius: '99px',
-          px: { xs: 2, sm: 3, md: 4 },
-        }}
+        sx={{ display: 'flex', justifyContent: 'center', mt: 2, zIndex: 100 }}
       >
-        <Typography
-          variant="h4"
-          sx={{
-            fontFamily: 'Satoshi, sans-serif',
-            fontWeight: 500,
-            fontSize: { xs: '3rem', sm: '3rem', md: '4rem' },
-            lineHeight: { xs: 1.3, sm: 1.2 },
-            color: '#2D3239',
-            textAlign: 'left',
-          }}
-        >
-          How It Works
-        </Typography>
-        <Box
-          sx={{
-            display: 'flex',
-            flexDirection: { xs: 'column', sm: 'row' },
-            gap: { xs: 2, sm: 3 },
-            overflowX: { xs: 'auto', sm: 'unset' },
-            scrollSnapType: { xs: 'x mandatory', sm: 'none' },
-            '-webkit-overflow-scrolling': 'touch',
-            px: { xs: 1, sm: 2 },
-            pt: { xs: 3, sm: 5 },
-            pb: { xs: 3, sm: 5 },
-            flexWrap: { sm: 'wrap', md: 'nowrap' },
-            '&::-webkit-scrollbar': { display: 'none' },
-          }}
-        >
-          {cards.map((card, index) => (
-            <motion.div
-              key={card.id}
-              custom={index}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true }}
-              variants={cardVariants}
-              style={{
-                scrollSnapAlign: 'start',
-                flex: '1 1 auto',
-                minWidth: { xs: '80%', sm: '45%', md: '30%' },
-                maxWidth: '100%',
-              }}
-            >
-              {card.Component ? (
-                <card.Component />
-              ) : (
-                <StakeBitcoinCard
-                  Icon={card.Icon}
-                  step={card.step}
-                  title={card.title}
-                  description={card.description}
-                />
-              )}
-            </motion.div>
-          ))}
-        </Box>
-        <Box
-          sx={{
-            display: 'flex',
-            justifyContent: 'center',
-            alignItems: 'center',
-            // height: '100vh', // Fill the entire viewport height
-            // width: '100%', // Fill the entire viewport width
-          }}
-        >
-          <StyledButton>Get Started Now</StyledButton>
-        </Box>
+        <StyledButton>Get Started Now</StyledButton>
       </Box>
-    </Box>
+    </Container>
   );
 };
 

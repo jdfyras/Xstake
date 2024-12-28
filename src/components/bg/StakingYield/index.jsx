@@ -1,5 +1,12 @@
 import React, { useState, useEffect } from 'react';
-import { Box, Typography, Button } from '@mui/material';
+import {
+  Box,
+  Typography,
+  Button,
+  Grid,
+  useTheme,
+  useMediaQuery,
+} from '@mui/material';
 import {
   AreaChart,
   Area,
@@ -9,7 +16,7 @@ import {
   CartesianGrid,
   ResponsiveContainer,
 } from 'recharts';
-import StakeInput from './StakeInput'; // Updated StakeInput Component
+import StakeInput from './StakeInput'; // Import your StakeInput component
 
 const StakingComponent = () => {
   const [bitcoin, setBitcoin] = useState(2);
@@ -21,38 +28,27 @@ const StakingComponent = () => {
 
   // Generate data for the chart
   useEffect(() => {
-    const generateChartData = () => {
-      const points = 8; // Number of data points
-      const growthFactor = estimatedYield / points; // Increment for smooth curve
-      const newData = Array.from({ length: points }, (_, i) => ({
-        time: `Month ${i + 1}`,
-        value: bitcoin + i * growthFactor,
-      }));
-      setData(newData);
-    };
-
-    generateChartData();
+    const points = 8;
+    const growthFactor = estimatedYield / points;
+    const newData = Array.from({ length: points }, (_, i) => ({
+      time: `Month ${i + 1}`,
+      value: bitcoin + i * growthFactor,
+    }));
+    setData(newData);
   }, [bitcoin, estimatedYield]);
+
+  const theme = useTheme();
 
   return (
     <Box
       sx={{
-        display: 'flex',
-        flexDirection: 'column',
-        // alignItems: 'flex-start',
-        // padding: '32px',
-        // gap: '32px',
-        margin: '10% 0%',
-        width: '100%',
-        //  // height: '821.48px',
-        // background: 'linear-gradient(180deg, #FFFFFF 0%, #E1DCEE 100%)',
-        // boxShadow: '0px 4px 64px rgba(16, 24, 40, 0.12)',
-        // borderRadius: '32px',
-        position: 'relative',
-        // margin: '0 auto',
+        py: 4,
+        px: 2,
+        [theme.breakpoints.up('md')]: { px: 8 },
       }}
     >
       <Typography
+        variant="h4"
         sx={{
           //   width: '1224px',
           //   height: '91px',
@@ -66,197 +62,194 @@ const StakingComponent = () => {
           order: 0,
           alignSelf: 'stretch',
           flexGrow: 0,
+
           textAlign: 'center',
-          paddingBottom: '2%',
+          mb: 4,
+          [theme.breakpoints.down('md')]: { fontSize: '48px' },
+          [theme.breakpoints.down('sm')]: { fontSize: '32px' },
         }}
       >
         Estimate Your Bitcoin Staking Yield
       </Typography>
-      <Box
-        sx={{
-          display: 'flex',
-          flexDirection: 'column',
-          alignItems: 'center',
-          //   padding: '0% 10%',
-          //   gap: '32px',
-          //   margin: '10% 10%',
-          //   width: '90%',
-          //  // height: '821.48px',
-          background: 'transparent',
-          //   boxShadow: '0px 4px 64px rgba(16, 24, 40, 0.12)',
-          //   borderRadius: '32px',
-          position: 'relative',
-          // margin: '0 auto',
-        }}
-      >
-        <Box
-          sx={{
-            display: 'flex',
-            flexDirection: 'column',
-            alignItems: 'flex-start',
-            padding: '32px',
-            gap: '32px',
-            //   margin: '10% 0%',
-            // width: '90%',
-            //  // height: '821.48px',
-            background: 'linear-gradient(180deg, #FFFFFF 0%, #E1DCEE 100%)',
-            boxShadow: '0px 4px 64px rgba(16, 24, 40, 0.12)',
-            borderRadius: '32px',
-            // position: '',
-            // margin: '0 auto',
-          }}
-        >
-          {/* Stake Input Section */}
-          <StakeInput
-            bitcoin={bitcoin}
-            setBitcoin={setBitcoin}
-            yieldRate={yieldRate}
-            setYieldRate={setYieldRate}
-          />
 
-          {/* Yield and Chart Section */}
+      <Grid container spacing={4} justifyContent="center">
+        <Grid item xs={12} md={10} lg={8}>
           <Box
             sx={{
-              display: 'flex',
-              width: '100%',
-              //   flexDirection: 'column',
-              alignItems: 'center',
-              padding: '32px',
-              //   gap: '31.83px',
-              //   width: '865px',
-              //   height: '483.48px',
-              background: '#FEFEFE',
-              border: '1px solid #DDDDDD',
-              boxShadow: '0px 1px 64px rgba(16, 24, 40, 0.12)',
-              borderRadius: '16px',
+              p: 4,
+              borderRadius: '32px',
+              background: 'linear-gradient(180deg, #FFFFFF 0%, #E1DCEE 100%)',
+              boxShadow: '0px 4px 64px rgba(16, 24, 40, 0.12)',
             }}
           >
+            {/* StakeInput Component */}
+            <StakeInput
+              bitcoin={bitcoin}
+              setBitcoin={setBitcoin}
+              yieldRate={yieldRate}
+              setYieldRate={setYieldRate}
+            />
+
+            {/* Yield and Chart Section */}
             <Box
               sx={{
-                display: 'flex',
-                width: '100%',
-
-                flexDirection: 'column',
-                alignItems: 'center',
-                padding: '32px',
-                gap: '31.83px',
-                // width: '865px',
-                // height: '483.48px',
-                background: '#F7F7F7',
-                border: '1px solid #DDDDDD',
-                // boxShadow: '0px 1px 64px rgba(16, 24, 40, 0.12)',
+                mt: 4,
+                p: 3,
                 borderRadius: '16px',
+                backgroundColor: '#FEFEFE',
+                border: '1px solid #DDDDDD',
+                gap: 4,
               }}
             >
               <Box
                 sx={{
-                  display: 'flex',
-                  flexDirection: 'row',
-                  justifyContent: 'space-between',
-                  width: '753px',
-                  marginBottom: '16px',
+                  borderRadius: '16px',
+                  backgroundColor: '#F7F7F7',
+                  border: '1px solid #DDDDDD',
+                  py: 4,
+                  px: 4,
+                  // gap: 100,
+                  // display: 'flex',
+                  // justifyContent: 'space-between',
+                  // // alignItems: 'center',
+                  // mb: 2,
+                  // flexDirection: { xs: 'column', sm: 'row', md: 'row' },
                 }}
               >
-                <Typography
+                <Box
                   sx={{
-                    fontFamily: 'Satoshi',
-                    fontWeight: 500,
-                    fontSize: '23.87px',
-                    color: '#75797E',
+                    display: 'flex',
+                    justifyContent: 'space-between',
+                    // alignItems: 'center',
+                    gap: { xs: 2, sm: 0, md: 0 },
+
+                    mb: 6,
+                    flexDirection: { xs: 'column', sm: 'row', md: 'row' },
                   }}
                 >
-                  Estimated Annual Yield:
-                </Typography>
-                <Typography
+                  <Typography variant="subtitle1" sx={{ color: '#75797E' }}>
+                    Estimated Annual Yield:
+                  </Typography>
+                  <Typography
+                    variant="h5"
+                    sx={{
+                      fontFamily: 'Satoshi',
+
+                      fontWeight: '500',
+                      color: '#2D3239',
+                      fontSize: '39px',
+                    }}
+                  >
+                    {estimatedYield.toFixed(2)} BTC
+                  </Typography>
+                </Box>
+                <Box
                   sx={{
-                    fontFamily: 'Satoshi',
-                    fontWeight: 500,
-                    fontSize: '49px',
-                    color: '#2D3239',
+                    display: 'flex',
+                    justifyContent: 'space-between',
+                    // alignItems: 'center',
+                    gap: { xs: 2, sm: 0, md: 0 },
+
+                    mb: 6,
+                    flexDirection: { xs: 'column', sm: 'row', md: 'row' },
                   }}
                 >
-                  {estimatedYield.toFixed(2)} BTC
-                </Typography>
+                  <Typography
+                    variant="subtitle1"
+                    sx={{
+                      color: '#75797E',
+                      //styleName: Subtitle/Medium;
+                      fontFamily: 'Satoshi',
+                      fontSize: '20px',
+                      fontWeight: '500',
+                      // height: 24px,
+                      align: 'left',
+                      // text-underline-position: from-font,
+                      // text-decoration-skip-ink: none,
+                    }}
+                  >
+                    Total BTC After 1 Year:
+                  </Typography>
+                  <Typography
+                    variant="h5"
+                    sx={{
+                      fontFamily: 'Satoshi',
+
+                      fontWeight: '500',
+                      color: '#2D3239',
+                      fontSize: '39px',
+                    }}
+                  >
+                    {totalBTC.toFixed(2)} BTC
+                  </Typography>
+                </Box>
+                <ResponsiveContainer
+                  width="100%"
+                  height={200}
+                  // height={200}
+                >
+                  <AreaChart data={data}>
+                    <defs>
+                      <linearGradient
+                        id="colorValue"
+                        x1="0"
+                        y1="0"
+                        x2="0"
+                        y2="1"
+                      >
+                        <stop
+                          offset="5%"
+                          stopColor="#FEC28E"
+                          // stopOpacity={0.8}
+                        />
+                        <stop
+                          offset="95%"
+                          stopColor="#FEC28E"
+                          stopOpacity={0}
+                        />
+                      </linearGradient>
+                    </defs>
+                    {/* <CartesianGrid strokeDasharray="3 3" /> */}
+                    {/* <XAxis dataKey="time" /> */}
+                    {/* <YAxis /> */}
+                    <Tooltip />
+                    <Area
+                      type="monotone"
+                      dataKey="value"
+                      stroke="#FEC28E"
+                      fillOpacity={1}
+                      fill="url(#colorValue)"
+                    />
+                  </AreaChart>
+                </ResponsiveContainer>
               </Box>
-              <Box
-                sx={{
-                  display: 'flex',
-                  flexDirection: 'row',
-                  justifyContent: 'space-between',
-                  width: '753px',
-                  marginBottom: '16px',
-                }}
-              >
-                <Typography
-                  sx={{
-                    fontFamily: 'Satoshi',
-                    fontWeight: 500,
-                    fontSize: '23.87px',
-                    color: '#75797E',
-                  }}
-                >
-                  Total BTC After 1 Year:
-                </Typography>
-                <Typography
-                  sx={{
-                    fontFamily: 'Satoshi',
-                    fontWeight: 500,
-                    fontSize: '49px',
-                    color: '#2D3239',
-                  }}
-                >
-                  {totalBTC.toFixed(2)} BTC
-                </Typography>
-              </Box>
-              <ResponsiveContainer width="100%" height={200}>
-                <AreaChart data={data}>
-                  <defs>
-                    <linearGradient id="colorValue" x1="0" y1="0" x2="0" y2="1">
-                      <stop offset="5%" stopColor="#FEC28E" stopOpacity={0.8} />
-                      <stop offset="95%" stopColor="#FEC28E" stopOpacity={0} />
-                    </linearGradient>
-                  </defs>
-                  <CartesianGrid strokeDasharray="3 3" />
-                  <XAxis dataKey="time" />
-                  <YAxis />
-                  <Tooltip />
-                  <Area
-                    type="monotone"
-                    dataKey="value"
-                    stroke="#FEC28E"
-                    fillOpacity={1}
-                    fill="url(#colorValue)"
-                  />
-                </AreaChart>
-              </ResponsiveContainer>
             </Box>
           </Box>
+        </Grid>
 
-          {/* Start Staking Button */}
+        {/* Button Section */}
+        <Grid item xs={12} sm={10} lg={8}>
           <Button
+            fullWidth
             variant="contained"
             sx={{
-              display: 'flex',
-              justifyContent: 'center',
-              alignItems: 'center',
-              padding: '24px 32px',
-              gap: '16px',
-              width: '100%',
-
-              //   width: '865px',
-              //   height: '88px',
+              mt: 4,
+              py: 2,
+              borderRadius: '50px',
+              fontSize: '18px',
+              fontWeight: 600,
+              textTransform: 'none',
               background: '#161724',
-              borderRadius: '100px',
-              fontFamily: 'Satoshi',
-              fontSize: '25px',
-              color: '#FEFEFE',
+              '&:hover': {
+                background: '#1b1d33',
+              },
             }}
             onClick={() => alert('Connect Wallet')}
           >
             Start Staking
           </Button>
-        </Box>
-      </Box>
+        </Grid>
+      </Grid>
     </Box>
   );
 };

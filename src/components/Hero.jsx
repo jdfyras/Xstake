@@ -15,6 +15,7 @@ import BitcoinStakeCard from './BitcoinStakeCard';
 import UseInDefi from './UseInDefi';
 import HoverPin from './HoverPin';
 import StakedBitcoinIllustration from './StakedBitcoinIllustration';
+import LandingCards from './LandingCards';
 
 /** 1) Migrate the "steps" array from ProgressComponent */
 const steps = [
@@ -67,6 +68,7 @@ export default function HeroSection() {
         // minHeight: '100vh',
         backgroundColor: 'transparent', // Set the background to transparent
         zIndex: 5,
+        p: 15,
         // overflow: 'hidden',
       }}
     >
@@ -280,7 +282,7 @@ export default function HeroSection() {
          * 4) RIGHT CONTENT (REPLACING the static example)
          *    We bring in the dynamic stepper from ProgressComponent.
          */}
-        {!isMdUp ? (
+        {!isMdUp && (
           <Box
             sx={{
               position: 'relative',
@@ -445,14 +447,6 @@ export default function HeroSection() {
             </Card> */}
             </motion.div>
           </Box>
-        ) : (
-          <>
-            <BitcoinStakeCard />
-            : activeStep === 1 ?
-            <StakedBitcoinIllustration />
-            :
-            <UseInDefi />
-          </>
         )}
       </Box>
     </Box>

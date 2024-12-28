@@ -29,13 +29,15 @@ const Layout = ({ children }) => {
     >
       <Header />
       <Grid
-        sx={{
-          width: '100%',
-          padding: '10% 10% 0% 10%',
-          borderRadius: '0px 0px 32px 32px',
-          border: '1px solid #DDDDDD',
-          backgroundColor: '#FFFFFF',
-        }}
+        sx={
+          {
+            // width: '100%',
+            // padding: '10% 10% 0% 10%',
+            // borderRadius: '0px 0px 32px 32px',
+            // border: '1px solid #DDDDDD',
+            // backgroundColor: '#F7F7F7',
+          }
+        }
       >
         {children}
       </Grid>

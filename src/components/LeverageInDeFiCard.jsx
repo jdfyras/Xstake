@@ -1,5 +1,5 @@
 import React, { useRef } from 'react';
-import { Box, Button, Typography, Avatar, CardContent } from '@mui/material';
+import { Box, Typography, Button } from '@mui/material';
 import { styled } from '@mui/system';
 import {
   motion,
@@ -7,171 +7,214 @@ import {
   useSpring,
   useMotionTemplate,
 } from 'framer-motion';
+
 import logo1 from '../assets/images/logo1.png';
 import logo2 from '../assets/images/logo2.png';
 import logo3 from '../assets/images/logo3.png';
 import ArrowDown from '../assets/svg/ArrowDown';
 
-// Styled Components
-const BlurredIcon = styled(Box)(
-  ({ gradientStart = '#FEC28E', gradientEnd = '#FF007A' }) => ({
-    position: 'absolute',
-    width: '48.91px',
-    height: '48px',
-    left: 'calc(50% - 48.91px / 2 + 7.19px)',
-    top: '20.86px',
-    opacity: 0.3,
-    filter: 'blur(10px)',
-    background: `linear-gradient(180deg, ${gradientStart} 0%, ${gradientEnd} 100%)`,
-    borderRadius: '50%',
-    zIndex: 0,
-  })
-);
-const DescriptionButtonRow = styled(Box)({
-  display: 'flex',
-  flexDirection: 'row',
-  justifyContent: 'center',
-  alignItems: 'center',
-  padding: '0px',
-  gap: '10px',
-  width: '322.67px',
-  height: '63px',
-  flex: 'none',
-  order: 1,
-  alignSelf: 'stretch',
-  flexGrow: 0,
-});
+/**
+ * ======================
+ *   ANIMATION CONSTANTS
+ * ======================
+ */
+const ROTATION_RANGE = 32.5;
+const HALF_ROTATION_RANGE = ROTATION_RANGE / 2;
+
+/**
+ * ======================
+ *   STYLED COMPONENTS
+ * ======================
+ */
+
+// Card container
 const StyledCard = styled(motion.div)(({ theme }) => ({
-  maxHeight: '310px',
-  maxWidth: '386.67px',
+  position: 'relative',
+  boxSizing: 'border-box',
+  display: 'flex',
+  flexDirection: 'column',
+  alignItems: 'flex-start',
+
+  // Figma gradient, border, shadow, borderRadius
   background: 'linear-gradient(180deg, #FFFFFF 0%, #E1DCEE 100%)',
   border: '1px solid #DDDDDD',
   boxShadow: '0px 4px 12px rgba(16, 24, 40, 0.12)',
-  position: 'relative',
-  zIndex: 3,
-  boxSizing: 'border-box',
-  display: 'flex',
-  flexDirection: 'column',
-  alignItems: 'flex-start',
-  padding: '2rem',
-  gap: '1.5rem',
-  width: '100%',
-  height: 'auto',
   borderRadius: '2rem',
+  zIndex: 3,
   transformStyle: 'preserve-3d',
+
+  // Fill the container
+  width: '100%',
+  padding: theme.spacing(3),
+  gap: theme.spacing(2),
+
   [theme.breakpoints.up('sm')]: {
-    padding: '2.5rem',
+    maxWidth: 400,
+    maxHeight: 400,
+    minHeight: 350,
+    padding: theme.spacing(4),
+    gap: theme.spacing(3),
   },
 }));
 
-const TopSection = styled(Box)({
+/**
+ * Switch to column layout under 300px
+ */
+const TopSection = styled(Box)(({ theme }) => ({
   display: 'flex',
-  flexDirection: 'row',
-  justifyContent: 'space-between',
-  //   alignItems: 'center',
+  flexDirection: 'row', // default
+  justifyContent: 'space-around',
+  alignItems: 'flex-start',
   width: '100%',
-  height: '96px',
-  alignItems: 'flex-start',
-  padding: '0px',
-  //   gap: '93px',
-  //   width: '322.67px',
-  //   height: '96px',
-});
 
-const AvatarGroup = styled(Box)({
-  display: 'flex',
-  alignItems: 'center',
-  gap: '-12px',
-  width: '224px',
-  height: '96px',
-});
+  // Override under 300px
+  '@media (max-width: 300px)': {
+    flexDirection: 'column',
+    alignItems: 'center',
+    gap: theme.spacing(1),
+  },
+}));
 
-const Badge = styled(Box)({
+// Logos container
+const LogoGroup = styled(Box)(({ theme }) => ({
   display: 'flex',
   flexDirection: 'row',
-  justifyContent: 'center',
   alignItems: 'center',
-  padding: '8px 16px',
-  gap: '4px',
-  width: '75px',
-  height: '35px',
-  background: '#FFF5E6',
-  border: '1px solid #FF9800',
-  borderRadius: '360px',
-  fontFamily: "'Satoshi', sans-serif",
-  whiteSpace: 'nowrap',
-  fontStyle: 'normal',
-  fontWeight: 500,
-  fontSize: '16pxu',
-  lineHeight: '120%',
-  color: '#FF9800',
-});
+  isolation: 'isolate',
+  position: 'relative',
+}));
 
-const Content = styled(Box)({
+// Reusable circle container for each logo
+const LogoCircle = styled(Box)(({ theme }) => ({
+  position: 'relative',
+  boxSizing: 'border-box',
   display: 'flex',
-  flexDirection: 'column',
-  alignItems: 'flex-start',
-  gap: '16px',
-  width: '322.67px',
-  height: '126px',
-});
+  flexDirection: 'row',
+  alignItems: 'center',
+  justifyContent: 'center',
+  background: '#FEFEFE',
+  border: '1px solid #DDDDDD',
+  borderRadius: '50%',
+  isolation: 'isolate',
+  padding: theme.spacing(3), // ~24px from Figma
+  width: 96,
+  height: 'auto',
 
-const Title = styled(Typography)({
-  fontFamily: "'Satoshi', sans-serif",
-  fontWeight: 500,
-  fontSize: '39px',
-  lineHeight: '120%',
-  color: '#2D3239',
-});
+  // For screens under 300px, shrink the circle
+  '@media (max-width: 300px)': {
+    width: 64,
+    padding: theme.spacing(1.5),
+  },
+}));
 
-const Description = styled(Typography)({
-  fontFamily: "'Satoshi', sans-serif",
-  fontStyle: 'normal',
-  fontWeight: 400,
-  fontSize: '16px',
-  lineHeight: '130%',
-  color: '#75797E',
-  flex: 'none',
-  order: 0,
-  flexGrow: 1,
-  width: '182.67px',
-  height: '63px',
-});
+// Blurred gradient behind the icon or logo
+const BlurredIcon = styled(Box)(
+  ({ gradientStart = '#FEC28E', gradientEnd = '#FF007A' }) => ({
+    position: 'absolute',
+    width: 48,
+    height: 48,
+    top: 20,
+    left: 32,
+    opacity: 0.3,
+    filter: 'blur(8px)',
+    borderRadius: '50%',
+    background: `linear-gradient(180deg, ${gradientStart} 0%, ${gradientEnd} 100%)`,
+    zIndex: 0,
+  })
+);
 
-const ExploreButton = styled(Button)({
+// Step badge
+const Badge = styled(Box)(({ theme }) => ({
   boxSizing: 'border-box',
   display: 'flex',
   flexDirection: 'row',
   justifyContent: 'center',
   alignItems: 'center',
-  padding: '16px 24px',
-  gap: '8px',
-  width: '130px',
-  height: '52px',
+  whiteSpace: 'nowrap',
+  background: '#FFF5E6',
+  border: '1px solid #FF9800',
+  borderRadius: 360,
+  padding: theme.spacing(1, 2),
+  gap: theme.spacing(0.5),
+  fontFamily: 'Satoshi, sans-serif',
+  fontWeight: 500,
+  fontSize: 'clamp(0.8rem, 1vw, 1rem)',
+  lineHeight: 1.2,
+  color: '#FF9800',
+}));
+
+// Main content (title + row)
+const Content = styled(Box)(({ theme }) => ({
+  display: 'flex',
+  flexDirection: 'column',
+  alignItems: 'flex-start',
+  gap: theme.spacing(2),
+  width: '100%',
+}));
+
+// Title
+const Title = styled(Typography)(({ theme }) => ({
+  fontFamily: "'Satoshi', sans-serif",
+  fontWeight: 500,
+  fontStyle: 'normal',
+  fontSize: 'clamp(1.75rem, 4vw, 2.4rem)',
+  lineHeight: 1.2,
+  color: '#2D3239',
+}));
+
+// Row for description & button
+const DescriptionButtonRow = styled(Box)(({ theme }) => ({
+  display: 'flex',
+  flexDirection: 'row',
+  alignItems: 'center',
+  gap: theme.spacing(2),
+  width: '100%',
+  flexWrap: 'wrap',
+  justifyContent: 'space-between',
+}));
+
+// Description text
+const Description = styled(Typography)(({ theme }) => ({
+  fontFamily: "'Satoshi', sans-serif",
+  fontStyle: 'normal',
+  fontWeight: 400,
+  fontSize: 'clamp(0.875rem, 1.5vw, 1rem)',
+  lineHeight: 1.3,
+  color: '#75797E',
+  flex: '1 1 auto',
+  minWidth: '160px',
+}));
+
+// Explore button
+const ExploreButton = styled(Button)(({ theme }) => ({
+  boxSizing: 'border-box',
+  display: 'flex',
+  flexDirection: 'row',
+  justifyContent: 'center',
+  alignItems: 'center',
   border: '1px solid #161724',
-  borderRadius: '100px',
+  borderRadius: 100,
+  textTransform: 'none',
   fontFamily: "'Satoshi', sans-serif",
   fontStyle: 'normal',
   fontWeight: 500,
-  fontSize: '16px',
+  fontSize: 'clamp(0.85rem, 1vw, 1rem)',
   lineHeight: '120%',
   color: '#161724',
-  textTransform: 'none',
-  flex: 'none',
-  order: 1,
-  flexGrow: 0,
-});
+  padding: theme.spacing(2, 3),
+}));
 
-// Constants for animation
-const ROTATION_RANGE = 32.5;
-const HALF_ROTATION_RANGE = 32.5 / 2;
-
+/**
+ * ======================
+ *   COMPONENT
+ * ======================
+ */
 const LeverageInDeFiCard = () => {
   const ref = useRef(null);
 
+  // Framer motion states for tilt
   const x = useMotionValue(0);
   const y = useMotionValue(0);
-
   const xSpring = useSpring(x);
   const ySpring = useSpring(y);
 
@@ -179,10 +222,8 @@ const LeverageInDeFiCard = () => {
 
   const handleMouseMove = (e) => {
     if (!ref.current) return;
-
     const rect = ref.current.getBoundingClientRect();
-    const width = rect.width;
-    const height = rect.height;
+    const { width, height } = rect;
 
     const mouseX = (e.clientX - rect.left) * ROTATION_RANGE;
     const mouseY = (e.clientY - rect.top) * ROTATION_RANGE;
@@ -204,124 +245,81 @@ const LeverageInDeFiCard = () => {
       ref={ref}
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
-      style={{
-        transform,
-        zIndex: 10,
-      }}
+      style={{ transform }}
     >
       {/* Top Section */}
       <TopSection>
         {/* Logos */}
-        <AvatarGroup>
-          <Box
-            sx={{
-              boxSizing: 'border-box',
-              display: 'flex',
-              flexDirection: 'row',
-              alignItems: 'center',
-              justifyContent: 'center',
-              padding: '24px',
-              gap: '10px',
-              width: '96px',
-              height: '96px',
-              background: '#FEFEFE',
-              border: '1px solid #DDDDDD',
-              borderRadius: '50%',
-              position: 'relative',
-              isolation: 'isolate',
-              zIndex: 2,
-            }}
-          >
-            <BlurredIcon />
-            <Box
-              component="img"
-              sx={{
-                width: '48px',
-                height: '48px',
-                // borderRadius: '50%',
-                // border: '1px solid #DDDDDD',
-                // background: '#FEFEFE',
-                position: 'relative',
-                zIndex: 2,
-              }}
-              src={logo1}
-              alt="Logo 1"
-            />
+        <LogoGroup>
+          {/* Logo #1 */}
+          <Box sx={{ marginRight: '-32px' }}>
+            <LogoCircle>
+              <BlurredIcon gradientStart="#FEC28E" gradientEnd="#FF007A" />
+              <Box
+                component="img"
+                src={logo1}
+                alt="Logo 1"
+                sx={{
+                  width: 48,
+                  height: 48,
+                  position: 'relative',
+                  zIndex: 1,
+                  // Decrease further if under 300px
+                  '@media (max-width: 300px)': {
+                    width: 32,
+                    height: 32,
+                  },
+                }}
+              />
+            </LogoCircle>
           </Box>
-          <Box
-            sx={{
-              boxSizing: 'border-box',
-              display: 'flex',
-              flexDirection: 'row',
-              alignItems: 'center',
-              justifyContent: 'center',
-              padding: '24px',
-              gap: '10px',
-              width: '96px',
-              height: '96px',
-              background: '#FEFEFE',
-              border: '1px solid #DDDDDD',
-              borderRadius: '50%',
-              position: 'relative',
-              isolation: 'isolate',
-              zIndex: 1,
-              marginLeft: '-32px',
-            }}
-          >
-            <BlurredIcon gradientStart={'#171B70'} gradientEnd={'#171B70'} />
-            <Box
-              component="img"
-              sx={{
-                width: '48px',
-                height: '48px',
-                // borderRadius: '50%',
-                // border: '1px solid #DDDDDD',
-                // background: '#FEFEFE',
-                position: 'relative',
-                zIndex: 2,
-              }}
-              src={logo2}
-              alt="Logo 2"
-            />
+
+          {/* Logo #2 */}
+          <Box sx={{ marginRight: '-32px' }}>
+            <LogoCircle>
+              <BlurredIcon gradientStart="#171B70" gradientEnd="#171B70" />
+              <Box
+                component="img"
+                src={logo2}
+                alt="Logo 2"
+                sx={{
+                  width: 48,
+                  height: 48,
+                  position: 'relative',
+                  zIndex: 1,
+                  '@media (max-width: 300px)': {
+                    width: 32,
+                    height: 32,
+                  },
+                }}
+              />
+            </LogoCircle>
           </Box>
-          <Box
-            sx={{
-              boxSizing: 'border-box',
-              display: 'flex',
-              flexDirection: 'row',
-              alignItems: 'center',
-              justifyContent: 'center',
-              padding: '24px',
-              gap: '10px',
-              width: '96px',
-              height: '96px',
-              background: '#FEFEFE',
-              border: '1px solid #DDDDDD',
-              borderRadius: '50%',
-              position: 'relative',
-              isolation: 'isolate',
-              zIndex: 0,
-              marginLeft: '-32px',
-            }}
-          >
-            <BlurredIcon gradientStart={'#2470FF'} gradientEnd={'#2470FF'} />
-            <Box
-              component="img"
-              sx={{
-                width: '48px',
-                height: '48px',
-                // borderRadius: '50%',
-                // border: '1px solid #DDDDDD',
-                // background: '#FEFEFE',
-                position: 'relative',
-                zIndex: 2,
-              }}
-              src={logo3}
-              alt="Logo 3"
-            />
+
+          {/* Logo #3 */}
+          <Box>
+            <LogoCircle>
+              <BlurredIcon gradientStart="#2470FF" gradientEnd="#2470FF" />
+              <Box
+                component="img"
+                src={logo3}
+                alt="Logo 3"
+                sx={{
+                  width: 48,
+                  height: 48,
+                  position: 'relative',
+                  zIndex: 1,
+                  '@media (max-width: 300px)': {
+                    width: 32,
+                    height: 32,
+                  },
+                }}
+              />
+            </LogoCircle>
           </Box>
-        </AvatarGroup>
-        {/* Badge */}
+        </LogoGroup>
+
+        {/* Step Badge */}
         <Badge>Step 3</Badge>
       </TopSection>
 
@@ -335,8 +333,6 @@ const LeverageInDeFiCard = () => {
           <ExploreButton endIcon={<ArrowDown />}>Explore</ExploreButton>
         </DescriptionButtonRow>
       </Content>
-
-      {/* Button */}
     </StyledCard>
   );
 };

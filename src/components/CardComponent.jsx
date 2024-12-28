@@ -12,6 +12,7 @@ import Grid from '@mui/material/Grid2';
 import Subtract from '../assets/svg/Subtract';
 import Xpoint from '../assets/svg/Xpoint';
 import myImage from '../assets/images/s3-alpha-sig.png';
+import LandingCards from './LandingCards';
 
 // Counter Animation Component
 const AnimatedNumber = ({ value }) => {
@@ -136,40 +137,91 @@ const GradientCard2 = ({ number, description, gradient }) => {
 };
 
 const ResponsiveLayout = () => {
+  const theme = useTheme();
+
+  const isMdUp = useMediaQuery(theme.breakpoints.down('lg')); //1200
+
   return (
     <Box
       sx={{
         backgroundColor: 'transparent',
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'space-around',
-        position: 'relative',
-        // px: { xs: 2, md: 4 },
-        zIndex: 10,
+        // display: 'flex',
+        // alignItems: 'center',
+        // justifyContent: 'space-around',
+        // position: 'relative',
+        // flexDirection: 'column',
+        // gap: 10,
+        // // px: { xs: 2, md: 4 },
+        py: { xs: 2, md: 4 },
+        // zIndex: 10,
       }}
     >
-      <Grid
-        container
-        spacing={6}
-        justifyContent="space-around"
-        alignItems="flex-end"
+      <Box
+        sx={{
+          backgroundColor: 'transparent',
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'space-around',
+          position: 'relative',
+          flexDirection: 'row',
+          // gap: 4,
+          // px: { xs: 2, md: 4 },
+          // py: { xs: 20, md: 4 },
+          zIndex: 10,
+        }}
       >
-        <Grid item xs={12} sm={6} md={3}>
-          <GradientCard1
-            number={8}
-            description="Get yield on your BTC with competitive rates"
-            gradient="linear-gradient(180deg, #FFFFFF 0%, #F0DED7 100%)"
-          />
-        </Grid>
+        <Box
+          sx={{
+            backgroundColor: 'transparent',
+            display: 'flex',
+            alignItems: 'flex-end',
+            justifyContent: 'space-around',
+            position: 'relative',
+            flexDirection: { xs: 'row', sm: 'row', md: 'row' },
+            gap: { xs: 2, md: 4 },
+            // px: { xs: 2, md: 4 },
+            // py: { xs: 20, md: 4 },
+          }}
+          container
+          spacing={6}
+          justifyContent="space-around"
+          alignItems="flex-end"
+        >
+          <Grid item xs={6} sm={6} md={6}>
+            <GradientCard1
+              number={8}
+              description="Get yield on your BTC with competitive rates"
+              gradient="linear-gradient(180deg, #FFFFFF 0%, #F0DED7 100%)"
+            />
+          </Grid>
 
-        <Grid item xs={12} sm={6} md={3}>
-          <GradientCard2
-            number={2}
-            description="Earn xPoints every time you mint xBTC"
-            gradient="linear-gradient(180deg, #FFFFFF 0%, #E1DCEE 100%)"
-          />
-        </Grid>
-      </Grid>
+          <Grid item xs={6} sm={6} md={6}>
+            <GradientCard2
+              number={2}
+              description="Earn xPoints every time you mint xBTC"
+              gradient="linear-gradient(180deg, #FFFFFF 0%, #E1DCEE 100%)"
+            />
+          </Grid>
+        </Box>
+      </Box>
+      {isMdUp && (
+        <Box
+          sx={{
+            backgroundColor: 'transparent',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'space-around',
+            position: 'relative',
+            // flexDirection: 'row',
+            paddingTop: 5,
+            // px: { xs: 2, md: 4 },
+            // py: { xs: 20, md: 4 },
+            zIndex: 10,
+          }}
+        >
+          <LandingCards />
+        </Box>
+      )}
     </Box>
   );
 };
