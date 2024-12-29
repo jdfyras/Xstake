@@ -1,7 +1,10 @@
 import React from 'react';
-import { Box, Typography } from '@mui/material';
+import { Box, useTheme, Typography, useMediaQuery } from '@mui/material';
 
 function ProtocolCard({ title, description, logo }) {
+  const theme = useTheme();
+  const isLarge = useMediaQuery(theme.breakpoints.up('lg'));
+
   return (
     <Box
       sx={{
@@ -114,8 +117,9 @@ function ProtocolCard({ title, description, logo }) {
             flexDirection: 'column',
             alignItems: 'flex-start',
             gap: '16px',
-            width: '322.67px',
-            height: '116px',
+            maxWidth: '322.67px',
+            height: 'auto',
+            // height: '116px',
           }}
         >
           {/* Title */}
@@ -124,7 +128,7 @@ function ProtocolCard({ title, description, logo }) {
               fontFamily: 'Satoshi',
               fontStyle: 'normal',
               fontWeight: 500,
-              fontSize: '31px',
+              fontSize: isLarge ? '31px' : '25px',
               lineHeight: '120%',
               color: '#2D3239',
             }}
@@ -137,7 +141,7 @@ function ProtocolCard({ title, description, logo }) {
               fontFamily: 'Satoshi',
               fontStyle: 'normal',
               fontWeight: 400,
-              fontSize: '16px',
+              fontSize: isLarge ? '16px' : '13px',
               lineHeight: '130%',
               color: '#75797E',
             }}

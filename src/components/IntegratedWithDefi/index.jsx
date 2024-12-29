@@ -1,7 +1,9 @@
 import React from 'react';
-import { Box, Typography, Grow } from '@mui/material';
+import { Box, Typography, Grow, useTheme } from '@mui/material';
 import ProtocolCard from './ProtocolCard.jsx';
-
+import logo1 from '../../assets/images/logo1.png';
+import logo2 from '../../assets/images/logo2.png';
+import logo3 from '../../assets/images/logo3.png';
 /**
  * Example protocol data
  * Update these logos with real file paths or URLs in your project.
@@ -11,23 +13,25 @@ const protocols = [
     title: 'Uniswap',
     description:
       'Swap tokens seamlessly, provide liquidity, and earn fees on the leading decentralized trading platform.',
-    logo: 'uniswap.png',
+    logo: logo1,
   },
   {
     title: 'Morpho',
     description:
       'Enhance lending efficiency by connecting borrowers and lenders for better rates on decentralized finance platforms.',
-    logo: 'morpho.png',
+    logo: logo2,
   },
   {
     title: 'Eigenlayer',
     description:
       'Maximize Ethereum security by restaking your assets to support multiple networks and earn additional rewards.',
-    logo: 'eigenlayer.png',
+    logo: logo3,
   },
 ];
 
 function IntegratedWithDefi() {
+  const theme = useTheme();
+
   return (
     <Box
       /* Parent container: "How it works" / "Integrated with the Best of DeFi" */
@@ -36,9 +40,8 @@ function IntegratedWithDefi() {
         flexDirection: 'column',
         justifyContent: 'center',
         alignItems: 'center',
-        padding: 0,
-        gap: '40px',
-        // margin: '10% 10%',
+        // padding: '6%',
+        margin: '20px auto',
         width: '100%',
 
         flex: 'none',
@@ -46,6 +49,17 @@ function IntegratedWithDefi() {
         alignSelf: 'stretch',
         flexGrow: 0,
         zIndex: 15,
+        // We'll manage widths and heights with breakpoints:
+        // The gap for the "How it works" section:
+        gap: theme.spacing(5),
+        // For smaller screens (around 375px)
+        [theme.breakpoints.down('sm')]: {
+          gap: theme.spacing(5),
+        },
+        // For large screens (1224px design)
+        [theme.breakpoints.up('lg')]: {
+          maxWidth: 1300,
+        },
         // margin: '0 auto',
       }}
     >
@@ -76,19 +90,19 @@ function IntegratedWithDefi() {
              but we enable horizontal scrolling if more cards than fit. */
           display: 'flex',
           flexDirection: 'row',
-          //   alignItems: 'flex-start',
-          padding: '2% 0%',
+          // alignItems: 'flex-start',
+          padding: '4% 4%',
           gap: '32px',
-          //   width: '100%',
-          //   height: '200%',
+          width: '100%',
+          height: 'auto',
           flex: 'none',
           order: 1,
           //   alignSelf: 'stretch',
           flexGrow: 0,
 
           /* Enable horizontal scroll */
-          overflowX: 'auto',
-          scrollSnapType: 'x proximity',
+          overflowY: 'auto',
+          scrollSnapType: 'y proximity',
           '&::-webkit-scrollbar': {
             display: 'none', // hide scrollbar if desired
           },

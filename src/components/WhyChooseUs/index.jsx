@@ -1,34 +1,38 @@
 import React from 'react';
 import { Box, Container, Grid, Typography, Stack } from '@mui/material';
-import LiquidityIcon from '@mui/icons-material/AttachMoney';
-import LeverageIcon from '@mui/icons-material/TrendingUp';
-import SecurityIcon from '@mui/icons-material/Security';
-import TransparencyIcon from '@mui/icons-material/Visibility';
+// import LiquidityIcon from '@mui/icons-material/AttachMoney';
+// import LeverageIcon from '@mui/icons-material/TrendingUp';
+// import SecurityIcon from '@mui/icons-material/Security';
+// import TransparencyIcon from '@mui/icons-material/Visibility';
 import LiquidityCard from './LiquidityCard';
+import LiquidityIcon from '../../assets/svg/LiquidityIcon';
+import LeverageIcon from '../../assets/svg/LeverageIcon';
+import SecurityIcon from '../../assets/svg/SecurityIcon';
+import TransparencyIcon from '../../assets/svg/TransparencyIcon';
 
 const WhyChooseUs = () => {
   const features = [
     {
       title: 'Liquidity',
       description: 'Stay liquid and flexible while earning native rewards.',
-      icon: <LiquidityIcon fontSize="large" />,
+      icon: <LiquidityIcon />,
     },
     {
       title: 'Leverage',
       description:
         'Deposit, collateralize, and provide liquidity effortlessly.',
-      icon: <LeverageIcon fontSize="large" />,
+      icon: <LeverageIcon />,
     },
     {
       title: 'Security',
       description:
         'Built on secure, decentralized infrastructure to protect your assets.',
-      icon: <SecurityIcon fontSize="large" />,
+      icon: <SecurityIcon />,
     },
     {
       title: 'Transparency',
       description: 'Track your native rewards and performance in real-time.',
-      icon: <TransparencyIcon fontSize="large" />,
+      icon: <TransparencyIcon />,
     },
   ];
 

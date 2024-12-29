@@ -1,9 +1,36 @@
 import React from 'react';
-import { Box, Typography, Link } from '@mui/material';
+import {
+  Box,
+  Typography,
+  Link,
+  useTheme,
+  useMediaQuery,
+  Stack,
+} from '@mui/material';
 // import your social icons, brand LogoWhite, etc.
 import LogoWhite from '../assets/svg/LogoWhite.jsx';
-
+import DiscordIcon from '../assets/svg/DiscordIcon.jsx';
+import TwitterIcon from '../assets/svg/Twittericon.jsx';
+import YoutubeIcon from '../assets/svg/YoutubeIcon.jsx';
+const contacts = [
+  {
+    title: 'Discord',
+    Logo: DiscordIcon,
+  },
+  {
+    title: 'X',
+    Logo: TwitterIcon,
+  },
+  {
+    title: 'Youtube',
+    Logo: YoutubeIcon,
+  },
+];
 export default function Footer() {
+  const theme = useTheme();
+  const isMdDown = useMediaQuery(theme.breakpoints.down('md'));
+  const isSmDown = useMediaQuery(theme.breakpoints.down('sm'));
+
   return (
     <Box
       component="footer"
@@ -17,21 +44,26 @@ export default function Footer() {
         // width: '1224px',
         // height: '260.97px',  // often let height be auto
         // margin: 'auto 10%', // center horizontally
-        padding: '6% 6%', // center horizontally
+        padding: isSmDown
+          ? '40px 16px 32px 16px'
+          : isMdDown
+            ? '48px 64px 40px 64px'
+            : '48px 108px 40px 108px', // center horizontally
         backgroundColor: '#181928', // if you want black background
         zIndex: 18,
+        color: '#75797E', // Text color
       }}
     >
       {/* Top row: brand on the left, nav links in the middle, social links on the right */}
       <Box
         sx={{
           display: 'flex',
-          flexDirection: 'row',
-          justifyContent: 'space-between',
-          alignItems: 'flex-start',
-          width: '1224px',
-          // height: '99.97px',
-          gap: '10px',
+          flexDirection: isSmDown ? 'column' : 'row',
+          justifyContent: !isSmDown && 'space-between',
+          alignItems: !isSmDown && 'flex-start',
+          width: !isSmDown && '100%',
+          // height:!isSmDown&& '99.97px',
+          gap: '24px',
         }}
       >
         {/* Left content (logo/brand + maybe tagline) */}
@@ -52,48 +84,61 @@ export default function Footer() {
           </Typography> */}
           <LogoWhite />
           {/* Sub-navigation (Ecosystem / Network … ) */}
-          <Box sx={{ display: 'flex', flexDirection: 'row', gap: '24px' }}>
-            <Box sx={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
-              <Typography
-                sx={{
-                  fontFamily: 'Satoshi',
-                  fontSize: '13px',
-                  color: '#75797E',
-                }}
+          {isSmDown ? (
+            <Stack sx={{ width: '100%', gap: '16px' }}>
+              <Typography variant="body2">Ecosystem</Typography>
+              <Typography variant="body2">Network</Typography>
+              <Typography variant="body2">Documentations</Typography>
+              <Typography variant="body2">Community</Typography>
+            </Stack>
+          ) : (
+            <Box sx={{ display: 'flex', flexDirection: 'row', gap: '24px' }}>
+              <Box
+                sx={{ display: 'flex', flexDirection: 'column', gap: '8px' }}
               >
-                Ecosystem
-              </Typography>
-              <Typography
-                sx={{
-                  fontFamily: 'Satoshi',
-                  fontSize: '13px',
-                  color: '#75797E',
-                }}
+                <Typography
+                  sx={{
+                    fontFamily: 'Satoshi',
+                    fontSize: '13px',
+                    color: '#75797E',
+                  }}
+                >
+                  Ecosystem
+                </Typography>
+                <Typography
+                  sx={{
+                    fontFamily: 'Satoshi',
+                    fontSize: '13px',
+                    color: '#75797E',
+                  }}
+                >
+                  Network
+                </Typography>
+              </Box>
+              <Box
+                sx={{ display: 'flex', flexDirection: 'column', gap: '8px' }}
               >
-                Network
-              </Typography>
+                <Typography
+                  sx={{
+                    fontFamily: 'Satoshi',
+                    fontSize: '13px',
+                    color: '#75797E',
+                  }}
+                >
+                  Documentations
+                </Typography>
+                <Typography
+                  sx={{
+                    fontFamily: 'Satoshi',
+                    fontSize: '13px',
+                    color: '#75797E',
+                  }}
+                >
+                  Community
+                </Typography>
+              </Box>
             </Box>
-            <Box sx={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
-              <Typography
-                sx={{
-                  fontFamily: 'Satoshi',
-                  fontSize: '13px',
-                  color: '#75797E',
-                }}
-              >
-                Documentations
-              </Typography>
-              <Typography
-                sx={{
-                  fontFamily: 'Satoshi',
-                  fontSize: '13px',
-                  color: '#75797E',
-                }}
-              >
-                Community
-              </Typography>
-            </Box>
-          </Box>
+          )}
         </Box>
 
         {/* Right content (heading + social icons) */}
@@ -101,8 +146,8 @@ export default function Footer() {
           sx={{
             display: 'flex',
             flexDirection: 'column',
-            alignItems: 'flex-end',
-            gap: '8px',
+            alignItems: !isSmDown ? 'flex-end' : 'flex-start',
+            gap: '16px',
             margin: '0 0 0 auto', // push right
           }}
         >
@@ -125,7 +170,7 @@ export default function Footer() {
             }}
           >
             {/* Example of 3 circular icons */}
-            {[1, 2, 3].map((_, i) => (
+            {contacts.map((_, i) => (
               <Box
                 key={i}
                 sx={{
@@ -140,25 +185,48 @@ export default function Footer() {
                   cursor: 'pointer',
                 }}
               >
+                <Box
+                  sx={{
+                    position: 'absolute',
+                    width: '20px',
+                    height: '20px',
+                    background:
+                      'linear-gradient(180deg, #FEC28E 0%, #FFD37A 100%)',
+                    filter: 'blur(8px)',
+                    opacity: 0.5,
+                    borderRadius: '50%',
+                  }}
+                />
+                <_.Logo />
                 {/* replace with actual <Icon/> or <img/> */}
-                <Typography sx={{ color: '#FEFEFE', opacity: 0.8 }}>
+                {/* <Typography sx={{ color: '#FEFEFE', opacity: 0.8 }}>
                   Icon
-                </Typography>
+                </Typography> */}
               </Box>
             ))}
           </Box>
         </Box>
       </Box>
-
+      <Box
+        sx={{
+          // border: '1px solid #64656F',
+          // transform: 'rotate(90deg)',
+          width: '100%',
+          height: '1px',
+          alignSelf: 'center',
+          background: '#75797E',
+        }}
+      />
       {/* Bottom row: copyright on the left, Terms/Privacy on the right */}
       <Box
         sx={{
           display: 'flex',
-          flexDirection: 'row',
+          flexDirection: isSmDown ? 'column' : 'row',
           justifyContent: 'space-between',
-          alignItems: 'center',
-          paddingTop: '24px',
-          width: '1224px',
+          alignItems: !isSmDown ? 'center' : 'left',
+          // paddingTop: '24px',
+          width: '100%',
+          gap: '16px',
         }}
       >
         <Typography
@@ -184,10 +252,12 @@ export default function Footer() {
           {/* Divider line */}
           <Box
             sx={{
-              border: '1px solid #64656F',
-              transform: 'rotate(90deg)',
-              height: '0px',
+              // border: '1px solid #64656F',
+              // transform: 'rotate(90deg)',
+              width: '1px',
+              height: '16px',
               alignSelf: 'center',
+              background: '#75797E',
             }}
           />
           <Typography

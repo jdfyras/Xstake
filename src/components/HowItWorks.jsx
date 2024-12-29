@@ -47,7 +47,7 @@ const Container = styled(Box)(({ theme }) => ({
   [theme.breakpoints.up('lg')]: {
     maxWidth: 1224,
   },
-  margin: '0 auto', // center content
+  margin: '20px auto',
 }));
 
 // The big heading
@@ -84,10 +84,12 @@ const ItemsContainer = styled(Box)(({ theme }) => ({
   [theme.breakpoints.down('sm')]: {
     // 375 design
     maxWidth: 343,
+    width: 'auto', // fill container
   },
   [theme.breakpoints.between('sm', 'lg')]: {
     // 616 design
     maxWidth: 616,
+    width: 'auto', // fill container
   },
   [theme.breakpoints.up('lg')]: {
     // 1224 design

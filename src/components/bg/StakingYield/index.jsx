@@ -17,6 +17,7 @@ import {
   ResponsiveContainer,
 } from 'recharts';
 import StakeInput from './StakeInput'; // Import your StakeInput component
+import Xicon from '../../../assets/svg/Xicon';
 
 const StakingComponent = () => {
   const [bitcoin, setBitcoin] = useState(2);
@@ -65,8 +66,8 @@ const StakingComponent = () => {
 
           textAlign: 'center',
           mb: 4,
-          [theme.breakpoints.down('md')]: { fontSize: '48px' },
-          [theme.breakpoints.down('sm')]: { fontSize: '32px' },
+          [theme.breakpoints.down('md')]: { fontSize: '49px' },
+          // [theme.breakpoints.down('sm')]: { fontSize: '32px' },
         }}
       >
         Estimate Your Bitcoin Staking Yield
@@ -89,7 +90,6 @@ const StakingComponent = () => {
               yieldRate={yieldRate}
               setYieldRate={setYieldRate}
             />
-
             {/* Yield and Chart Section */}
             <Box
               sx={{
@@ -224,11 +224,8 @@ const StakingComponent = () => {
                 </ResponsiveContainer>
               </Box>
             </Box>
-          </Box>
-        </Grid>
-
-        {/* Button Section */}
-        <Grid item xs={12} sm={10} lg={8}>
+            {/* Button Section */}
+            {/* <Grid item xs={12} sm={10} lg={8}>
           <Button
             fullWidth
             variant="contained"
@@ -248,6 +245,66 @@ const StakingComponent = () => {
           >
             Start Staking
           </Button>
+        </Grid> */}
+            <Grid item>
+              <Box
+                onClick={() => alert('Connect Wallet')}
+                fullWidth
+                variant="contained"
+                sx={{
+                  mt: 4,
+                  py: 2,
+                  borderRadius: 100,
+                  fontSize: 25,
+                  fontWeight: 600,
+                  display: 'flex',
+                  flexDirection: 'row',
+                  justifyContent: 'center',
+                  alignItems: 'center',
+                  // p: '16px 32px',
+                  gap: '16px',
+                  // width: 210, // { xs: 'auto', sm: '206px' },
+                  // height: 74, //{ xs: 'auto', sm: '72px' },
+                  background: '#161724',
+                  cursor: 'pointer',
+
+                  '&:hover': {
+                    backgroundColor: '#2D3239',
+                    borderColor: '#AAAAAA',
+                  },
+                }}
+              >
+                <Typography
+                  sx={{
+                    fontFamily: 'Satoshi, sans-serif',
+                    fontWeight: 500,
+                    fontSize: 25,
+                    lineHeight: '120%',
+                    color: '#FEFEFE',
+                    whiteSpace: 'nowrap',
+                    overflow: 'hidden',
+                  }}
+                >
+                  Connect Wallet
+                </Typography>
+
+                {/* Mini circle with an icon (could be CloseIcon or anything) */}
+                <Box
+                  sx={{
+                    display: 'flex',
+                    alignItems: 'center',
+                    p: 1,
+                    border: '1px solid #FEFEFE',
+                    borderRadius: 360,
+                    width: 40,
+                    height: 40,
+                  }}
+                >
+                  <Xicon sx={{ color: '#FEFEFE', width: 40, height: 40 }} />
+                </Box>
+              </Box>
+            </Grid>
+          </Box>
         </Grid>
       </Grid>
     </Box>

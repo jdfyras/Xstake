@@ -79,7 +79,7 @@ const LiquidityCard = ({ feature }) => {
             width: '40px',
             height: '40px',
             background: 'linear-gradient(180deg, #FEC28E 0%, #FFD37A 100%)',
-            filter: 'blur(8px)',
+            filter: 'blur(10px)',
             opacity: 0.3,
             borderRadius: '50%',
           }}

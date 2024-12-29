@@ -1,39 +1,52 @@
 import React from 'react';
-import { Box, Typography, Button } from '@mui/material';
+import {
+  Box,
+  Typography,
+  Button,
+  useTheme,
+  useMediaQuery,
+} from '@mui/material';
 import FullPotentialIcon from '../../assets/svg/FullPotentialIcon';
 
 export default function CtaHero() {
+  const theme = useTheme();
+  const isLarge = useMediaQuery(theme.breakpoints.up('lg'));
+
   return (
     <Box
       sx={{
         // The outer container
         boxSizing: 'border-box',
         display: 'flex',
-        flexDirection: 'row',
-        alignItems: 'center',
+        flexDirection: { xs: 'column', sm: 'row' }, // Stack content on small screens
+        alignItems: { xs: 'flex-start', sm: 'center' },
         margin: '10% 0%',
         width: '100%',
-        padding: '64px',
+        padding: { xs: '32px', sm: '32px', md: '48px', lg: '64px' },
+        pb: { xs: '221px', sm: '221px', md: '236px', lg: '64px' },
+        px: { xs: '32px', sm: '32px', md: '48px', lg: '64px' },
         gap: '12px',
-        isolation: 'isolate', // Ensures child z-index stacking is isolated
+        isolation: 'isolate',
         background: '#181928',
         border: '1px solid rgba(167, 167, 167, 0.2)',
         borderRadius: '32px',
-        position: 'relative', // Needed for absolutely positioning the SVG
-        overflow: 'hidden', // Optionally hide anything that bleeds outside
+        position: 'relative',
+        overflow: 'hidden',
       }}
     >
       {/* Background Icon Container */}
       <Box
         sx={{
           position: 'absolute',
-          top: '-60px', // Adjust these to reposition the SVG
-          right: '-250px',
-          zIndex: 1, // Behind the text
+          top: { xs: '50%', sm: '50%', md: '46%', lg: '-60px' },
+          right: { xs: '-35%', sm: '-10%', md: '7%', lg: '-250px' },
+          zIndex: 1,
+          // width: 20,
         }}
       >
         <FullPotentialIcon
-        // width="550px" height="auto"
+        // width={{ xs: '-80%', sm: '-30%', md: '-15%', lg: '-250px' }} //{!isLarge && '100%'}
+        // Adjust width/height as needed for responsiveness
         />
       </Box>
 
@@ -42,12 +55,17 @@ export default function CtaHero() {
         sx={{
           display: 'flex',
           flexDirection: 'column',
-          alignItems: 'flex-start',
+          alignItems: {
+            xs: 'center',
+            sm: 'center',
+            md: 'center',
+            lg: 'flex-start',
+          }, // { xs: 'center', sm: 'flex-start' },
+          textAlign: { xs: 'center', sm: 'center', md: 'center', lg: 'left' }, // { xs: 'center', sm: 'left' },
           padding: '0px',
           gap: '24px',
-          width: '768px',
-          height: '290px',
-          position: 'relative', // Make sure this content is on top
+          width: { xs: '100%', sm: '100%', md: '100%', lg: '70%' },
+          position: 'relative',
           zIndex: 2,
         }}
       >
@@ -56,7 +74,7 @@ export default function CtaHero() {
           sx={{
             fontFamily: 'Satoshi, sans-serif',
             fontWeight: 500,
-            fontSize: '61px',
+            fontSize: { xs: '32px', sm: '61px' },
             lineHeight: '120%',
             color: '#FEFEFE',
           }}
@@ -69,7 +87,7 @@ export default function CtaHero() {
           sx={{
             fontFamily: 'Satoshi, sans-serif',
             fontWeight: 400,
-            fontSize: '20px',
+            fontSize: { xs: '16px', sm: '20px' },
             lineHeight: '120%',
             color: '#DDDDDD',
           }}
@@ -82,21 +100,24 @@ export default function CtaHero() {
         <Box
           sx={{
             display: 'flex',
-            flexDirection: 'row',
-            gap: '24px',
+            flexDirection: { xs: 'column', sm: 'row' },
+            gap: '16px',
+            alignItems: { xs: 'center', sm: 'flex-start' },
+            width: { xs: '100%', sm: 'auto' },
           }}
         >
           {/* Launch App Button */}
           <Button
             variant="contained"
             sx={{
-              padding: '24px 32px',
+              width: { xs: '100%', sm: 'auto' },
+              padding: '16px 24px',
               borderRadius: '100px',
               backgroundColor: '#EFEDFD',
               color: '#4D4B66',
               fontFamily: 'Satoshi, sans-serif',
               fontWeight: 500,
-              fontSize: '20px',
+              fontSize: '16px',
               textTransform: 'none',
               '&:hover': {
                 backgroundColor: '#EFEDFD',
@@ -110,14 +131,15 @@ export default function CtaHero() {
           <Button
             variant="contained"
             sx={{
-              padding: '24px 32px',
+              width: { xs: '100%', sm: 'auto' },
+              padding: '16px 24px',
               borderRadius: '100px',
-              backgroundColor: '#161724',
+              backgroundColor: 'transparent',
               color: '#FEFEFE',
               border: '1px solid #EFEDFD',
               fontFamily: 'Satoshi, sans-serif',
               fontWeight: 500,
-              fontSize: '20px',
+              fontSize: '16px',
               textTransform: 'none',
               '&:hover': {
                 backgroundColor: '#161724',

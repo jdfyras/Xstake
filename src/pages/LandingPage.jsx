@@ -34,8 +34,8 @@ const LandingPage = () => {
         sx={{
           width: '100%',
           padding: '6% 6% 0% 6%',
-          borderRadius: '0px 0px 32px 32px',
-          border: '0px 1px solid #DDDDDD',
+          // borderRadius: '0px 0px 32px 32px',
+          // border: '0px 1px solid #DDDDDD',
           backgroundColor: '#F7F7F7',
           // gap: 10,
         }}

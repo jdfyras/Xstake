@@ -16,6 +16,7 @@ import UseInDefi from './UseInDefi';
 import HoverPin from './HoverPin';
 import StakedBitcoinIllustration from './StakedBitcoinIllustration';
 import LandingCards from './LandingCards';
+import Xicon from '../assets/svg/Xicon';
 
 /** 1) Migrate the "steps" array from ProgressComponent */
 const steps = [
@@ -42,6 +43,7 @@ const steps = [
 export default function HeroSection() {
   const theme = useTheme();
   // const isMdUp = useMediaQuery(theme.breakpoints.up('md'));
+  const isSmDown = useMediaQuery(theme.breakpoints.down('sm'));
   const isMdUp = useMediaQuery(theme.breakpoints.down('lg')); //1200
   console.log('🚀 ~ file: Hero.jsx:44 ~ HeroSection ~ isMdUp:', isMdUp);
 
@@ -68,7 +70,8 @@ export default function HeroSection() {
         // minHeight: '100vh',
         backgroundColor: 'transparent', // Set the background to transparent
         zIndex: 5,
-        p: 15,
+        pt: 15,
+        p: { md: 15 },
         // overflow: 'hidden',
       }}
     >
@@ -102,11 +105,7 @@ export default function HeroSection() {
           flexDirection: { xs: 'column', lg: 'row' },
           justifyContent: 'space-around',
           alignItems: 'flex-start',
-          // maxWidth: 1225,
           width: '100%',
-          // margin: '0 auto',
-          // mt: { xs: 4, md: 8 },
-          // px: { xs: 2, md: 0 },
           gap: 4,
           isolation: 'isolate',
         }}
@@ -117,8 +116,6 @@ export default function HeroSection() {
         <Stack
           spacing={3} // vertical gap
           sx={{
-            width: { xs: '100%', md: '654.64px' },
-            minHeight: 336,
             zIndex: 1,
           }}
         >
@@ -131,13 +128,14 @@ export default function HeroSection() {
                 fontStyle: 'normal',
                 fontWeight: 500,
                 // Scale from ~32px to 76px
-                fontSize: { xs: '2rem', sm: '3rem', md: '4.75rem' },
-                lineHeight: 1.2,
+                fontSize: !isSmDown ? 76 : 61,
+                lineHeight: '120%',
                 color: '#2D3239',
               }}
             >
               Stake Your Bitcoin,
             </Typography>
+            {/* <Button5K /> */}
 
             {/* Row with badge (+5k users) and "Unlock DeFi" */}
             <Box
@@ -146,71 +144,33 @@ export default function HeroSection() {
                 flexDirection: { xs: 'column', sm: 'row' },
                 justifyContent: 'space-between',
                 alignItems: 'center',
-                gap: 2,
+                gap: '14px',
+                padding: 0,
+                position: 'relative',
+
                 width: '100%',
               }}
             >
               {/* Gradient badge */}
-              <Box
-                sx={{
-                  display: 'flex',
-                  flexDirection: 'row',
-                  alignItems: 'center',
-                  justifyContent: 'space-between',
-                  p: '16px 24px',
-                  background:
-                    'linear-gradient(90deg, #FFFFFF 0%, #E1DCEE 100%)',
-                  borderRadius: '16px',
-                }}
-              >
-                {/* "+5k users" text */}
-                <Typography
-                  sx={{
-                    fontFamily: 'Satoshi, sans-serif',
-                    fontWeight: 400,
-                    fontSize: { xs: '1.25rem', sm: '1.5rem', md: '1.56rem' },
-                    lineHeight: '120%',
-                    color: '#75797E',
-                    whiteSpace: 'nowrap',
-                    overflow: 'hidden',
-                    mr: 2,
-                  }}
-                >
-                  +5k users
-                </Typography>
-
-                {/* Circle with Person icon */}
-                <Box
-                  sx={{
-                    width: 32,
-                    height: 32,
-                    border: '1px solid #75797E',
-                    borderRadius: '50%',
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                  }}
-                >
-                  <PersonIcon
-                    sx={{ color: '#75797E', width: 24, height: 24 }}
-                  />
-                </Box>
-              </Box>
-
+              {!isSmDown && <Button5K />}
               {/* "Unlock DeFi" big text */}
               <Typography
                 sx={{
                   fontFamily: 'Satoshi, sans-serif',
                   fontWeight: 500,
-                  fontSize: { xs: '2rem', sm: '3rem', md: '4.75rem' },
-                  lineHeight: 1.2,
+                  fontStyle: 'normal',
+
+                  fontSize: !isSmDown ? 76 : 61,
+                  lineHeight: '120%',
                   color: '#2D3239',
-                  textAlign: { xs: 'left', sm: 'right' },
+                  margin: '0 auto',
                   width: '100%',
+                  textAlign: { xs: 'left', sm: 'right' },
                 }}
               >
                 Unlock DeFi
               </Typography>
+              {isSmDown && <Button5K />}
             </Box>
           </Stack>
 
@@ -237,8 +197,8 @@ export default function HeroSection() {
               alignItems: 'center',
               p: '16px 32px',
               gap: '16px',
-              width: { xs: 'auto', sm: '206px' },
-              height: { xs: 'auto', sm: '72px' },
+              width: 210, // { xs: 'auto', sm: '206px' },
+              height: 74, //{ xs: 'auto', sm: '72px' },
               background: '#161724',
               cursor: 'pointer',
 
@@ -273,7 +233,7 @@ export default function HeroSection() {
                 borderRadius: '50%',
               }}
             >
-              <CloseIcon sx={{ color: '#FEFEFE', width: 24, height: 24 }} />
+              <Xicon sx={{ color: '#FEFEFE', width: 24, height: 24 }} />
             </Box>
           </Box>
         </Stack>
@@ -282,7 +242,7 @@ export default function HeroSection() {
          * 4) RIGHT CONTENT (REPLACING the static example)
          *    We bring in the dynamic stepper from ProgressComponent.
          */}
-        {!isMdUp && (
+        {!isSmDown && (
           <Box
             sx={{
               position: 'relative',
@@ -448,6 +408,75 @@ export default function HeroSection() {
             </motion.div>
           </Box>
         )}
+      </Box>
+    </Box>
+  );
+}
+function Button5K() {
+  const theme = useTheme();
+  // const isMdUp = useMediaQuery(theme.breakpoints.up('md'));
+  const isSmDown = useMediaQuery(theme.breakpoints.down('sm'));
+  const isMdUp = useMediaQuery(theme.breakpoints.down('lg')); //1200
+  console.log('🚀 ~ file: Hero.jsx:44 ~ HeroSection ~ isMdUp:', isMdUp);
+
+  const isSmallScreen = useMediaQuery(theme.breakpoints.down('sm'));
+  console.log(
+    '🚀 ~ file: Hero.jsx:45 ~ HeroSection ~ isSmallScreen:',
+    isSmallScreen
+  );
+
+  /** 2) Add local state for activeStep (from ProgressComponent) */
+  const [activeStep, setActiveStep] = useState(0);
+  const [prevStep, setPrevStep] = useState(0);
+
+  const handleStepChange = (newStep) => {
+    setPrevStep(activeStep);
+    setActiveStep(newStep);
+  };
+  return (
+    <Box
+      sx={{
+        display: 'flex',
+        flexDirection: 'row',
+        alignItems: 'center',
+        justifyContent: 'space-between',
+        p: !isSmDown ? '16px 24px' : '10px',
+        background: 'linear-gradient(90deg, #FFFFFF 0%, #E1DCEE 100%)',
+        borderRadius: !isSmDown ? '16px' : '10px',
+        left: isSmDown && '207px',
+        top: isSmDown && '-87px',
+        position: isSmDown && 'absolute',
+      }}
+    >
+      {/* "+5k users" text */}
+      <Typography
+        sx={{
+          fontFamily: 'Satoshi, sans-serif',
+          fontWeight: 400,
+          fontSize: { xs: '1.25rem', sm: '1.5rem', md: '1.56rem' },
+          lineHeight: '120%',
+          color: '#75797E',
+          whiteSpace: 'nowrap',
+          overflow: 'hidden',
+          mr: 2,
+        }}
+      >
+        +5k users
+      </Typography>
+
+      {/* Circle with Person icon */}
+      <Box
+        sx={{
+          width: 32,
+          height: 32,
+          border: '1px solid #75797E',
+          borderRadius: '50%',
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+        }}
+      >
+        <PersonIcon sx={{ color: '#75797E', width: 24, height: 24 }} />
       </Box>
     </Box>
   );
