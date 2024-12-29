@@ -10,7 +10,7 @@ import {
 // import your social icons, brand LogoWhite, etc.
 import LogoWhite from '../assets/svg/LogoWhite.jsx';
 import DiscordIcon from '../assets/svg/DiscordIcon.jsx';
-import TwitterIcon from '../assets/svg/Twittericon.jsx';
+import TwitterIcon from '../assets/svg/TwitterIcon.jsx';
 import YoutubeIcon from '../assets/svg/YoutubeIcon.jsx';
 const contacts = [
   {
