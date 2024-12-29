@@ -1,0 +1,250 @@
+.diagram-container {
+  /* The main dashed box */
+  box-sizing: border-box;
+  position: relative;
+  width: 601px;
+  height: 956px;
+  border: 1px dashed #9747ff;
+  border-radius: 5px;
+}
+
+/* Active=1 container */
+.active-1 {
+  position: absolute;
+  width: 561px;
+  height: 292px;
+  left: 20px;
+  top: 20px;
+  /* your snippet calls this "Active=1" */
+}
+
+/* Active=2 container */
+.active-2 {
+  position: absolute;
+  width: 561px;
+  height: 292px;
+  left: 20px;
+  top: 332px;
+}
+
+/* Active=3 container */
+.active-3 {
+  position: absolute;
+  width: 561px;
+  height: 292px;
+  left: 20px;
+  top: 644px;
+}
+
+/* Titles: Deposit Bitcoin / Get xBTC / Use in Defi */
+.title-deposit-bitcoin {
+  position: absolute;
+  width: 137px;
+  height: 24px;
+  left: 19px;
+  top: 10px;
+  font-family: 'Satoshi';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 120%;
+  color: #2d3239;
+}
+.title-get-xbtc {
+  position: absolute;
+  width: 86px;
+  height: 24px;
+  left: 238px;
+  top: 10px;
+  font-family: 'Satoshi';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 120%;
+  text-align: center;
+  color: #2d3239;
+}
+.title-use-defi {
+  position: absolute;
+  width: 98px;
+  height: 24px;
+  left: 436px;
+  top: 10px;
+  font-family: 'Satoshi';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 120%;
+  text-align: right;
+  color: #2d3239;
+}
+
+/* Dashed line (Vector 3) */
+.line-3 {
+  position: absolute;
+  width: 488px;
+  height: 0px;
+  left: 36px;
+  top: 98px;
+  border-top: 1px dashed #dddddd;
+}
+
+/* Pins */
+.pin {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+}
+.pin-1 {
+  left: 33px;
+  top: 83px;
+}
+.pin-2 {
+  left: 266px;
+  top: 83px;
+}
+.pin-3 {
+  left: 498px;
+  top: 83px;
+}
+
+/* Ellipse 10 & 11 inside each pin */
+.ellipse-10 {
+  box-sizing: border-box;
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  left: 0px;
+  top: 0px;
+  background: #ffffff;
+  border: 1px solid #dddddd;
+  border-radius: 100%;
+}
+.ellipse-11 {
+  box-sizing: border-box;
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  left: 10px;
+  top: 10px;
+  background: #dddddd;
+  border: 1px solid #dddddd;
+  border-radius: 100%;
+}
+
+/* Group 11, 10, Union, etc. for each card */
+.group-11 {
+  position: absolute;
+  width: 239px;
+  height: 234px;
+  left: 9px;
+  top: 58px;
+}
+.group-11.second {
+  left: 159px; /* from snippet Active=2 */
+}
+.group-11.third {
+  left: 314px; /* from snippet Active=3 */
+}
+
+.group-10 {
+  position: absolute;
+  width: 239px;
+  height: 234px;
+  left: 0px; /* same as .group-11 */
+  top: 0px;
+  filter: drop-shadow(0px 4px 64px rgba(16, 24, 40, 0.12));
+}
+.union {
+  position: absolute;
+  width: 239px;
+  height: 234px;
+  left: 0px;
+  top: 0px;
+  background: #ffffff;
+  border-radius: 24px;
+}
+.rectangle-15 {
+  position: absolute;
+  width: 239px;
+  height: 154px;
+  left: 0px;
+  top: 138px;
+  background: #ffffff;
+}
+.rectangle-16 {
+  position: absolute;
+  width: 80px;
+  height: 154px;
+  left: 80px; /* snippet’s “left: 237px” for step 2, etc. Adjust as needed. */
+  top: 58px;
+  background: #ffffff;
+}
+
+/* Example content inside the card */
+.content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 24px;
+  position: absolute;
+  width: 215px;
+  height: 120px;
+  left: 21px;
+  top: 150px;
+}
+
+/* Text inside content */
+.text-body {
+  width: 215px;
+  font-family: 'Satoshi';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 13px;
+  line-height: 130%;
+  color: #75797e;
+}
+
+/* Example for second card’s content */
+.content-2 {
+  position: absolute;
+  width: 215px;
+  height: 120px;
+  left: calc(50% - 215px / 2 + 0.33px);
+  top: 81px;
+  text-align: center;
+}
+.text-body-2 {
+  font-family: 'Satoshi';
+  font-size: 13px;
+  line-height: 130%;
+  color: #75797e;
+}
+
+/* Example for third card’s content */
+.content-3 {
+  position: absolute;
+  width: 215px;
+  height: 120px;
+  left: 326px;
+  top: 150px;
+  text-align: right;
+}
+.text-body-3 {
+  font-family: 'Satoshi';
+  font-size: 13px;
+  line-height: 130%;
+  color: #75797e;
+}
+
+/* The group-5 or illustration placeholders for your custom BTC icon / xBTC icon, etc. */
+.group-5 {
+  position: absolute;
+  width: 64px;
+  height: 64px;
+  left: 17px;
+  top: 66px;
+  /* you can add drop-shadows, gradients, etc. if desired */
+}
+
+/* Adjust as needed for your new SVG usage. */
