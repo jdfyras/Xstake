@@ -139,7 +139,7 @@ const GradientCard2 = ({ number, description, gradient }) => {
 const ResponsiveLayout = () => {
   const theme = useTheme();
 
-  const isMdUp = useMediaQuery(theme.breakpoints.down('lg')); //1200
+  const isMdUp = useMediaQuery(theme.breakpoints.up('sm')); //1200
 
   return (
     <Box
@@ -204,7 +204,7 @@ const ResponsiveLayout = () => {
           </Grid>
         </Box>
       </Box>
-      {isMdUp && (
+      {!isMdUp && (
         <Box
           sx={{
             backgroundColor: 'transparent',

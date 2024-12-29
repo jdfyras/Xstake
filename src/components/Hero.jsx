@@ -166,6 +166,7 @@ export default function HeroSection() {
                   margin: '0 auto',
                   width: '100%',
                   textAlign: { xs: 'left', sm: 'right' },
+                  whiteSpace: 'nowrap',
                 }}
               >
                 Unlock DeFi
@@ -248,6 +249,7 @@ export default function HeroSection() {
               position: 'relative',
               width: { xs: '100%', lg: '561px' },
               mt: { xs: 4, lg: 0 },
+              mb: { xs: 20, lg: 0 },
               zIndex: 2,
             }}
           >
