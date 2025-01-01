@@ -18,33 +18,31 @@ import StakedBitcoinIllustration from './StakedBitcoinIllustration';
 import LandingCards from './LandingCards';
 import { Xicon } from '../utils/SvgApp';
 
-/** 1) Migrate the "steps" array from ProgressComponent */
 const steps = [
   {
     title: 'Deposit Bitcoin',
     description:
       'Deposit your Bitcoin securely into xstake to start earning rewards.',
-    image: 'path/to/step1-image.png', // Replace with actual image path
+    image: 'path/to/step1-image.png',
   },
   {
     title: 'Get xBTC',
     description:
       'Instantly get liquid tokens representing your staked Bitcoin.',
-    image: 'path/to/step2-image.png', // Replace with actual image path
+    image: 'path/to/step2-image.png',
   },
   {
     title: 'Use in DeFi',
     description:
       'Maximize your yield by using your tokens in the DeFi ecosystem.',
-    image: 'path/to/step3-image.png', // Replace with actual image path
+    image: 'path/to/step3-image.png',
   },
 ];
 
 export default function HeroSection() {
   const theme = useTheme();
-  // const isMdUp = useMediaQuery(theme.breakpoints.up('md'));
   const isSmDown = useMediaQuery(theme.breakpoints.down('sm'));
-  const isMdUp = useMediaQuery(theme.breakpoints.down('lg')); //1200
+  const isMdUp = useMediaQuery(theme.breakpoints.down('lg'));
   console.log('🚀 ~ file: Hero.jsx:44 ~ HeroSection ~ isMdUp:', isMdUp);
 
   const isSmallScreen = useMediaQuery(theme.breakpoints.down('sm'));
@@ -53,7 +51,6 @@ export default function HeroSection() {
     isSmallScreen
   );
 
-  /** 2) Add local state for activeStep (from ProgressComponent) */
   const [activeStep, setActiveStep] = useState(0);
   const [prevStep, setPrevStep] = useState(0);
 
@@ -63,43 +60,15 @@ export default function HeroSection() {
   };
   return (
     <Box
-      // Main outer container
       sx={{
         position: 'relative',
         width: '100%',
-        // minHeight: '100vh',
-        backgroundColor: 'transparent', // Set the background to transparent
+        backgroundColor: 'transparent',
         zIndex: 5,
-        // p: { md: 15 },
-        // pt: 0,
-        // overflow: 'hidden',
         px: { xs: '16px', sm: '16px', md: '64px', lg: '108px' },
         pt: { xs: '64px', sm: '64px', md: '96px', lg: '128px' },
       }}
     >
-      {/**
-       * 1) The large Ellipse 4 (blurred radial gradient)
-       *    (Commented out in your example, but you can re-enable if needed)
-       */}
-      {/* <Box
-        sx={{
-          position: 'absolute',
-          width: 1777,
-          height: 809,
-          left: '50%',
-          top: 137,
-          transform: 'translateX(-50%)',
-          background:
-            'radial-gradient(50% 50% at 50% 50%, #FFFFFF 0%, rgba(255,255,255,0) 100%)',
-          filter: 'blur(10.2px)',
-          zIndex: 8,
-        }}
-      /> */}
-
-      {/**
-       * 2) Content container, up to ~1225px wide.
-       *    Using a flex row on large screens, column on smaller.
-       */}
       <Box
         sx={{
           position: 'relative',
@@ -112,24 +81,18 @@ export default function HeroSection() {
           isolation: 'isolate',
         }}
       >
-        {/**
-         * 3) LEFT CONTENT: Title, subheading, CTA
-         */}
         <Stack
-          spacing={3} // vertical gap
+          spacing={3}
           sx={{
             zIndex: 1,
           }}
         >
-          {/* Header: big text + row with +5k badge and "Unlock DeFi" */}
           <Stack spacing={3} alignItems="flex-start">
-            {/* Big heading: "Stake Your Bitcoin," */}
             <Typography
               sx={{
                 fontFamily: 'Satoshi, sans-serif',
                 fontStyle: 'normal',
                 fontWeight: 500,
-                // Scale from ~32px to 76px
                 fontSize: !isSmDown ? 76 : 61,
                 lineHeight: '120%',
                 color: '#2D3239',
@@ -137,9 +100,7 @@ export default function HeroSection() {
             >
               Stake Your Bitcoin,
             </Typography>
-            {/* <Button5K /> */}
 
-            {/* Row with badge (+5k users) and "Unlock DeFi" */}
             <Box
               sx={{
                 display: 'flex',
@@ -149,26 +110,21 @@ export default function HeroSection() {
                 gap: '14px',
                 padding: 0,
                 position: 'relative',
-
                 width: '100%',
               }}
             >
-              {/* Gradient badge */}
               {!isSmDown && <Button5K />}
-              {/* "Unlock DeFi" big text */}
               <Typography
                 sx={{
                   fontFamily: 'Satoshi, sans-serif',
                   fontWeight: 500,
                   fontStyle: 'normal',
-
                   fontSize: !isSmDown ? 76 : 61,
                   lineHeight: '120%',
                   color: '#2D3239',
                   margin: '0 auto',
                   width: '100%',
                   textAlign: { xs: 'left', sm: 'right' },
-                  // whiteSpace: 'nowrap',
                 }}
               >
                 Unlock DeFi
@@ -177,7 +133,6 @@ export default function HeroSection() {
             </Box>
           </Stack>
 
-          {/* Subheading */}
           <Typography
             sx={{
               fontFamily: 'Satoshi, sans-serif',
@@ -191,7 +146,6 @@ export default function HeroSection() {
             Earn yield on your Bitcoin through liquid staking
           </Typography>
 
-          {/* CTA button => Pill shape with icon */}
           <Box
             sx={{
               display: 'flex',
@@ -200,11 +154,10 @@ export default function HeroSection() {
               alignItems: 'center',
               p: '16px 32px',
               gap: '16px',
-              maxWidth: 210, // { xs: 'auto', sm: '206px' },
-              maxHeight: 74, //{ xs: 'auto', sm: '72px' },
+              maxWidth: 210,
+              maxHeight: 74,
               background: '#161724',
               cursor: 'pointer',
-
               borderRadius: '100px',
               '&:hover': {
                 backgroundColor: '#2D3239',
@@ -226,7 +179,6 @@ export default function HeroSection() {
               Get xBTC
             </Typography>
 
-            {/* Mini circle with an icon (could be CloseIcon or anything) */}
             <Box
               sx={{
                 display: 'flex',
@@ -241,10 +193,6 @@ export default function HeroSection() {
           </Box>
         </Stack>
 
-        {/**
-         * 4) RIGHT CONTENT (REPLACING the static example)
-         *    We bring in the dynamic stepper from ProgressComponent.
-         */}
         {!isSmDown && (
           <Box
             sx={{
@@ -255,12 +203,10 @@ export default function HeroSection() {
               zIndex: 2,
             }}
           >
-            {/* Step Titles */}
             <Box
               sx={{
                 display: 'flex',
                 justifyContent: 'space-around',
-                // marginBottom: 2,
               }}
             >
               {steps.map((step, index) => (
@@ -274,8 +220,6 @@ export default function HeroSection() {
                     cursor: 'pointer',
                     textAlign: 'center',
                     flex: 1,
-                    // marginBottom: 0,
-                    // marginBottom: activeStep === index && 5,
                   }}
                   onClick={() => handleStepChange(index)}
                 >
@@ -287,7 +231,6 @@ export default function HeroSection() {
               sx={{
                 display: 'flex',
                 justifyContent: 'space-around',
-                // marginBottom: 2,
               }}
             >
               {steps.map((step, index) => (
@@ -301,7 +244,6 @@ export default function HeroSection() {
                     cursor: 'pointer',
                     textAlign: 'center',
                     flex: 1,
-                    // marginBottom: 0,
                     marginBottom: activeStep === index && 5,
                   }}
                   onClick={() => handleStepChange(index)}
@@ -311,7 +253,6 @@ export default function HeroSection() {
               ))}
             </Box>
 
-            {/* Progress Line */}
             <Box
               sx={{
                 position: 'relative',
@@ -324,13 +265,11 @@ export default function HeroSection() {
                 style={{
                   position: 'absolute',
                   height: '2px',
-                  // backgroundColor: '#9747FF',
                   width: `${(activeStep / (steps.length - 1)) * 100}%`,
                 }}
                 transition={{ duration: 3 }}
               />
             </Box>
-            {/* Step Circles */}
             <Box
               sx={{
                 display: 'flex',
@@ -347,36 +286,19 @@ export default function HeroSection() {
                   index={index}
                   activeStep={activeStep}
                 />
-                // <motion.div
-                //   key={index}
-                //   style={{
-                //     width: '30px',
-                //     height: '30px',
-                //     borderRadius: '50%',
-                //     border:
-                //       activeStep === index
-                //         ? '3px solid #9747FF'
-                //         : '1px solid #DDDDDD',
-                //     backgroundColor: '#FFFFFF',
-                //     cursor: 'pointer',
-                //   }}
-                //   onClick={() => setActiveStep(index)}
-                // />
               ))}
             </Box>
-
-            {/* Dynamic Card (step content) */}
 
             <motion.div
               key={activeStep}
               initial={{
                 opacity: 0,
-                x: prevStep > activeStep ? 100 : -100, // Slide from right if next, left if previous
+                x: prevStep > activeStep ? 100 : -100,
               }}
               animate={{ opacity: 1, x: 0 }}
               exit={{
                 opacity: 0,
-                x: prevStep > activeStep ? -100 : 100, // Slide out to the left or right
+                x: prevStep > activeStep ? -100 : 100,
               }}
               transition={{ duration: 0.5 }}
             >
@@ -387,28 +309,6 @@ export default function HeroSection() {
               ) : (
                 <UseInDefi />
               )}
-
-              {/* <Card
-              sx={{
-                margin: '20px auto',
-                padding: 4,
-                maxWidth: '600px',
-                textAlign: 'center',
-                boxShadow: '0px 4px 64px rgba(16, 24, 40, 0.12)',
-                borderRadius: '24px',
-                position: 'relative',
-              }}
-            >
-              <img
-                src={steps[activeStep].image}
-                alt={steps[activeStep].title}
-                style={{ maxWidth: '100%', marginBottom: '20px' }}
-              />
-              <Typography variant="h5" gutterBottom>
-                {steps[activeStep].title}
-              </Typography>
-              <Typography>{steps[activeStep].description}</Typography>
-            </Card> */}
             </motion.div>
           </Box>
         )}
@@ -416,11 +316,11 @@ export default function HeroSection() {
     </Box>
   );
 }
+
 function Button5K() {
   const theme = useTheme();
-  // const isMdUp = useMediaQuery(theme.breakpoints.up('md'));
   const isSmDown = useMediaQuery(theme.breakpoints.down('sm'));
-  const isMdUp = useMediaQuery(theme.breakpoints.down('lg')); //1200
+  const isMdUp = useMediaQuery(theme.breakpoints.down('lg'));
   console.log('🚀 ~ file: Hero.jsx:44 ~ HeroSection ~ isMdUp:', isMdUp);
 
   const isSmallScreen = useMediaQuery(theme.breakpoints.down('sm'));
@@ -429,7 +329,6 @@ function Button5K() {
     isSmallScreen
   );
 
-  /** 2) Add local state for activeStep (from ProgressComponent) */
   const [activeStep, setActiveStep] = useState(0);
   const [prevStep, setPrevStep] = useState(0);
 
@@ -452,7 +351,6 @@ function Button5K() {
         position: isSmDown && 'absolute',
       }}
     >
-      {/* "+5k users" text */}
       <Typography
         sx={{
           fontFamily: 'Satoshi, sans-serif',
@@ -468,7 +366,6 @@ function Button5K() {
         +5k users
       </Typography>
 
-      {/* Circle with Person icon */}
       <Box
         sx={{
           width: { xs: 18, sm: 24, md: 32 },
