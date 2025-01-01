@@ -19,96 +19,48 @@ import StyledRectangle from '../components/bg/StyledRectangle';
 import Rectangle11 from '../components/bg/Rectangle11';
 import TorusKnot from '../components/bg/TorusKnot';
 import Torus from '../components/bg/Torus';
-import StakingComponent from '../components/bg/StakingYield/index.jsx';
+import StakingComponent from '../components/StakingYield/index.jsx';
 import ProtocolCard from '../components/IntegratedWithDefi/ProtocolCard.jsx';
 import IntegratedWithDefi from '../components/IntegratedWithDefi/index.jsx';
 import BitcoinHero from '../components/DeFiYieldSection/SectionContainer.jsx';
 import CtaHero from '../components/DeFiYieldSection/CtaHero.jsx';
 import Group34Component from '../components/bg/Group34Component.jsx';
 import TorusKnotBlack from '../components/bg/TorusKnotBlack.jsx';
+import GradientBox from '../components/bg/GradientBox.jsx';
+import Pill from '../components/bg/Pill.jsx';
+import Vector from '../components/bg/Vector.jsx';
+import Vector1 from '../components/bg/Vector1.jsx';
+import Icosahedron from '../components/bg/Icosahedron.jsx';
 
 const LandingPage = () => {
   return (
     <Layout>
-      <Box
-        sx={{
-          width: '100%',
-          padding: '6% 6% 0% 6%',
-          // borderRadius: '0px 0px 32px 32px',
-          // border: '0px 1px solid #DDDDDD',
-          backgroundColor: '#F7F7F7',
-          // gap: 10,
-        }}
-      >
-        <TorusKnot />
+      <TorusKnot />
+      <BlurLayer1 />
+      <Ellipse />
+      <HeroSection />
+      <BlurLayer2 />
+      <StyledRectangle />
+      <Rectangle11 />
+      <CardComponent />
+      <Torus />
+      {/* <AbsoluteShapes /> */}
+      {/* <ProtocolCard /> */}
 
-        <BlurLayer1 />
-        <Ellipse />
-        {/* <FixedImage
-        Image={myImage2}
-        // top={'20%'}
-        // left={'80%'}
-        // transform={'rotate(0.1turn)'}
-        width={'100%'}
-        zIndex={-1}
-      /> */}
-        {/* <FixedImage
-        Image={myImage}
-        top={'40%'}
-        left={'80%'}
-        transform={'rotate(0.1turn)'}
-        width={'15%'}
-        zIndex={1}
-        /> */}
-        {/* <StepsDiagram /> */}
+      <HowItWorks />
 
-        {/* <ToggleSwitch /> */}
-        {/* <InteractiveSteps /> */}
-        <HeroSection />
-        <BlurLayer2 />
-        <StyledRectangle />
-        <Rectangle11 />
-        <CardComponent />
-        <Torus />
-        {/* <AbsoluteShapes /> */}
-        {/* <ProtocolCard /> */}
-      </Box>
-      <Box
-        sx={{
-          width: '100%',
-          padding: '6% 6% 6% 6%',
-          borderRadius: '0px 0px 32px 32px',
-          border: '0px 1px solid #DDDDDD',
-          backgroundColor: '#F7F7F7',
-        }}
-      >
-        <HowItWorks />
-      </Box>
-      <Box
-        sx={{
-          width: '100%',
-          // padding: '6% 6% 0% 6%',
-
-          backgroundColor: '#F7F7F7',
-        }}
-      >
-        <WhyChooseUs />
-      </Box>
+      <WhyChooseUs />
+      <GradientBox />
       <TorusKnotBlack />
       {/* <BitcoinHero /> */}
-      <Box
-        sx={{
-          width: '100%',
-          padding: '6% 6% 6% 6%',
-          borderRadius: '0px 0px 32px 32px',
-          border: '0px 1px solid #DDDDDD',
-          backgroundColor: '#F7F7F7',
-        }}
-      >
-        <StakingComponent />
-        <IntegratedWithDefi />
-        <CtaHero />
-      </Box>
+
+      <Pill />
+      <StakingComponent />
+      <Vector />
+      <IntegratedWithDefi />
+      <Vector1 />
+      <CtaHero />
+      <Icosahedron />
       {/* <Group34Component /> */}
     </Layout>
   );

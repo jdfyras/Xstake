@@ -12,7 +12,8 @@ const BlurLayer2 = () => {
         width: {
           xs: '80%', // mobile
           sm: '70%', // tablet
-          md: '1016px', // desktop
+          md: '900px', // desktop
+          lg: '1016px', // desktop
         },
         // Same idea for the height:
         height: {
@@ -30,8 +31,8 @@ const BlurLayer2 = () => {
         left: {
           xs: '5%', // 10% from the left on xs
           sm: '10%',
-          md: '20%',
-          lg: '40%',
+          md: '0%',
+          lg: '30%',
         },
         zIndex: 2,
       }}

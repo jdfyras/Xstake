@@ -1,6 +1,6 @@
 import React from 'react';
 import { Box, Typography } from '@mui/material';
-import XBTC from '../assets/svg/XBTC_rounded';
+import { XBTC } from '../utils/SvgApp';
 import SwitchIllustration from './SwitchIllustration';
 
 export default function BitcoinStakeCard() {

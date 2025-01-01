@@ -4,11 +4,13 @@ import { Box, Container, Grid, Typography, Stack } from '@mui/material';
 // import LeverageIcon from '@mui/icons-material/TrendingUp';
 // import SecurityIcon from '@mui/icons-material/Security';
 // import TransparencyIcon from '@mui/icons-material/Visibility';
+import {
+  LiquidityIcon,
+  LeverageIcon,
+  SecurityIcon,
+  TransparencyIcon,
+} from '../../utils/SvgApp';
 import LiquidityCard from './LiquidityCard';
-import LiquidityIcon from '../../assets/svg/LiquidityIcon';
-import LeverageIcon from '../../assets/svg/LeverageIcon';
-import SecurityIcon from '../../assets/svg/SecurityIcon';
-import TransparencyIcon from '../../assets/svg/TransparencyIcon';
 
 const WhyChooseUs = () => {
   const features = [
@@ -40,8 +42,11 @@ const WhyChooseUs = () => {
     <Box
       sx={{
         borderRadius: '0px 0px 32px 32px',
-        border: '0px 1px solid #DDDDDD',
-        py: { xs: 6, md: 12 }, // Responsive vertical padding
+        // border: '0px 1px solid #DDDDDD',
+        // py: { xs: 6, md: 12 }, // Responsive vertical padding
+        // px: { xs: '16px', sm: '16px', md: '64px', lg: '108px' },
+        px: { xs: '16px', sm: '16px', md: '64px', lg: '108px' },
+        py: { xs: '48px', sm: '48px', md: '96px', lg: '96px' },
         backgroundColor: '#181928', // Example background color
       }}
     >
@@ -62,7 +67,7 @@ const WhyChooseUs = () => {
               sx={{
                 zIndex: 10,
                 fontWeight: 500,
-                fontSize: { xs: '42px', md: '76px' },
+                fontSize: { xs: '42px', sm: '61px', lg: '76px' },
                 lineHeight: 1.2,
                 color: '#FEFEFE',
                 mb: 3,

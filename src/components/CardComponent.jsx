@@ -9,8 +9,7 @@ import {
 } from '@mui/material';
 import { useSpring, animated } from '@react-spring/web';
 import Grid from '@mui/material/Grid2';
-import Subtract from '../assets/svg/Subtract';
-import Xpoint from '../assets/svg/Xpoint';
+import { Subtract, Xpoint } from '../utils/SvgApp';
 import myImage from '../assets/images/s3-alpha-sig.png';
 import LandingCards from './LandingCards';
 
@@ -152,7 +151,10 @@ const ResponsiveLayout = () => {
         // flexDirection: 'column',
         // gap: 10,
         // // px: { xs: 2, md: 4 },
-        py: { xs: 2, md: 4 },
+        // py: { xs: 2, md: 4 },
+        px: { xs: '16px', sm: '16px', md: '64px', lg: '108px' },
+        mt: { xs: '64px', sm: '64px', md: '96px', lg: '128px' },
+
         // zIndex: 10,
       }}
     >

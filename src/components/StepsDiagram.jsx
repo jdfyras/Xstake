@@ -1,7 +1,7 @@
 import React, { useRef, useEffect } from 'react';
 import { Box, Typography } from '@mui/material';
 import * as d3 from 'd3';
-import DepositBitcoin from '../assets/svg/DepositBitcoin'; // ← import your provided Bitcoin SVG
+import { DepositBitcoin } from '../utils/SvgApp'; // ← import your provided Bitcoin SVG
 
 /**
  * Example dynamic chart data:

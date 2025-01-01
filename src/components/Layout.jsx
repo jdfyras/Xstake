@@ -21,27 +21,39 @@ import CloseIcon from '@mui/icons-material/Close';
 const Layout = ({ children }) => {
   return (
     <Box
-      position="sticky" // or "absolute", depending on your design
+      // position="sticky" // or "absolute", depending on your design
       sx={{
+        position: 'relative', // Ensure relative positioning for proper placement of absolute children
+        overflow: 'hidden', // Prevent Icosahedron from overflowing the layout
         // minHeight: '100vh',
         backgroundColor: '#181928',
       }}
     >
-      <Header />
-      <Grid
+      <Header
         sx={
           {
-            // width: '100%',
-            // padding: '10% 10% 0% 10%',
-            // borderRadius: '0px 0px 32px 32px',
-            // border: '1px solid #DDDDDD',
+            // minHeight: '100vh',
             // backgroundColor: '#F7F7F7',
           }
         }
+      />
+      <Grid
+        sx={{
+          // width: '100%',
+          // padding: '10% 10% 0% 10%',
+          borderRadius: '0px 0px 32px 32px',
+          // border: '1px solid #DDDDDD',
+          backgroundColor: '#F7F7F7',
+        }}
       >
         {children}
       </Grid>
-      <Footer />
+      <Footer
+        sx={{
+          zIndex: 15,
+          backgroundColor: '#181928', // if you want black background
+        }}
+      />
     </Box>
   );
 };

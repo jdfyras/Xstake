@@ -14,7 +14,7 @@ import MenuIcon from '@mui/icons-material/Menu';
 import PersonIcon from '@mui/icons-material/Person';
 import CloseIcon from '@mui/icons-material/Close';
 // If your Logo is an SVG React component, import it directly:
-import Logo from '../assets/svg/Logo.jsx';
+import { Logo } from '../utils/SvgApp';
 
 const NavigationBar = () => {
   const theme = useTheme();
@@ -24,7 +24,7 @@ const NavigationBar = () => {
   };
   return (
     <AppBar
-      // position="sticky" // or "absolute", depending on your design
+      // position="absolute" // or "absolute", depending on your design
       // elevation={0} // remove default MUI shadow
       sx={{
         // Mimic the Tailwind background gradient + blur + box shadow
@@ -35,6 +35,8 @@ const NavigationBar = () => {
         color: theme.palette.text.primary,
         borderRadius: '0px',
         width: '100%',
+        px: { xs: '16px', sm: '16px', md: '64px', lg: '108px' },
+
         // minHeight: '80px',
         // justifyContent: 'space-between',
         // alignItems: 'center',
@@ -47,7 +49,7 @@ const NavigationBar = () => {
           display: 'flex',
           justifyContent: 'space-between',
           alignItems: 'center',
-          maxWidth: 1200,
+          // maxWidth: 1200,
           width: '100%',
           mx: 'auto',
         }}

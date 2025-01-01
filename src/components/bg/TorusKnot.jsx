@@ -1,49 +1,50 @@
 import React from 'react';
-import { Box } from '@mui/material';
+import { Box, useTheme } from '@mui/material';
 import myImage from '../../assets/images/s3-alpha-sig.png';
 
 const TorusKnot = () => {
+  const theme = useTheme();
+
+  const dimensions = {
+    xs: '200px',
+    sm: '300px',
+    md: '300px',
+    lg: '500px',
+  };
+
+  const positions = {
+    right: {
+      xs: '-50px',
+      sm: '-70px',
+      md: '10%',
+      lg: '5%',
+    },
+    top: {
+      xs: '300px',
+      sm: '400px',
+      md: '500px',
+      lg: '640px',
+    },
+  };
+
   return (
     <Box
       sx={{
         position: 'absolute',
-        display: {
-          xs: 'none', // small screens
-          sm: 'none', // medium screens
-          md: 'block', // large screens
-          lg: 'block', // extra-large screens
-        },
-        width: {
-          xs: '200px', // small screens
-          sm: '300px', // medium screens
-          md: '400px', // large screens
-          lg: '500px', // extra-large screens
-        },
-        height: {
-          xs: '200px',
-          sm: '300px',
-          md: '400px',
-          lg: '500px',
-        },
-        right: {
-          xs: '-50px',
-          sm: '-70px',
-          md: '-90px',
-          lg: '-100px',
-        },
-        top: {
-          xs: '300px',
-          sm: '400px',
-          md: '500px',
-          lg: '640px',
-        },
+        display: { xs: 'none', md: 'block' },
+        width: dimensions,
+        height: dimensions,
+        right: positions.right,
+        top: positions.top,
         transform: 'rotate(27.97deg)',
         backgroundImage: `url(${myImage})`,
-        // backgroundImage: { myImage },
-        backgroundSize: 'cover',
+        backgroundSize: 'contain', //cover
         backgroundPosition: 'center',
         backgroundRepeat: 'no-repeat',
         zIndex: 4,
+        overflow: 'hidden', // Prevent content from overflowing
+        maxWidth: '100vw', // Ensures it doesn't exceed the viewport width
+        maxHeight: '100vh', // Ensures it doesn't exceed the viewport height
       }}
     />
   );

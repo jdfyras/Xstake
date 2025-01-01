@@ -1,7 +1,6 @@
 import React from 'react';
 import { Box } from '@mui/material';
-import XBTC from '../assets/svg/XBTC';
-import BitcoinBTC from '../assets/svg/BitcoinBTC';
+import { BitcoinBTC, XBTC } from '../utils/SvgApp';
 import { styled, keyframes } from '@mui/material/styles';
 import { BorderColor } from '@mui/icons-material';
 

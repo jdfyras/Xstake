@@ -1,5 +1,5 @@
 import React, { useRef, useEffect } from 'react';
-import DepositBitcoin from '../assets/svg/DepositBitcoin'; // import your Bitcoin SVG
+import { DepositBitcoin } from '../utils/SvgApp'; // import your Bitcoin SVG
 import { Box, Typography } from '@mui/material';
 import * as d3 from 'd3';
 

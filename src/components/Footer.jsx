@@ -8,10 +8,12 @@ import {
   Stack,
 } from '@mui/material';
 // import your social icons, brand LogoWhite, etc.
-import LogoWhite from '../assets/svg/LogoWhite.jsx';
-import DiscordIcon from '../assets/svg/DiscordIcon.jsx';
-import TwitterIcon from '../assets/svg/TwitterIcon.jsx';
-import YoutubeIcon from '../assets/svg/YoutubeIcon.jsx';
+import {
+  LogoWhite,
+  DiscordIcon,
+  TwitterIcon,
+  YoutubeIcon,
+} from '../utils/SvgApp';
 const contacts = [
   {
     title: 'Discord',
@@ -36,6 +38,9 @@ export default function Footer() {
       component="footer"
       // Outer footer container
       sx={{
+        // px: { xs: '16px', sm: '16px', md: '64px', lg: '108px' },
+        // pt: { xs: '64px', sm: '64px', md: '96px', lg: '128px' },
+
         display: 'flex',
         flexDirection: 'column',
         alignItems: 'flex-start',
@@ -52,11 +57,15 @@ export default function Footer() {
         backgroundColor: '#181928', // if you want black background
         zIndex: 18,
         color: '#75797E', // Text color
+        position: 'relative',
+        // zIndex: 10, // Adjust as necessary for layering
       }}
     >
       {/* Top row: brand on the left, nav links in the middle, social links on the right */}
       <Box
         sx={{
+          zIndex: 15,
+
           display: 'flex',
           flexDirection: isSmDown ? 'column' : 'row',
           justifyContent: !isSmDown && 'space-between',
@@ -69,6 +78,8 @@ export default function Footer() {
         {/* Left content (logo/brand + maybe tagline) */}
         <Box
           sx={{
+            zIndex: 15,
+
             display: 'flex',
             flexDirection: 'column',
             alignItems: 'flex-start',
@@ -85,22 +96,35 @@ export default function Footer() {
           <LogoWhite />
           {/* Sub-navigation (Ecosystem / Network … ) */}
           {isSmDown ? (
-            <Stack sx={{ width: '100%', gap: '16px' }}>
+            <Stack sx={{ width: '100%', gap: '16px', zIndex: 15 }}>
               <Typography variant="body2">Ecosystem</Typography>
               <Typography variant="body2">Network</Typography>
               <Typography variant="body2">Documentations</Typography>
               <Typography variant="body2">Community</Typography>
             </Stack>
           ) : (
-            <Box sx={{ display: 'flex', flexDirection: 'row', gap: '24px' }}>
+            <Box
+              sx={{
+                display: 'flex',
+                flexDirection: 'row',
+                gap: '24px',
+                zIndex: 15,
+              }}
+            >
               <Box
-                sx={{ display: 'flex', flexDirection: 'column', gap: '8px' }}
+                sx={{
+                  display: 'flex',
+                  flexDirection: 'column',
+                  gap: '8px',
+                  zIndex: 15,
+                }}
               >
                 <Typography
                   sx={{
                     fontFamily: 'Satoshi',
                     fontSize: '13px',
                     color: '#75797E',
+                    zIndex: 15,
                   }}
                 >
                   Ecosystem
@@ -110,25 +134,34 @@ export default function Footer() {
                     fontFamily: 'Satoshi',
                     fontSize: '13px',
                     color: '#75797E',
+                    zIndex: 15,
                   }}
                 >
                   Network
                 </Typography>
               </Box>
               <Box
-                sx={{ display: 'flex', flexDirection: 'column', gap: '8px' }}
+                sx={{
+                  display: 'flex',
+                  flexDirection: 'column',
+                  gap: '8px',
+                  zIndex: 15,
+                }}
               >
                 <Typography
                   sx={{
                     fontFamily: 'Satoshi',
                     fontSize: '13px',
                     color: '#75797E',
+                    zIndex: 15,
                   }}
                 >
                   Documentations
                 </Typography>
                 <Typography
                   sx={{
+                    zIndex: 15,
+
                     fontFamily: 'Satoshi',
                     fontSize: '13px',
                     color: '#75797E',
@@ -145,6 +178,8 @@ export default function Footer() {
         <Box
           sx={{
             display: 'flex',
+            zIndex: 15,
+
             flexDirection: 'column',
             alignItems: !isSmDown ? 'flex-end' : 'flex-start',
             gap: '16px',
@@ -153,6 +188,8 @@ export default function Footer() {
         >
           <Typography
             sx={{
+              zIndex: 15,
+
               fontFamily: 'Satoshi',
               fontSize: '13px',
               color: '#75797E',
@@ -164,6 +201,8 @@ export default function Footer() {
           {/* Socials row */}
           <Box
             sx={{
+              zIndex: 15,
+
               display: 'flex',
               flexDirection: 'row',
               gap: '16px',
@@ -174,6 +213,8 @@ export default function Footer() {
               <Box
                 key={i}
                 sx={{
+                  zIndex: 15,
+
                   display: 'flex',
                   flexDirection: 'row',
                   alignItems: 'center',
@@ -187,6 +228,8 @@ export default function Footer() {
               >
                 <Box
                   sx={{
+                    zIndex: 15,
+
                     position: 'absolute',
                     width: '20px',
                     height: '20px',
@@ -209,6 +252,8 @@ export default function Footer() {
       </Box>
       <Box
         sx={{
+          zIndex: 15,
+
           // border: '1px solid #64656F',
           // transform: 'rotate(90deg)',
           width: '100%',
@@ -220,6 +265,8 @@ export default function Footer() {
       {/* Bottom row: copyright on the left, Terms/Privacy on the right */}
       <Box
         sx={{
+          zIndex: 15,
+
           display: 'flex',
           flexDirection: isSmDown ? 'column' : 'row',
           justifyContent: 'space-between',
@@ -231,6 +278,8 @@ export default function Footer() {
       >
         <Typography
           sx={{
+            zIndex: 15,
+
             fontFamily: 'Satoshi',
             fontSize: '13px',
             color: '#75797E',
@@ -239,9 +288,18 @@ export default function Footer() {
           © Xstake 2024. All rights reserved.
         </Typography>
 
-        <Box sx={{ display: 'flex', flexDirection: 'row', gap: '16px' }}>
+        <Box
+          sx={{
+            display: 'flex',
+            flexDirection: 'row',
+            gap: '16px',
+            zIndex: 15,
+          }}
+        >
           <Typography
             sx={{
+              zIndex: 15,
+
               fontFamily: 'Satoshi',
               fontSize: '13px',
               color: '#75797E',
@@ -252,6 +310,8 @@ export default function Footer() {
           {/* Divider line */}
           <Box
             sx={{
+              zIndex: 15,
+
               // border: '1px solid #64656F',
               // transform: 'rotate(90deg)',
               width: '1px',
@@ -262,6 +322,8 @@ export default function Footer() {
           />
           <Typography
             sx={{
+              zIndex: 15,
+
               fontFamily: 'Satoshi',
               fontSize: '13px',
               color: '#75797E',

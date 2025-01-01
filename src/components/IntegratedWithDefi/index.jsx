@@ -52,26 +52,24 @@ function IntegratedWithDefi() {
         // We'll manage widths and heights with breakpoints:
         // The gap for the "How it works" section:
         gap: theme.spacing(5),
-        // For smaller screens (around 375px)
-        [theme.breakpoints.down('sm')]: {
-          gap: theme.spacing(5),
-        },
+        px: { xs: '16px', sm: '16px', md: '64px', lg: '108px' },
+        pt: { xs: '64px', sm: '64px', md: '96px', lg: '128px' },
+
         // For large screens (1224px design)
-        [theme.breakpoints.up('lg')]: {
-          maxWidth: 1300,
-        },
         // margin: '0 auto',
       }}
     >
       {/* Title: "Integrated with the Best of DeFi" */}
       <Typography
         sx={{
+          zIndex: 15,
+
           //   width: '1224px',
           //   height: '91px',
           fontFamily: 'Satoshi',
           fontStyle: 'normal',
           fontWeight: 500,
-          fontSize: '76px',
+          fontSize: { xs: '42px', sm: '61px', lg: '76px' },
           lineHeight: '120%',
           color: '#2D3239',
           flex: 'none',
@@ -86,6 +84,8 @@ function IntegratedWithDefi() {
       {/* Cards Row (now horizontal scroll) */}
       <Box
         sx={{
+          zIndex: 15,
+
           /* According to your spec: width 1224px, height 300px, etc.
              but we enable horizontal scrolling if more cards than fit. */
           display: 'flex',
@@ -99,7 +99,13 @@ function IntegratedWithDefi() {
           order: 1,
           //   alignSelf: 'stretch',
           flexGrow: 0,
-
+          justifyContent: {
+            xs: 'flex-start',
+            sm: 'flex-start',
+            md: 'flex-start',
+            lg: 'center',
+          },
+          alignItems: 'center',
           /* Enable horizontal scroll */
           overflowY: 'auto',
           scrollSnapType: 'y proximity',

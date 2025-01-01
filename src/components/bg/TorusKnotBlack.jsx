@@ -51,8 +51,8 @@ export default function TorusKnotBlack() {
         top: {
           xs: '10rem', // 10rem from the top for extra-small devices
           sm: '15rem',
-          md: '1900px',
-          lg: '1900px', // original requested position at large screens
+          md: '3400px',
+          lg: '2400px', // original requested position at large screens
         },
         left: {
           xs: '1rem', // 1rem from the left on extra-small devices

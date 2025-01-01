@@ -60,14 +60,15 @@ const LiquidityCard = ({ feature }) => {
       <Box
         sx={{
           position: 'relative',
-          width: '96px',
-          height: '96px',
+          width: { xs: '84px', sm: '96px', md: '96px', lg: '96px' },
+          height: { xs: '84px', sm: '96px', md: '96px', lg: '96px' },
+          // display: { xs: 'none', sm: 'flex', md: 'flex', lg: 'flex' },
           border: '1px solid #DDDDDD',
           borderRadius: '50%',
           overflow: 'hidden',
 
           // Center the icon
-          display: 'flex',
+          display: 'contents',
           justifyContent: 'center',
           alignItems: 'center',
         }}
@@ -85,7 +86,17 @@ const LiquidityCard = ({ feature }) => {
           }}
         />
         {/* Actual Icon */}
-        <Box sx={{ position: 'relative', zIndex: 1 }}>{feature.icon}</Box>
+        <Box
+          sx={{
+            position: 'relative',
+            zIndex: 1,
+            border: '1px solid #DDDDDD',
+            borderRadius: '50%',
+            p: 3,
+          }}
+        >
+          {feature.icon}
+        </Box>
       </Box>
 
       {/* Content */}

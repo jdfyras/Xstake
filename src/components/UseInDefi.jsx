@@ -1,17 +1,16 @@
 import React from 'react';
 import { Box, Typography } from '@mui/material';
-import Defi from '../assets/svg/Defi';
+import { Defi } from '../utils/SvgApp';
 import InDefiLogos from './InDefiLogos';
-import Logo1 from '../assets/svg/inDefi/Logo1';
-import Logo2 from '../assets/svg/inDefi/Logo2';
-import Logo3 from '../assets/svg/inDefi/Logo3';
+// import Logo1 from '../assets/svg/inDefi/Logo1';
+// import Logo2 from '../assets/svg/inDefi/Logo2';
+// import Logo3 from '../assets/svg/inDefi/Logo3';
 export default function UseInDefi() {
   return (
     <Box
       sx={{
         position: 'relative',
         filter: 'drop-shadow(0px 4px 64px rgba(16, 24, 40, 0.12))',
-        
       }}
     >
       {/* Rectangle 15 */}

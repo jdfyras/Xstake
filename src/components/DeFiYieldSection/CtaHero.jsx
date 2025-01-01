@@ -6,7 +6,7 @@ import {
   useTheme,
   useMediaQuery,
 } from '@mui/material';
-import FullPotentialIcon from '../../assets/svg/FullPotentialIcon';
+import { FullPotentialIcon } from '../../utils/SvgApp';
 
 export default function CtaHero() {
   const theme = useTheme();
@@ -20,11 +20,11 @@ export default function CtaHero() {
         display: 'flex',
         flexDirection: { xs: 'column', sm: 'row' }, // Stack content on small screens
         alignItems: { xs: 'flex-start', sm: 'center' },
-        margin: '10% 0%',
-        width: '100%',
+        // margin: '10% 0%',
+        // width: '100%',
         padding: { xs: '32px', sm: '32px', md: '48px', lg: '64px' },
         pb: { xs: '221px', sm: '221px', md: '236px', lg: '64px' },
-        px: { xs: '32px', sm: '32px', md: '48px', lg: '64px' },
+        // px: { xs: '32px', sm: '32px', md: '48px', lg: '64px' },
         gap: '12px',
         isolation: 'isolate',
         background: '#181928',
@@ -32,6 +32,9 @@ export default function CtaHero() {
         borderRadius: '32px',
         position: 'relative',
         overflow: 'hidden',
+        zIndex: 15,
+        mx: { xs: '16px', sm: '16px', md: '64px', lg: '108px' },
+        mt: { xs: '64px', sm: '64px', md: '96px', lg: '128px' },
       }}
     >
       {/* Background Icon Container */}

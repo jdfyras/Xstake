@@ -6,17 +6,15 @@ const Ellipse = () => {
     <Box
       sx={{
         position: 'absolute',
-        width: '1777px',
-        height: '809px',
-        left: 'calc(50% - 1777px / 2 - 0.5px)',
-        top: '137px',
+        width: { xs: '90vw', sm: '80vw', md: '70vw', lg: '60vw' }, // Responsive widths
+        height: { xs: '50vh', sm: '40vh', md: '35vh', lg: '30vh' }, // Responsive heights
+        left: '50%',
+        top: { xs: '10vh', sm: '15vh', md: '20vh', lg: '25vh' }, // Adjust position for different screens
+        transform: 'translateX(-50%)', // Center horizontally
         background:
           'radial-gradient(50% 50% at 50% 50%, #FFFFFF 0%, rgba(255, 255, 255, 0) 100%)',
         filter: 'blur(10.2px)',
         zIndex: 1,
-        flex: 'none',
-        order: 8,
-        flexGrow: 0,
       }}
     />
   );

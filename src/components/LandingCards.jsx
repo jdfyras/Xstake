@@ -3,9 +3,8 @@ import * as d3 from 'd3';
 import { Box, Typography } from '@mui/material';
 
 // --- Your SVG imports (adjust paths as needed) ---
-import DepositBitcoin from '../assets/svg/DepositBitcoin';
-import XBTC from '../assets/svg/XBTC_rounded';
-import Defi from '../assets/svg/Defi_Mobile';
+import { DepositBitcoin, XBTC, Defi } from '../utils/SvgApp';
+
 // If these are custom components you created:
 import SwitchIllustration from './SwitchIllustration';
 import InDefiLogos from './InDefiLogos';

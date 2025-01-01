@@ -1,6 +1,6 @@
 import React from 'react';
 import { Box } from '@mui/material';
-import FullPotentialIcon from '../../assets/svg/FullPotentialIcon';
+import { FullPotentialIcon } from '../../utils/SvgApp';
 // import FullPotentialIcon from './FullPotentialIcon'; // Update the import path as necessary
 
 const Group34Component = () => {

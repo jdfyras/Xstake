@@ -11,7 +11,7 @@ import {
 import logo1 from '../assets/images/logo1.png';
 import logo2 from '../assets/images/logo2.png';
 import logo3 from '../assets/images/logo3.png';
-import ArrowDown from '../assets/svg/ArrowDown';
+import { ArrowDown } from '../utils/SvgApp';
 
 /**
  * ======================
@@ -49,11 +49,13 @@ const StyledCard = styled(motion.div)(({ theme }) => ({
   gap: theme.spacing(2),
 
   [theme.breakpoints.up('sm')]: {
-    maxWidth: 400,
     maxHeight: 400,
     minHeight: 350,
     padding: theme.spacing(4),
     gap: theme.spacing(3),
+  },
+  [theme.breakpoints.up('lg')]: {
+    maxWidth: 400, // adjust to taste
   },
 }));
 
@@ -63,7 +65,7 @@ const StyledCard = styled(motion.div)(({ theme }) => ({
 const TopSection = styled(Box)(({ theme }) => ({
   display: 'flex',
   flexDirection: 'row', // default
-  justifyContent: 'space-around',
+  justifyContent: 'space-between',
   alignItems: 'flex-start',
   width: '100%',
 

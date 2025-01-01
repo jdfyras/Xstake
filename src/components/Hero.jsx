@@ -16,7 +16,7 @@ import UseInDefi from './UseInDefi';
 import HoverPin from './HoverPin';
 import StakedBitcoinIllustration from './StakedBitcoinIllustration';
 import LandingCards from './LandingCards';
-import Xicon from '../assets/svg/Xicon';
+import { Xicon } from '../utils/SvgApp';
 
 /** 1) Migrate the "steps" array from ProgressComponent */
 const steps = [
@@ -70,9 +70,11 @@ export default function HeroSection() {
         // minHeight: '100vh',
         backgroundColor: 'transparent', // Set the background to transparent
         zIndex: 5,
-        pt: 15,
-        p: { md: 15 },
+        // p: { md: 15 },
+        // pt: 0,
         // overflow: 'hidden',
+        px: { xs: '16px', sm: '16px', md: '64px', lg: '108px' },
+        pt: { xs: '64px', sm: '64px', md: '96px', lg: '128px' },
       }}
     >
       {/**
@@ -166,7 +168,7 @@ export default function HeroSection() {
                   margin: '0 auto',
                   width: '100%',
                   textAlign: { xs: 'left', sm: 'right' },
-                  whiteSpace: 'nowrap',
+                  // whiteSpace: 'nowrap',
                 }}
               >
                 Unlock DeFi
@@ -198,8 +200,8 @@ export default function HeroSection() {
               alignItems: 'center',
               p: '16px 32px',
               gap: '16px',
-              width: 210, // { xs: 'auto', sm: '206px' },
-              height: 74, //{ xs: 'auto', sm: '72px' },
+              maxWidth: 210, // { xs: 'auto', sm: '206px' },
+              maxHeight: 74, //{ xs: 'auto', sm: '72px' },
               background: '#161724',
               cursor: 'pointer',
 
@@ -446,7 +448,7 @@ function Button5K() {
         background: 'linear-gradient(90deg, #FFFFFF 0%, #E1DCEE 100%)',
         borderRadius: !isSmDown ? '16px' : '10px',
         left: isSmDown && '207px',
-        top: isSmDown && '-87px',
+        top: isSmDown && '-80px',
         position: isSmDown && 'absolute',
       }}
     >
@@ -455,12 +457,12 @@ function Button5K() {
         sx={{
           fontFamily: 'Satoshi, sans-serif',
           fontWeight: 400,
-          fontSize: { xs: '1.25rem', sm: '1.5rem', md: '1.56rem' },
+          fontSize: { xs: 18, sm: 20, md: 25 },
           lineHeight: '120%',
           color: '#75797E',
           whiteSpace: 'nowrap',
           overflow: 'hidden',
-          mr: 2,
+          mr: { xs: 1, sm: 1, md: 2 },
         }}
       >
         +5k users
@@ -469,8 +471,8 @@ function Button5K() {
       {/* Circle with Person icon */}
       <Box
         sx={{
-          width: 32,
-          height: 32,
+          width: { xs: 18, sm: 24, md: 32 },
+          height: { xs: 18, sm: 24, md: 32 },
           border: '1px solid #75797E',
           borderRadius: '50%',
           display: 'flex',
@@ -478,7 +480,13 @@ function Button5K() {
           justifyContent: 'center',
         }}
       >
-        <PersonIcon sx={{ color: '#75797E', width: 24, height: 24 }} />
+        <PersonIcon
+          sx={{
+            color: '#75797E',
+            width: { xs: 18, sm: 18, md: 24 },
+            height: { xs: 18, sm: 18, md: 24 },
+          }}
+        />
       </Box>
     </Box>
   );

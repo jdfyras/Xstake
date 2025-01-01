@@ -14,8 +14,7 @@ import StakeBitcoinCard from './StakeBitcoinCard';
 import LeverageInDeFiCard from './LeverageInDeFiCard';
 
 // Icons
-import BitcoinIcon from '../assets/svg/BitcoinIcon';
-import XBTC_rounded from '../assets/svg/XBTC copy';
+import { BitcoinIcon, XBTC_Copy } from '../utils/SvgApp';
 
 // ======================
 //   STYLED COMPONENTS
@@ -35,19 +34,21 @@ const Container = styled(Box)(({ theme }) => ({
   // The gap for the "How it works" section:
   gap: theme.spacing(5),
   // For smaller screens (around 375px)
-  [theme.breakpoints.down('sm')]: {
-    gap: theme.spacing(5),
-  },
   // For medium screens (~616px design)
-  [theme.breakpoints.between('sm', 'lg')]: {
-    // Example: we can do 616px max or just let it fill
-    maxWidth: 616,
-  },
-  // For large screens (1224px design)
-  [theme.breakpoints.up('lg')]: {
-    maxWidth: 1224,
-  },
-  margin: '20px auto',
+  // [theme.breakpoints.down('md')]: {
+  //   // Example: we can do 616px max or just let it fill
+  //   mx: '16px',
+  //   mt: '164px',
+  // },
+  // [theme.breakpoints.between('md', 'lg')]: {
+  //   // Example: we can do 616px max or just let it fill
+  //   mx: '64px',
+  //   mt: '196px',
+  // },
+  // [theme.breakpoints.up('lg')]: {
+  //   mx: '108px',
+  //   mt: '1128px',
+  // },
 }));
 
 // The big heading
@@ -59,15 +60,16 @@ const Heading = styled(Typography)(({ theme }) => ({
   color: '#2D3239',
   textAlign: 'left',
   // For smaller screens (375px)
-  fontSize: '49px',
-  lineHeight: '120%', // from your Figma
   // Adjust at medium (~616px)
+  fontSize: '42px',
+  lineHeight: '120%', // Maintain consistent line-height
+  // Adjust for medium screens (~sm to lg)
   [theme.breakpoints.up('sm')]: {
-    fontSize: '61px', // or 73px line-height from Figma
+    fontSize: '61px', // For medium screens
   },
-  // Adjust at large (~1224px)
+  // Adjust for large screens (~lg and above)
   [theme.breakpoints.up('lg')]: {
-    fontSize: '76px',
+    fontSize: '76px', // For large screens
   },
 }));
 
@@ -76,27 +78,19 @@ const ItemsContainer = styled(Box)(({ theme }) => ({
   display: 'flex',
   // For smaller screens, stack vertically
   flexDirection: 'column',
-  alignItems: 'flex-start',
+  justifyContent: 'center',
+  alignItems: 'center',
   gap: theme.spacing(4),
   isolation: 'isolate',
   // Width references:
   width: '100%', // fill container
-  [theme.breakpoints.down('sm')]: {
-    // 375 design
-    maxWidth: 343,
-    width: 'auto', // fill container
-  },
-  [theme.breakpoints.between('sm', 'lg')]: {
-    // 616 design
-    maxWidth: 616,
-    width: 'auto', // fill container
-  },
+  zIndex: 10,
   [theme.breakpoints.up('lg')]: {
     // 1224 design
     // maxWidth: 1224,
     flexDirection: 'row', // side by side on large
-    alignItems: 'flex-start',
-    zIndex: 10,
+    justifyContent: 'center',
+    alignItems: 'center',
   },
 }));
 
@@ -134,6 +128,7 @@ const StyledButton = styled(Button)(({ theme }) => ({
 // Framer motion card variants
 const cardVariants = {
   hidden: { opacity: 0, y: 50 },
+
   visible: (i) => ({
     opacity: 1,
     y: 0,
@@ -165,7 +160,7 @@ const HowItWorks = () => {
     },
     {
       id: 2,
-      Icon: XBTC_rounded,
+      Icon: XBTC_Copy,
       step: 'Step 2',
       title: 'Earn Native Yield',
       description:
@@ -178,7 +173,12 @@ const HowItWorks = () => {
   ];
 
   return (
-    <Container>
+    <Container
+      sx={{
+        px: { xs: '16px', sm: '16px', md: '64px', lg: '108px' },
+        py: { xs: '64px', sm: '64px', md: '96px', lg: '128px' },
+      }}
+    >
       <Heading>How It Works</Heading>
 
       {/* Items (cards) container */}

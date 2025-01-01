@@ -1,4 +1,4 @@
-import * as React from "react";
+import * as React from 'react';
 const DiscordIcon = (props) => (
   <svg
     width={24}

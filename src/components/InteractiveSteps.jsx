@@ -118,7 +118,6 @@ const ProgressComponent = () => {
       >
         <Card
           sx={{
-            margin: '20px auto',
             padding: 4,
             maxWidth: '600px',
             textAlign: 'center',

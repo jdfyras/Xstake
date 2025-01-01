@@ -43,6 +43,16 @@ const theme = createTheme({
   shadows: customShadows,
 
   typography: {
+    title: {
+      fontSize: '42px', // Default for small screens (sm)
+      '@media (min-width:600px)': {
+        fontSize: '61px', // Medium screens (md)
+      },
+      '@media (min-width:1200px)': {
+        fontSize: '76px', // Large screens (lg)
+      },
+    },
+
     // Example: Satoshi for everything
     fontFamily: ['Satoshi', 'sans-serif'].join(','),
 
@@ -112,6 +122,15 @@ const theme = createTheme({
       fontSize: '25px',
       lineHeight: '120%',
       color: '#FEFEFE',
+    },
+  },
+  breakpoints: {
+    values: {
+      xs: 0,
+      sm: 600,
+      md: 960,
+      lg: 1200,
+      xl: 1536,
     },
   },
   shape: {

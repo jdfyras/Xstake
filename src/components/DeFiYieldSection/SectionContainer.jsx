@@ -23,7 +23,7 @@ export default function BitcoinHero() {
           fontFamily: 'Satoshi, sans-serif',
           fontStyle: 'normal',
           fontWeight: 500,
-          fontSize: '61px',
+          // fontSize: '61px',
           lineHeight: '120%',
           color: '#FEFEFE',
           width: '768px',

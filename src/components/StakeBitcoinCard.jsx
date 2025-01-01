@@ -40,9 +40,11 @@ const StyledCard = styled(motion.div)(({ theme }) => ({
   width: '100%',
   // We can optionally limit the max size:
   [theme.breakpoints.up('sm')]: {
-    maxWidth: 400, // adjust to taste
     maxHeight: 400,
     minHeight: 350,
+  },
+  [theme.breakpoints.up('lg')]: {
+    maxWidth: 400, // adjust to taste
   },
   // maxWidth: 400, // adjust to taste
   // Responsive spacing instead of fixed 32px

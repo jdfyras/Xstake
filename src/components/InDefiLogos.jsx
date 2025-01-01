@@ -1,10 +1,13 @@
 import React from 'react';
 import { Box } from '@mui/material';
-import XBTC from '../assets/svg/XBTC';
-import BitcoinBTC from '../assets/svg/BitcoinBTC';
-import Logo1 from '../assets/svg/inDefi/Logo1';
-import Logo2 from '../assets/svg/inDefi/Logo2';
-import Logo3 from '../assets/svg/inDefi/Logo3';
+import {
+  XBTC,
+  BitcoinBTC,
+  InDefiLogo1,
+  InDefiLogo2,
+  InDefiLogo3,
+} from '../utils/SvgApp';
+
 export default function InDefiLogos() {
   return (
     <Box
@@ -48,7 +51,7 @@ export default function InDefiLogos() {
           //   borderRadius: '66px',
         }}
       >
-        <Logo3 width="61px" height="61px" />
+        <InDefiLogo3 width="61px" height="61px" />
       </Box>
       <Box
         sx={{
@@ -64,7 +67,7 @@ export default function InDefiLogos() {
           //   borderRadius: '66px',
         }}
       >
-        <Logo2 width="61px" height="61px" />
+        <InDefiLogo2 width="61px" height="61px" />
       </Box>
       <Box
         sx={{
@@ -80,7 +83,7 @@ export default function InDefiLogos() {
           //   borderRadius: '66px',
         }}
       >
-        <Logo1 width="61px" height="61px" />
+        <InDefiLogo1 width="61px" height="61px" />
       </Box>
     </Box>
   );
