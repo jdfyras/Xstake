@@ -10,6 +10,8 @@ export default function UseInDefi() {
     <Box
       sx={{
         position: 'relative',
+        // left: { sm: '120px', md: '337px', lg: '0px' },
+
         filter: 'drop-shadow(0px 4px 64px rgba(16, 24, 40, 0.12))',
       }}
     >

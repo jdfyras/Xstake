@@ -44,6 +44,7 @@ const Layout = ({ children }) => {
           borderRadius: '0px 0px 32px 32px',
           // border: '1px solid #DDDDDD',
           backgroundColor: '#F7F7F7',
+          pb: { xs: '64px', sm: '64px', md: '96px', lg: '128px' },
         }}
       >
         {children}

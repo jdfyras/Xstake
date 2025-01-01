@@ -6,7 +6,9 @@ const Icosahedron = () => {
   return (
     <Box
       sx={{
-        position: 'relative',
+        display: { sm: 'none', md: 'block' },
+
+        position: 'absolute',
         width: 374,
         height: 374,
         left: -98,
